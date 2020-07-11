@@ -1,6 +1,5 @@
 var constants = require('./constants');
 var utils = require('./utils');
-var loginLib = require('./login');
 var UserData = require('./userData')
 
 
@@ -8,7 +7,7 @@ var noop = function noop() {};
 
 var buildAuthHeader = function buildAuthHeader(userData) {
     var header = {};
-    header['Content-Type'] = 'application/x-www-form-urlencoded'
+    header['Content-Type'] = 'application/json'
     if (userData && userData.token) {
         header['token'] = userData.token
     }
@@ -38,7 +37,6 @@ function request(options) {
         throw new RequestError(constants.ERR_INVALID_PARAMS, message);
     }
 
-    var requireLogin = options.login;
     var success = options.success || noop;
     var fail = options.fail || noop;
     var complete = options.complete || noop;
@@ -59,64 +57,45 @@ function request(options) {
     // 是否已经进行过重试
     var hasRetried = false;
 
-    if (requireLogin) {
-        doRequestWithLogin();
-    } else {
-        doRequest();
-    }
+   
 
-    // 登录后再请求
-    function doRequestWithLogin() {
-        loginLib.login({ success: doRequest, fail: callFail });
-    }
+    // // 登录后再请求
+    // function doRequestWithLogin() {
+    //     loginLib.login({ success: doRequest, fail: callFail });
+    // }
 
     // 实际进行请求的方法
-    function doRequest() {
-        var authHeader = buildAuthHeader(UserData.get())
-        wx.request(utils.extend({}, options, {
-            header: utils.extend({}, originHeader, authHeader),
+    // function doRequest() {
+    var authHeader = buildAuthHeader(UserData.get())
+    wx.request(utils.extend({}, options, {
+        header: utils.extend({}, originHeader, authHeader),
+        success: function (response) {
+            var data = response.data;
+            var error, message;
+            if(data && data.code === 1) {
+                message = '';
+                error = new RequestError('', data.msg);
+            } else {
+                message = '鉴权服务器检查登录态发生错误(' + (data.code || 'OTHER') + ')：' + (data.msg || '未知错误');
+                error = new RequestError('', data.msg);
+            }
+            if(data.code !== 0){
+                if(options.url.indexOf('/login') === -1 
+                    && options.url.indexOf('/register') === -1 )
+                {  
+                    wx.redirectTo({
+                        url: '/page/login/index',
+                    })
+                } 
+                callFail(error);
+                return;
+            }
+            callSuccess.apply(null, arguments);
+        },
 
-            success: function (response) {
-                var data = response.data;
-
-                // 如果响应的数据里面包含 -- token 过期/失效/禁用/无效
-                if (data && (data.errCode === 'uc.token.not.exists' 
-                    || data.errCode === 'uc.token.not.opt.expire' 
-                    || data.errCode === 'uc.token.verify.error'
-                    || data.errCode === 'uc.user.status.invalid')) {
-                    // 清除登录态
-                    UserData.clear()
-
-                    var error, message;
-                    if (data.errCode === 'uc.token.not.exists' 
-                        || data.errCode === 'uc.token.not.opt.expire' 
-                        || data.errCode === 'uc.token.verify.error') {
-                        // 如果是登录态无效，并且还没重试过，会尝试登录后刷新凭据重新请求
-                        if (!hasRetried) {
-                            hasRetried = true
-                            doRequestWithLogin()
-                            return;
-                        }
-                        message = '登录信息异常，请联系全栖智校客服';
-                        error = new RequestError('', message);
-
-                    } else {
-                        message = '鉴权服务器检查登录态发生错误(' + (data.errCode || 'OTHER') + ')：' + (data.errMessage || '未知错误');
-                        error = new RequestError('', message);
-                    }
-
-                    callFail(error);
-                    return;
-                }
-
-                callSuccess.apply(null, arguments);
-            },
-
-            fail: callFail,
-            complete: noop,
-        }));
-    };
-
+        fail: callFail,
+        complete: noop,
+    }));
 };
 
 module.exports = {

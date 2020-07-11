@@ -7,38 +7,38 @@
       </view>
       <van-field
         class="field-style"
-        value="{{ staffCode }}"
+        value="{{ employName }}"
         center
         clearable
         type= "number"
-        bind:input="inputPhone"
+        bind:input="inputName"
         placeholder="输入姓名">
       </van-field>
       <van-field
         class="field-style"
-        value="{{ staffCode }}"
+        value="{{ employeeCode }}"
         center
         clearable
         type= "number"
-        bind:input="inputPhone"
-        placeholder="输入员工编号">
+        bind:input="inputNum"
+        placeholder="输入工号">
       </van-field>
       <van-field
         class="field-style"
         value="{{ password }}"
         center
         clearable
-        type= "number"
-        bind:input="inputPhone"
+        type= "password"
+        bind:input="inputPwd"
         placeholder="输入密码">
       </van-field>
       <van-field
         class="field-style"
-        value="{{ password }}"
+        value="{{ confirmPwd }}"
         center
         clearable
-        type= "number"
-        bind:input="inputPhone"
+        type= "password"
+        bind:input="inputCPwd"
         placeholder="再次输入密码">
       </van-field>
       <van-button

@@ -4,7 +4,7 @@
 
 // 
 
-var host = "https://www.chuanguhai.com/api"
+var host = "https://www.chuanguhai.com"
 
 var config = {
 
@@ -12,6 +12,11 @@ var config = {
     host,
     // 通过code 获取 openId
     getOpenIdByCode:  `${host}/employee/getOpenId`,
+
+    login: `${host}/employee/login`,
+
+    register: `${host}/employee/register`,
+
 
 };
 

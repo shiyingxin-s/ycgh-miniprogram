@@ -7,11 +7,11 @@
       </view>
       <van-field
         class="field-style"
-        value="{{ staffCode }}"
+        value="{{ employeeCode }}"
         center
         clearable
         type= "number"
-        bind:input="inputPhone"
+        bind:input="inputNum"
         placeholder="工号">
       </van-field>
       <van-field
@@ -19,8 +19,8 @@
         value="{{ password }}"
         center
         clearable
-        type= "number"
-        bind:input="inputPhone"
+        type= "password"
+        bind:input="inputPwd"
         placeholder="密码">
       </van-field>
       <view class="desc">
@@ -34,6 +34,5 @@
         size="large"
         color="#f4424a" 
         bindtap="loginClick">登录</van-button>
-        
     </view>
 </view>

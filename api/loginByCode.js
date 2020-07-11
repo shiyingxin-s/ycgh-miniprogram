@@ -44,7 +44,7 @@ var defaultOptions = {
     method: 'GET',
     success: noop,
     fail: noop,
-    loginUrl: configUrl.loginByCode,
+    loginUrl: configUrl.getOpenIdByCode,
 };
 
 /**
@@ -77,7 +77,7 @@ var login = function login(options) {
         common.showLoading()
         // 请求服务器登录地址，获得会话信息
         wx.request({
-            url: options.loginUrl,
+            url: options.loginUrl+`/${code}`,
             header: header,
             method: options.method,
             data: {code: code},
@@ -86,15 +86,11 @@ var login = function login(options) {
                 common.hideLoading()
                 var resData = res.data
                 // 成功地响应会话信息
-                if (resData.data && resData.code === 200) {
+                if (resData.data && resData.code === 0) {
                     UserData.set(resData.data)
-                    if(resData.data.token){
-                      getMenu(resData.data)
-                    } else {
-                      options.success(res.data)
-                    }                    
+                    options.success(res.data)               
                 } else {
-                    var errorMessage = '登录异常,请联系全栖智校客服';
+                    var errorMessage = '登录信息异常，请联系客服';
                     var noSessionError = new LoginError('', errorMessage);
                     options.fail(noSessionError);
                 }
@@ -109,15 +105,13 @@ var login = function login(options) {
     });
 
     var userData = UserData.get()
-    if (userData && app.globalData.menuList) {
+    if (userData) {
         options.success(userData)
     } else {
         doLogin()
     }
 
 };
-
-
 
 module.exports = {
     LoginError: LoginError,
