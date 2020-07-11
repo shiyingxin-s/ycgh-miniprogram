@@ -1,0 +1,54 @@
+
+
+<view class="container regPage pageBg" >
+    <view class="textView">
+      <view class="img-view title"> 
+        <image class="img" src="/image/logo-white.png" />
+      </view>
+      <van-field
+        class="field-style"
+        value="{{ staffCode }}"
+        center
+        clearable
+        type= "number"
+        bind:input="inputPhone"
+        placeholder="输入姓名">
+      </van-field>
+      <van-field
+        class="field-style"
+        value="{{ staffCode }}"
+        center
+        clearable
+        type= "number"
+        bind:input="inputPhone"
+        placeholder="输入员工编号">
+      </van-field>
+      <van-field
+        class="field-style"
+        value="{{ password }}"
+        center
+        clearable
+        type= "number"
+        bind:input="inputPhone"
+        placeholder="输入密码">
+      </van-field>
+      <van-field
+        class="field-style"
+        value="{{ password }}"
+        center
+        clearable
+        type= "number"
+        bind:input="inputPhone"
+        placeholder="再次输入密码">
+      </van-field>
+      <van-button
+        class="btnStyle"
+        type="primary"
+        block  
+        round
+        size="large"
+        color="#f4424a" 
+        bindtap="register">注册</van-button>
+        
+    </view>
+</view>

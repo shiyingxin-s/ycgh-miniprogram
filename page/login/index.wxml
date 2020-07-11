@@ -1,0 +1,39 @@
+
+
+<view class="container loginIndexPage pageBg" >
+    <view class="textView">
+      <view class="img-view title"> 
+        <image class="img" src="/image/logo-white.png" />
+      </view>
+      <van-field
+        class="field-style"
+        value="{{ staffCode }}"
+        center
+        clearable
+        type= "number"
+        bind:input="inputPhone"
+        placeholder="工号">
+      </van-field>
+      <van-field
+        class="field-style"
+        value="{{ password }}"
+        center
+        clearable
+        type= "number"
+        bind:input="inputPhone"
+        placeholder="密码">
+      </van-field>
+      <view class="desc">
+        <text class="desc-bottom" bindtap="registerClick">立即注册</text>
+        <text class="desc-bottom" bindtap="forgetPwdClick">忘记密码</text>
+      </view>
+       <van-button
+        type="primary"
+        block  
+        round
+        size="large"
+        color="#f4424a" 
+        bindtap="loginClick">登录</van-button>
+        
+    </view>
+</view>

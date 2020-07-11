@@ -1,0 +1,7 @@
+{
+  "desc": "智慧工会",
+  "rules": [{
+  "action": "allow",
+  "page": "*"
+  }]
+}

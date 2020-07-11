@@ -1,0 +1,107 @@
+<wxs module="filter" src="../../../../util/filter.wxs"></wxs>
+
+<view class="settingPage">
+  
+  <view  class="setting-section"  bindtap="updateInfo">
+    <van-cell-group title="基本信息">
+      <van-cell title="头像"  class="avatar-cell" catchtap="updateAvatar">
+        <view slot="right-icon" class="avatar">
+          <van-image
+            width="50" 
+            round  fit="fill"  
+            height="50" src="{{datas.avatarPhotoUrl}}" 
+            use-loading-slot >
+              <van-loading slot="loading" type="spinner" size="20" vertical />
+          </van-image>
+          <van-icon name="arrow" />
+        </view>
+      </van-cell>
+      <van-cell title="真实姓名" is-link data-type="realName"  value="{{datas.realName ? datas.realName :'未设置'}}" />
+      <van-cell title="性别" is-link data-type="sex" value="{{datas.gender === 'U' ? '未设置': datas.gender === 'M'? '男': '女'}}" />
+      <van-cell title="出生日期" is-link data-type="birthday" value="{{datas.birthday ? datas.birthday: '未设置' }}" />
+      <van-cell title="昵称" data-type="username" is-link value="{{datas.username?datas.username:'未设置'}}" />
+      <van-cell title="签名" data-type="signature" is-link value="{{datas.signature?datas.signature:'未设置'}}" />
+    </van-cell-group>
+ </view>
+ 
+  <view  class="setting-section" bindtap="updateInfo">
+    <van-cell-group title="账号绑定">
+      <van-cell title="手机绑定" data-type="mobile" is-link value="{{datas.mobile?datas.mobile:'未绑定'}}" />
+      <van-cell title="邮箱绑定" data-type="email" is-link value="{{datas.email?datas.email:'未绑定'}}" />
+      <van-cell title="微信绑定" >
+        <van-switch slot="right-icon" checked="{{ checked }}" size="20px" bindchange="unbindBtn"/>
+      </van-cell>
+    </van-cell-group>
+  </view>
+  <!-- 修改个人信息 -->
+    <van-dialog show="{{show}}" 
+      use-slot
+      class="dialog-style"
+      closeOnClickOverlay="{{true}}"
+      title="{{showText !== 'birthday'?titleMap[showText]: ''}}" bind:confirm="actionClick"
+      show-confirm-button="{{showText !== 'sex' && showText !== 'birthday'}}">
+
+      <view  style="margin-top:20rpx">
+         <!-- 修改真实姓名 -->
+        <block wx:if="{{showText === 'realName'}}">
+          <van-field value="{{updateData.realName}}" 
+          border="{{ false }}" 
+          maxlength="10" 
+          show-word-limit
+          bind:input="inputRealName"
+          placeholder="请输入真实姓名，不超过10个字" />
+        </block>
+
+        <!-- 修改昵称 -->
+        <block wx:if="{{showText === 'username'}}">
+          <van-field value="{{updateData.username}}" 
+          border="{{ false }}" 
+          maxlength="10" 
+          show-word-limit 
+          placeholder="请输入昵称，不超过10个字" 
+          bind:input="inputUsername"
+          />
+        </block>
+
+        <!-- 设置签名 -->
+        <block wx:if="{{showText === 'signature'}}">
+          <van-field value="{{updateData.signature}}" 
+          class="textarea-style"
+          type="textarea" border="{{ false }}" 
+          maxlength="25" 
+          show-word-limit
+          bind:input="inputSignature"
+          placeholder="请输入" />
+        </block>
+
+        <!-- 修改性别 -->
+        <block  wx:if="{{showText === 'sex'}}">
+            <van-cell title="男" data-sex="M" bindtap="checkSex"  style="text-align:center;margin-top:10px" />
+            <van-cell title="女" data-sex="F" bindtap="checkSex" class="sex"  style="text-align:center" />
+        </block>
+
+        <!-- 修改电子邮箱 -->
+        <block wx:if="{{showText === 'email'}}">
+          <van-field value="{{updateData.email}}" placeholder="请输入邮箱账号" 
+           bind:input="inputEmail"
+          />
+        </block>
+
+        <!-- 修改出生日期 -->
+        <block wx:if="{{showText === 'birthday'}}">
+          <van-datetime-picker
+            class="dateStyle"
+            value="{{updateData.birthday}}"
+            type="date"
+            min-date="{{minDate}}"
+            max-date="{{maxDate}}"
+            formatter="{{ formatter }}"
+            bind:input="onInput"
+            bind:cancel="handelCancel"
+            bind:confirm="handelConfirm"
+          />
+        </block>
+      </view>
+     
+    </van-dialog>
+</view>

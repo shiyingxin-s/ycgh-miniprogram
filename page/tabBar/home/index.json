@@ -1,0 +1,7 @@
+{
+    "navigationBarTitleText": "",
+    "usingComponents":{
+      "van-button":"../../../dist/button/index",
+      "van-icon":"../../../dist/icon/index"
+    }
+}

@@ -1,0 +1,56 @@
+{
+  "pages": [
+    "page/login/index",
+    "page/register/index",
+    "page/tabBar/home/index",
+    "page/tabBar/my/index"
+  ],
+  "window": {
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "智慧工会",
+    "navigationBarBackgroundColor": "#f4424a",
+    "backgroundColor": "#FFFFFF"
+  },
+  "tabBar": {
+    "color": "#d6d7d9",
+    "selectedColor": "#fb4249",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "page/tabBar/home/index",
+        "text": "首页",
+        "iconPath": "image/tab1.png",
+        "selectedIconPath": "image/tab1bg.png"
+      },
+      {
+        "pagePath": "page/tabBar/my/index",
+        "text": "个人中心",
+        "iconPath": "image/tab2.png",
+        "selectedIconPath": "image/tab2bg.png"
+      }
+    ]
+  },
+  "subPackages": [
+    {
+      "root": "page/home/",
+      "pages": [
+        "pages/index/index"
+      ]
+    },
+    {
+      "root": "page/my/",
+      "pages": [
+        "pages/index/index"
+      ]
+    }
+  ],
+  "networkTimeout": {
+    "request": 10000,
+    "connectSocket": 10000,
+    "uploadFile": 10000,
+    "downloadFile": 10000
+  },
+  "debug": false,
+  "sitemapLocation": "sitemap.json"
+}

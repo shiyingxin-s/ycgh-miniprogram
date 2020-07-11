@@ -1,0 +1,4 @@
+<view class="comNoData">
+  <image class="img" src="/image/noData.png"></image>
+  <view>{{text}}</view>
+</view>

@@ -1,0 +1,13 @@
+.comNoData{
+  margin: 180rpx auto;
+  width: 440rpx;
+  height: 400rpx;
+  text-align: center;
+  font-family: PingFangSC-Regular;
+  font-size: 28rpx;
+  color: #999999;
+}
+.img{
+  width: 420rpx;
+  height: 224rpx;
+}

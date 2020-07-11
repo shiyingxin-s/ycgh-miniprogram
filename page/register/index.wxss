@@ -1,0 +1,44 @@
+.textView{
+  margin:30rpx 80rpx;
+}
+.title{
+  margin-top: 120rpx;
+  margin-left:30rpx;
+}
+.field-style .van-cell{
+  margin: 20px 0;
+  background: #f7f7f7;
+  border-radius: 60rpx;
+  border: 1px solid #f4424a;
+  height: 36px;
+}
+.field-style .van-cell:after{
+  border: 0;
+}
+
+.img-view{
+  text-align: center;
+}
+.img{
+  height:124px;
+  width: 124px;
+}
+.desc, .desc-bottom{
+  float: right;
+  font-weight: 300;
+  font-size: 24rpx;
+  border-bottom:1px solid #ffffff;
+}
+.desc{
+  color: #ffffff;
+  margin-bottom: 50px;
+}
+.desc-bottom{
+  padding:20px 0 50px;
+  color:#467DD8;
+  text-decoration:underline
+}
+.btnStyle button{
+  margin-top: 40px;
+}
+

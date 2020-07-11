@@ -1,0 +1,34 @@
+
+<view class="tabPage">
+  <view class="head">
+    <view class="head-bg"></view>
+    <view class="head-img">
+         <image class="img" src="/image/banner.png" />
+    </view>
+  </view>
+  <view class="content">
+    <view class="item clearfix">
+      <view class="left">
+        <text  class="iconfont iconwangshanglianbing"  />
+        <view class="top-view">
+            <view >每日</view>
+            <text >十题</text>
+        </view>
+      </view>
+      <view class="right">
+        <text  class="iconfont iconzhigongshuwu"  />
+      </view>
+    </view>
+    <view class="items">
+      <view class="item item1bg">
+        <text  class="iconfont iconzhigongjiangtang"  />
+      </view>
+      <view class="item item2bg">
+        <text  class="iconfont iconzhigongfengcai"  />
+      </view>
+      <view class="item item3bg">
+        <text  class="iconfont iconaixinjiuzhu"  />
+      </view>
+    </view>
+  </view>
+</view>

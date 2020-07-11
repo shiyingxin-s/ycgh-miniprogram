@@ -1,0 +1,38 @@
+.textView{
+  margin:30rpx 80rpx;
+}
+.title{
+  margin-top: 120rpx;
+  margin-left:30rpx;
+}
+.field-style .van-cell{
+  margin: 30px 0;
+  background: #f7f7f7;
+  border-radius: 60rpx;
+  border: 1px solid #f4424a;
+}
+.field-style .van-cell:after{
+  border: 0;
+}
+
+.img-view{
+  text-align: center;
+}
+.img{
+  height:124px;
+  width: 124px;
+}
+.desc{
+  color: #ffffff;
+  margin-bottom: 50px;
+}
+.desc-bottom{
+  margin: 0 10rpx;
+  font-weight: 300;
+  font-size: 24rpx;
+  border-bottom:1px solid #ffffff;
+}
+.desc-bottom:last-child{
+  float: right;
+}
+
