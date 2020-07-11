@@ -2,9 +2,6 @@
 
 App({
   globalData: {
-    menuList:'', // 小程序功能菜单权限
-    reviewCount:0,//批量点评人数
-    reviewList:[],//批量点评列表
   },
   // 生命周期回调——监听小程序启动或切前台。
   onShow: function() {
