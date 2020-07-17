@@ -1,14 +1,17 @@
 {
   "pages": [
+    "page/splash/splash",
     "page/login/index",
-    "page/register/index",
     "page/tabBar/home/index",
+    "page/register/index",
+    "page/forgetPwd/index",
     "page/tabBar/my/index"
   ],
   "window": {
     "navigationBarTextStyle": "white",
     "navigationBarTitleText": "智慧工会",
     "navigationBarBackgroundColor": "#f4424a",
+    "navigationStyle": "custom",
     "backgroundColor": "#FFFFFF"
   },
   "tabBar": {

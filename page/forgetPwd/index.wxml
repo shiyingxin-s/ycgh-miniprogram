@@ -1,14 +1,13 @@
-<view class="container regPage pageBg" style="padding-top:{{height}}px" >
+<myHeader id="myHeader" navbar-data='{{nvabarData}}'></myHeader>
+<view class="container forgetPage"  style='margin-top:{{height}}px' >
     <view class="textView">
-      <view class="img-view title"> 
-        <image class="img" src="/image/logo-white.png" />
-      </view>
+      <view class="img-view title"> 忘记密码 </view>
       <van-field
         class="field-style"
         value="{{ employeeName }}"
         center
         clearable
-        type= "number"
+        type= "text"
         bind:input="inputName"
         placeholder="输入姓名">
       </van-field>
@@ -28,7 +27,7 @@
         clearable
         type= "password"
         bind:input="inputPwd"
-        placeholder="输入密码">
+        placeholder="重新设置密码">
       </van-field>
       <van-field
         class="field-style"
@@ -49,7 +48,7 @@
         disabled="{{isShow}}"
         loading="{{isShow}}"
         loading-type="spinner"
-        loading-text="注册中..." 
-        bindtap="register">注册</van-button>
+        loading-text="处理中..."
+        bindtap="btnOk">确认修改</van-button>
     </view>
 </view>

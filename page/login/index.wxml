@@ -1,6 +1,4 @@
-
-
-<view class="container loginIndexPage pageBg" >
+<view class="container loginIndexPage pageBg" style="padding-top:{{height}}px" >
     <view class="textView">
       <view class="img-view title"> 
         <image class="img" src="/image/logo-white.png" />
@@ -10,7 +8,7 @@
         value="{{ employeeCode }}"
         center
         clearable
-        type= "number"
+        type= "text"
         bind:input="inputNum"
         placeholder="工号">
       </van-field>
@@ -32,7 +30,11 @@
         block  
         round
         size="large"
-        color="#f4424a" 
+        color="#f4424a"
+        disabled="{{isShow}}"
+        loading="{{isShow}}"
+        loading-type="spinner"
+        loading-text="登录中..." 
         bindtap="loginClick">登录</van-button>
     </view>
 </view>

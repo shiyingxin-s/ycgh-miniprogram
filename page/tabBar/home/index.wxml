@@ -1,5 +1,6 @@
 
-<view class="tabPage">
+<myHeader id="myHeader" navbar-data='{{nvabarData}}'></myHeader>
+<view class="tabPage" style='margin-top:{{height}}px'>
   <view class="head">
     <view class="head-bg"></view>
     <view class="head-img">

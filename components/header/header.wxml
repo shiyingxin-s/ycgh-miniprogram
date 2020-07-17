@@ -1,0 +1,8 @@
+<!--header.wxml-->
+<view class='nav-wrap' style='height: {{height*2 + 20}}px;background: {{navbarData.bgColor}};'>
+    <!--// 导航栏 中间的标题-->
+  <view class='nav-title' style='line-height: {{height*2 + 44}}px; color:{{navbarData.textcolor}}'>{{navbarData.title}}</view>
+    <view bindtap='_navback' class="goBack nav-capsule" style='line-height: {{height*2 + 44}}px; color:{{navbarData.textcolor}}' wx:if='{{navbarData.isBackPer}}'>
+      <van-icon custom-class="backImg" name="arrow-left" size="1.3em"/>
+    </view>
+</view>

@@ -1,0 +1,4 @@
+<!--index.wxml-->
+<view class="container">
+  <image class="splash" src="/image/splash.png" mode="cover"></image>
+</view>

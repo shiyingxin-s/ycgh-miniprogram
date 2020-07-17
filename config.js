@@ -17,6 +17,11 @@ var config = {
 
     register: `${host}/employee/register`,
 
+    setPassword:`${host}/employee/setPassword`,
+
+    resetPassword: `${host}/employee/resetPassword`,
+    
+
 
 };
 

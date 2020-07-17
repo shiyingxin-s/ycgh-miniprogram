@@ -1,0 +1,39 @@
+.textView{
+  margin:30rpx 80rpx;
+}
+.title{
+  text-align: center;
+  margin: 120rpx 0 40rpx 30rpx;
+  font-size: 50rpx;
+  font-weight: 300;
+}
+.field-style .van-cell{
+  margin: 20px 0;
+  background: #f7f7f7;
+  border-radius: 60rpx;
+  border: 1px solid #c2c2c2;
+  height: 40px;
+}
+.field-style .van-cell:after{
+  border: 0;
+}
+
+.desc, .desc-bottom{
+  float: right;
+  font-weight: 300;
+  font-size: 24rpx;
+  border-bottom:1px solid #ffffff;
+}
+.desc{
+  color: #ffffff;
+  margin-bottom: 50px;
+}
+.desc-bottom{
+  padding:20px 0 50px;
+  color:#467DD8;
+  text-decoration:underline
+}
+.btnStyle button{
+  margin-top: 40px;
+}
+

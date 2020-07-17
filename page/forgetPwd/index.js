@@ -4,13 +4,20 @@ var loginByCode = require('../../api/loginByCode')
 var UserData = require('../../api/userData')
 const httpUrl = require('../../config')
 import { hexMD5 } from "../../util/md5.js"
-
 const app = getApp()
 
 Page({
   data: {
-    // 此页面 页面内容距最顶部的距离
-    height: app.globalData.navHeight * 2 + 25,
+     // 此页面 页面内容距最顶部的距离
+     height: app.globalData.navHeight * 2 + 25 ,
+     // 组件所需的参数
+     nvabarData: {
+       showCapsule: 1, //是否显示左上角图标   1表示显示    0表示不显示
+       title: '忘记密码', //导航栏 中间的标题,
+       isBackPer: true, //不显示返回按钮,
+       bgColor:'#f4424a' //导航背景色
+     },
+
     employeeCode: '',
     password: '',
     openId: '',
@@ -90,14 +97,14 @@ Page({
       return true
     }
   },
-  // 注册
-  register() {
+  // 
+  btnOk() {
     const wxs = this
     if(wxs.data.isShow){return}
     if(!wxs.verify()){ return }
     wxs.registerFun()
   },
-  registerFun(){
+  btnOkFun(){
     const wxs = this
     wxs.loaddingFun(true)
     let data = {
@@ -107,7 +114,7 @@ Page({
       employeeName: wxs.data.employeeName
     }
     requestLib.request({
-      url:  httpUrl.register,
+      url:  httpUrl.setPassword,
       method: 'post',
       data: data,
       success: successFun,
@@ -119,9 +126,9 @@ Page({
     function successFun(res){
       const resData = res.data
       if(resData && resData.code === 0){
-        UserData.set(resData.data)
+        UserData.set(resData)
+        common.showToast('重置成功，请返回重新登录', 3000)
         wxs.loaddingFun()
-        common.showToast('注册成功', 3000)
         setTimeout(()=>{
           wx.navigateBack()
         },1000)
@@ -131,11 +138,5 @@ Page({
       }
     }
   },
-  loaddingFun(data) {
-    const wxs = this
-    wxs.setData({
-      isShow: data? true: false
-    })
-  }
 
 })

@@ -5,34 +5,52 @@ var UserData = require('../../api/userData')
 const httpUrl = require('../../config')
 import { hexMD5 } from "../../util/md5.js"
 
+const app = getApp()
+
 Page({
   data: {
+    // 此页面 页面内容距最顶部的距离
+    height: app.globalData.navHeight * 2 + 25 ,
     employeeCode: '',
     password: '',
-    openId: ''
+    openId: '',
+    isShow: false
   },
   onShow: function () {
-    this.loginByCodeFun()
+    if(!UserData.get() || !UserData.get().openid){
+      this.loginByCodeFun()
+    } else {
+      this.setData({
+        openId: UserData.get().openid
+      })
+    }
   },
   registerClick(){
     wx.navigateTo({
       url:'../register/index'
     })
   },
+  forgetPwdClick(){
+    wx.navigateTo({
+      url:'../forgetPwd/index'
+    })
+  },
   loginByCodeFun(){
+    const wxs = this
     const options = {
       method: 'get',
-      success: (res)=>{
-        this.setData({
-          openId:res.openid
-        })
-      },
+      success: successFun,
       fail: (error)=>{
         common.showToast(error.errMessage, 3000)
       }
     }
     // 调用登录请求
     loginByCode.login(options)
+    function successFun(res){
+      wxs.setData({
+        openId:res.openid
+      })
+    }
   },
    
   inputNum(e){
@@ -63,36 +81,47 @@ Page({
   // 登录
   loginClick() {
     const wxs = this
+    if(wxs.data.isShow){return}
     if(!wxs.verify()){ return }
     wxs.loginFun()
   },
 
   loginFun(){
     const wxs = this
+    wxs.loaddingFun(true)
     let data = {
       employeeCode: wxs.data.employeeCode,
       password: hexMD5(wxs.data.password),
       openId: wxs.data.openId
     }
     requestLib.request({
-      url:  httpUrl.login+'/?employeeCode=001&password=123&openId=123',
+      url:  httpUrl.login,
       method: 'post',
       data: data,
       success: successFun,
       fail: (error)=>{
+        wxs.loaddingFun()
         common.showToast(error.errMessage, 3000)
       }
     })
     function successFun(res){
       const resData = res.data
       if(resData && resData.code === 0){
-        UserData.set(resData)
+        UserData.set(resData.data)
+        wxs.loaddingFun()
         wx.switchTab({
           url: '../tabBar/home/index',
         })
       } else {
+        wxs.loaddingFun()
         common.showToast(error.errMessage, 3000)
       }
     }
   },
+  loaddingFun(data) {
+    const wxs = this
+    wxs.setData({
+      isShow: data? true: false
+    })
+  }
 })
