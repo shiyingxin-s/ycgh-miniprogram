@@ -1,0 +1,74 @@
+.comNoData{
+    line-height: 500rpx;
+    font-size: 50rpx;
+}
+.myAchievement{
+    padding: 40rpx 30rpx;
+}
+
+.items{
+    text-align: center;
+}
+.items .item{
+     color: #424242;
+     height: 190rpx;
+     box-shadow: 0 2px 3px 0 #ebebed;
+     border-radius: 4px;
+     background: #ffffff;
+     font-size:30rpx;
+     padding: 30rpx 10rpx;
+ }
+.items .item .iconfont{
+    font-size: 70px;
+    line-height: 190rpx;
+    color: #675758;
+}
+
+.items .item .num{
+    color: #fc414a;
+    font-size: 54rpx;
+    font-weight: 500;
+}
+.items .item .txt{
+    color: #333333;
+    font-size: 36rpx;
+}
+.items .item .txt text , .list .item .item-l .title .iconfont{
+    color: #fc414a;
+}
+.list .item .item-l .title{
+    font-size: 34rpx;
+}
+.list .item .item-l .title .iconfont{
+    font-size: 30rpx;
+}
+.list .item{
+    background: #ffffff;
+    margin-top: 30rpx;
+    box-shadow: 0 2px 3px 0 #ebebed;
+    border-radius: 4px;
+    padding: 30rpx 24rpx;
+}
+.list .item .item-l{
+    float: left;
+    line-height: 60rpx;
+}
+.list .item .item-l .text text:first-child{
+    color: #999999;
+}
+.list .item .item-l:last-child{
+    float: right;
+}
+.list .item .item-l .text-view{
+    text-align: right;
+    font-size: 34rpx;
+}
+.list .item .item-l .text-view .score{
+    color: #fc414a;
+    font-size: 36rpx;
+    font-weight: 500;
+}
+.tips{
+    margin-top: 30rpx;
+    text-align: center;
+}

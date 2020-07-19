@@ -80,9 +80,10 @@ function request(options) {
                 error = new RequestError('', data.msg);
             }
             if(data.code !== 0){
-                if(options.url.indexOf('/login') === -1 
-                    && options.url.indexOf('/register') === -1 )
+                if(data.code === 12 )
                 {  
+                    message = '';
+                    error = new RequestError('', '登录异常，请重新登录');
                     wx.redirectTo({
                         url: '/page/login/index',
                     })

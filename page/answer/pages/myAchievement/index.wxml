@@ -1,0 +1,49 @@
+<wxs module="filter" src="../../../../util/filter.wxs"></wxs>
+<myHeader id="myHeader" navbar-data='{{nvabarData}}'></myHeader>
+<view class="myAchievement" style='margin-top:{{height}}px'>
+  <comNoData text="暂无考试成绩" wx:if="{{data}}" class="comNoData"/>
+
+  <view class="section" wx:else>
+    <van-row class="items" gutter="20">
+      <van-col span="12">
+        <view class="item">
+          <view class="num">{{data.examCount}}</view>
+          <view class="txt">累计答题次数</view>
+          <view class="txt">正确率<text>{{data.rate}}</text></view>
+        </view>
+      </van-col>
+      <van-col span="12" >
+        <view class="item">
+          <view class="num">{{data.average}}</view>
+          <view class="txt">考试累计平均分</view>
+          <!-- <view class="txt">考试次数<text>3</text>次</view> -->
+        </view>
+      </van-col>
+    </van-row>
+    <view class="list">
+      <block wx:if="{{list.length>0}}">
+        <block wx:for="{{list}}" wx:key="*this">
+          <view class="item clearfix" bindtap="gotoDetail"  data-id="{{item.Id}}">
+            <view class="item-l">
+              <view  class="title">
+                 <text class="iconfont iconlishichengji" /> {{item.title}}
+              </view>
+              <view class="text"><text >专业类型：</text>{{item.professionName}}</view>
+              <view class="text"><text >答对题数：</text>{{item.rightCount}}题</view>
+            </view>
+            <view class="item-l">
+              <view  class="text-view">
+                成绩：<text class="score">{{item.Score}}分</text>
+              </view>
+              <view class="text"><text >答题时间：</text>{{item.examDate}}</view>
+              <view class="text"><text >答错题数：</text>{{item.wrongCount}}题</view>
+            </view>
+          </view>
+        </block>
+        <view class="tips" hidden="{{!loadMore}}">加载中...</view>
+        <view class="tips" hidden="{{loadMore}}">没有更多了...</view>
+      </block>
+    </view>
+  </view>
+  
+</view>

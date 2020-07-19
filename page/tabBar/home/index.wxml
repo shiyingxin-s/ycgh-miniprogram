@@ -9,7 +9,7 @@
   </view>
   <view class="content">
     <view class="item clearfix">
-      <view class="left">
+      <view class="left" bindtap="toAnswer">
         <text  class="iconfont iconwangshanglianbing"  />
         <view class="top-view">
             <view >每日</view>

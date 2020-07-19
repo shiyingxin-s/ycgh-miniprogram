@@ -1,0 +1,31 @@
+<!--comAnswer.wxml-->
+<view class='comResult' style="height:{{height}}rpx">
+   <view class="con">
+      <image class="img" src="/image/resultTitle.png" />
+      <view class="desc">中级净化师 </view>
+      <view class="name" >姓名： 张三 </view>
+      <view  class="table">
+        <view class="td">
+          <text class="tr">总题数</text>
+          <text class="tr">10题</text>
+        </view>
+        <view class="td">
+          <text class="tr">答对 <text  class="iconfont icondui"  /></text>
+          <text class="tr">8题</text>
+        </view>
+        <view class="td">
+          <text class="tr">答错 <text  class="iconfont iconcuo1"  /></text>
+          <text class="tr">2题</text>
+        </view>
+        <view class="td">
+          <text class="tr">分数</text>
+          <text class="tr score">80分</text>
+        </view>
+        <view class="td">
+          <text class="tr">评语：</text>
+          <view >俄方胡椒粉可敬可嘉俄方胡椒粉可敬可嘉俄方胡椒粉可敬可嘉</view>
+        </view>
+      </view>
+      <van-button class="btn-style" round type="default" bindtap="submit">完成</van-button>
+   </view>
+</view>

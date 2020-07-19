@@ -1,0 +1,57 @@
+<wxs module="filter" src="../../../../util/filter.wxs"></wxs>
+<myHeader id="myHeader" navbar-data='{{nvabarData}}'></myHeader>
+<view class="ranking" style='margin-top:{{height}}px'>
+  <comNoData text="暂无排名" wx:if="{{!data}}" class="comNoData"/>
+  
+  <block  wx:else>
+    <view class="top"><image class="img" src="/image/jb.jpg" /></view>
+    <view class="section" >
+      <view class="box">
+        <view class="image"><image class="img" src="/image/ic_second.png" /></view>
+        <view class="avatar">
+          <van-icon name="manager" wx:if="{{!data[2].Photo}}"/>
+          <image wx:else src="{{data[2].Photo}}"></image>
+        </view>
+        <view class="name">{{data[2].Name}}</view>
+        <view class="score">{{data[2].Remark}}</view>
+      </view>
+      <view class="box">
+        <view class="image"><image class="img" src="/image/ic_first.png" /></view>
+        <view class="avatar">
+          <van-icon name="manager" wx:if="{{!data[1].Photo}}"/>
+          <image wx:else src="{{data[1].Photo}}"></image>
+        </view>
+        <view class="name">{{data[1].Name}}</view>
+        <view class="score">{{data[1].Remark}}</view>
+      </view>
+      <view class="box">
+        <view class="image"><image class="img" src="/image/ic_third.png" /></view>
+        <view class="avatar">
+          <van-icon name="manager" wx:if="{{!data[3].Photo}}"/>
+          <image wx:else src="{{data[3].Photo}}"></image>
+        </view>
+        <view class="name">{{data[3].Name}}</view>
+        <view class="score">{{data[3].Remark}}</view>
+      </view>
+    </view>
+    <view class="list" style="height:{{listH}}rpx">
+        <view class="list-l" wx:for="{{data}}" wx:key="index" wx:if="{{index > 3}}">
+          <text class="num">{{index}}</text>
+          <view class="image-text">
+            <van-icon name="manager" wx:if="{{!item.Photo}}"/>
+            <image wx:else src="{{item.Photo}}"></image>
+          </view>
+          <text class="name">{{item.Name}}</text>
+          <text class="score">{{item.Remark}}</text>
+        </view>
+      </view>
+    <view class="bottom">
+       <view class="image-text">
+          <van-icon name="manager" wx:if="{{!data[0].Photo}}"/>
+          <image wx:else src="{{data[0].Photo}}"></image>
+       </view>
+       <text class="name">{{data[0].Name}}</text>
+       <text class="score">{{data[0].Remark}}</text>
+    </view>
+  </block>
+</view>

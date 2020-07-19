@@ -1,0 +1,79 @@
+@import "../../app.wxss";
+.con{
+    position: absolute;
+    text-align: center;
+    top: 180px;
+    left: 40rpx;
+    right: 40rpx;
+    padding:30rpx;
+    background: #ffffff;
+    width: calc(100% - 135rpx);
+}
+.img{
+    height: 32px;
+    width: 210px;
+}
+.desc{
+    margin-top: 5px;
+}
+.name{
+    margin-top: 10px;
+    text-align: left;
+    padding-left: 30px;
+}
+.table{
+    margin-top: 20rpx;
+    width: 100%;
+    border: 1px solid #000000;
+}
+.td{
+    height: 49px;
+    line-height: 49px;
+    border-bottom: 1px solid #000000;
+}
+.td .tr{
+    width: 50%;
+    text-align: center;
+    float: left;
+    border-left: 1px solid #000000;
+ }
+ .td .tr .iconfont{
+     color: #5bce87;
+     font-size: 32rpx;
+ }
+ .td .tr .iconfont.iconcuo1{
+    color: #fc414a;
+}
+.td .tr:first-child{
+   float: left;
+   border-left: 0;
+   width: 40%;
+   font-weight: 500;
+}
+.td:last-child{
+    height: 90px;
+    border-bottom: 0;
+ }
+ .td .tr.score{
+     color: #fc414a;
+     font-size: 36rpx;
+     font-weight: 500;
+ }
+ .td:last-child .tr{
+   text-align: left;
+   padding: 15px;
+   border: 0;
+   width: calc(100% - 135rpx);
+   line-height: 0;
+ }
+.td:last-child view{
+    width: calc(100% - 135rpx);
+    padding: 15px;
+    text-align: left;
+    line-height: 22px;
+}
+.btn-style button{
+    margin-top: 16px;
+    border: 1px solid #000000;
+    width: 120px;
+}

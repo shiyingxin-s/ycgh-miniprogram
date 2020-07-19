@@ -4,8 +4,10 @@ var formatDate = function (date, type){
     }
     if(typeof(date) === 'string'){
       date = getDate(date.replace(getRegExp('-', 'g'), '/'))
+      console.log(date)
     } 
-    date = getDate(date) 
+    date = getDate(date)
+   
     var year = date.getFullYear() // 年
     var month = date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1 // 月
     var day = date.getDate() < 10 ? '0' + date.getDate() : date.getDate() // 日
@@ -47,7 +49,5 @@ var formatDate = function (date, type){
 
 module.exports = {
   formatDate:formatDate,
-  checkStatus: checkStatus,
-  contacts:contacts,
   toFixedNum: toFixedNum
 }

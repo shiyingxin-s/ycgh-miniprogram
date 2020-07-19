@@ -1,0 +1,19 @@
+<wxs module="filter" src="../../../../util/filter.wxs"></wxs>
+<myHeader id="myHeader" navbar-data='{{nvabarData}}'></myHeader>
+<view class="myStatistic" style='margin-top:{{height}}px'>
+  <comNoData text="暂无成绩统计" wx:if="{{!data || !data.length}}" class="comNoData"/>
+  
+  <block  wx:else>
+    <view class="totalScore">总积分：<text class="score">{{totalScore}}</text></view>
+    <view class="list" style="height:{{listH}}rpx">
+       <view class="list-l">
+          <text class="name">日期</text>
+          <text class="score">积分</text>
+        </view>
+        <view class="list-l" wx:for="{{data}}" wx:key="index">
+          <text class="date">{{item.date}}</text>
+          <text class="score">{{item.score}}</text>
+        </view>
+      </view>
+  </block>
+</view>

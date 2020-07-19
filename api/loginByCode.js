@@ -88,7 +88,7 @@ var login = function login(options) {
                 // 成功地响应会话信息
                 if (resData.data && resData.code === 0) {
                     UserData.set(resData.data)
-                    options.success(res.data)               
+                    options.success(res.data.data)               
                 } else {
                     var errorMessage = '登录信息异常，请联系客服';
                     var noSessionError = new LoginError('', errorMessage);

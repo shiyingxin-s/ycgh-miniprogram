@@ -1,0 +1,53 @@
+<!--comAnswer.wxml-->
+<view class='comAnswer'>
+  <swiper class="swiper clearfix" style="height:{{height}}rpx">
+    <swiper-item wx:for="{{answerObj}}" wx:key="index">
+      <view class="item">
+        <view >
+          <text class="iconfont iconxuanzeti2">
+            <text class="type">{{item.QuestionType}}</text>
+          </text>
+          <text class="count">{{index+1}}/{{answerObj.length}}</text>
+        </view>
+        
+        <view class="title">{{item.Name}}</view>
+        
+        <van-checkbox-group class="checkItem"
+            bind:change="onChange">
+          <van-checkbox use-icon-slot 
+            wx:for="{{item.Options}}"
+            wx:for-item="items"  wx:key="index"
+            name="{{item.Id + ','+ items.Id +',' + item.QuestionType}}">
+            <text class="iconfont {{items.myCheck? 'icondanxuan': 'icondanxuan1'}}"/>
+            <text class="txt"> {{items.Name}}</text>
+          </van-checkbox>
+        </van-checkbox-group>
+
+        <van-button
+          wx:if="{{item.QuestionType === '多选题'}}"
+          class="btnOk"
+          type="primary"
+          block  
+          round
+          size="large"
+          color="#f4424a" 
+          bindtap="okClick">确认答案</van-button>
+      </view>
+    </swiper-item>
+  </swiper>
+  <view  class="bottom-style" wx:if="{{answerObj.length}}">
+     <van-button
+      class="btnStyle"
+      type="primary"
+      block  
+      round
+      size="large"
+      color="#f4424a"
+      disabled="{{isShow}}"
+      loading="{{isShow}}"
+      loading-type="spinner"
+      loading-text="注册中..." 
+      bindtap="submit">提交</van-button>
+  </view>
+  <van-dialog id="van-dialog" />
+</view>

@@ -3,7 +3,8 @@
 App({
   globalData: {
     navHeight: 0,
-    tabBarHeight:0
+    tabBarHeight:0,
+    whHeight: 0,
   },
 
   onLaunch: function () {
@@ -29,6 +30,7 @@ App({
       // 底部tabBar的高度
       let tabBarHeight = ktxScreentHeight - ktxStatusHeight - navigationHeight - ktxWindowHeight
 
+      this.globalData.whHeight = ktxWindowHeight
       this.globalData.tabBarHeight = tabBarHeight
   },
   // 生命周期回调——监听小程序启动或切前台。

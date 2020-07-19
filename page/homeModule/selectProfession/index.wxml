@@ -1,0 +1,32 @@
+<myHeader id="myHeader" navbar-data='{{nvabarData}}'></myHeader>
+<view class="answer-profession" style='margin-top:{{height}}px'>
+  <view class="header">
+  <view class="title">职位、职称选择</view>
+  <text class="desc">选择了职位和支撑才能答题</text> 
+  </view>
+  <van-row class="items" gutter="20">
+    <van-col span="12" class="item" wx:for="{{ dataList }}" wx:key="index">
+      <view class="item {{ selectId === index  ? 'itembg-active': index%2 === 0 ?'itembg' :''}}" 
+            data-id="{{index}}"
+            bindtap="itemClick" 
+            data-professionid="{{item.id}}">
+        <image  src="/image/{{index+1}}.png" />
+        <view  class="name">{{item.text}}</view>
+      </view>
+    </van-col>
+  </van-row>
+  <van-button
+    class="btnStyle"
+    type="primary"
+    block  
+    round
+    disabled="{{professionId === '' || isShow}}"
+    loading="{{isShow}}"
+    loading-type="spinner"
+    loading-text="进入网上练兵..." 
+    size="large"
+    color="#f4424a"
+    bindtap="btnClick">
+    进入网上练兵
+  </van-button>
+</view>

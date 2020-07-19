@@ -1,7 +1,7 @@
 const app = getApp()
 Component({
   properties: {
-    navbarData: {   //navbarData   由父页面传递的数据，变量名字自命名
+    navbarData: {   //navbarData  由父页面传递的数据，变量名字自命名
       type: Object,
       value: {},
       observer: function (newVal, oldVal) {}

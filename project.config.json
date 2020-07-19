@@ -92,6 +92,20 @@
 					"pathName": "page/tabBar/my/index",
 					"query": "",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "page/answer/pages/everyDay/index",
+					"pathName": "page/answer/pages/everyDay/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "page/answer/pages/myAchievement/index",
+					"pathName": "page/answer/pages/myAchievement/index",
+					"query": "",
+					"scene": null
 				}
 			]
 		}

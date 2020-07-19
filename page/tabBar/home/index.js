@@ -1,4 +1,5 @@
 const app = getApp()
+var UserData = require('../../../api/userData')
 
 Page({
   data: {
@@ -17,7 +18,20 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
- 
-  }, 
+    if(!UserData.get() || !UserData.get().openId ){
+      wx.redirectTo({
+        url: '../../login/index'
+      })
+    }
+  },
+  toAnswer(){
+    let toPath = '../../homeModule/answer/index'
+    if(!UserData || !UserData.get().professionId ){
+      toPath = '../../homeModule/selectProfession/index'
+    } 
+    wx.navigateTo({
+      url: toPath
+    })
+  }
 })
 

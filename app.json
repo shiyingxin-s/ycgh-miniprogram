@@ -5,7 +5,9 @@
     "page/tabBar/home/index",
     "page/register/index",
     "page/forgetPwd/index",
-    "page/tabBar/my/index"
+    "page/tabBar/my/index",
+    "page/homeModule/selectProfession/index",
+    "page/homeModule/answer/index"
   ],
   "window": {
     "navigationBarTextStyle": "white",
@@ -36,9 +38,15 @@
   },
   "subPackages": [
     {
-      "root": "page/home/",
+      "root": "page/answer/",
       "pages": [
-        "pages/index/index"
+        "pages/everyDay/index",
+        "pages/myAchievement/index",
+        "pages/ranking/index",
+        "pages/myStatistic/index",
+        "pages/myExam/index",
+        "pages/myWrong/index",
+        "pages/exercises/index"
       ]
     },
     {

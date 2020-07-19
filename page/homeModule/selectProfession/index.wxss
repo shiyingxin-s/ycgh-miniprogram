@@ -1,0 +1,59 @@
+.answer-profession{
+    padding: 60rpx 40rpx 60rpx;
+}
+.header {
+    margin-bottom: 40rpx;
+}
+.header .title{
+    font-size: 38rpx;
+    color: #2e2e2e;
+}
+.header .desc{
+    font-size: 26rpx;
+    color: #999999;
+}
+.iconfont{
+    font-size: 70px;
+    line-height: 190rpx;
+    color: #675758;
+}
+.items{
+    text-align: center;
+ }
+ .items .item{
+     color: #424242;
+     position: relative;
+     margin-top: 30rpx;
+     height: 190rpx;
+     box-shadow: 0 2px 3px 0 #ebebed;
+     border-radius: 4px;
+     background: #f7f6ef;
+     font-size:30rpx;
+ }
+.items .item .iconfont{
+    font-size: 70px;
+    line-height: 190rpx;
+    color: #675758;
+}
+.items .item.itembg {
+    background: #fcf1f1
+}
+.items .item.itembg-active {
+    background: #fc414a;
+    color: #ffffff !important
+}
+.item .name{
+    position: absolute;
+    top: 30rpx;
+    right: 24rpx;
+}
+.items .item image{
+    position: absolute;
+    bottom: 0;
+    left: 5px;
+    width: 80px;
+    height: 80px;
+}
+.btnStyle .van-button{
+    margin-top: 80rpx;
+}

@@ -48,7 +48,7 @@ Page({
     loginByCode.login(options)
     function successFun(res){
       wxs.setData({
-        openId:res.openid
+        openId:res.openId
       })
     }
   },

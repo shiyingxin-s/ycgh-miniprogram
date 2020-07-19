@@ -1,0 +1,52 @@
+@import "../../app.wxss";
+.item .iconfont{
+    position: relative;
+    color: #3cb3e8;
+    font-size: 130rpx;
+    line-height: 50rpx;
+    left: 20rpx;
+}
+swiper{
+    padding:50rpx 30rpx;
+    overflow: hidden;
+}
+.type{
+    position: absolute;
+    color: #ffffff;
+    font-size:24rpx ;
+    left:32rpx;
+    line-height: 37rpx;
+    bottom: 46rpx;
+}
+.count{
+    float: right;
+}       
+.title{
+    margin-bottom: 30rpx;
+    margin-left: 20rpx;
+    line-height: 28px;
+}
+.checkItem  .iconfont{
+    position: unset;
+    font-size: 45rpx;
+}
+.checkItem van-checkbox{
+  margin-bottom: 40rpx;
+  display: block;
+}
+.txt{
+    line-height: 28px;
+}
+.checkItem van-checkbox .van-checkbox__label{
+    margin-left: 0 !important;
+}
+.btnOk button{
+    margin-top: 150rpx;
+    height: 45px;
+}
+.bottom-style{
+    left: 30rpx;
+    right: 30rpx;
+    position: absolute;
+    bottom: 18px;
+}
