@@ -33,11 +33,17 @@ Component({
                 n1.Options.map(n2=>{
                   if(n2.Id === strArray[1]){
                     n2.myCheck = !n2.myCheck
-                    n1.isDo = true
+                    if(strArray[2] === '多选题' && this.data.type === 'exam'){
+                      n1.isDo = true
+                    } else if(strArray[2] === '多选题'){
+                      n1.isDo = false
+                    } else {
+                      n1.isDo = true
+                    }
                   } else if(strArray[2] === '单选题' || strArray[2] === '判断题'){
                     n2.myCheck = false
                     n1.isDo = true
-                  }
+                  } 
                 })
               }
             }
@@ -47,11 +53,11 @@ Component({
       this.setData({
         answerObj: itemList
       })
-      if(this.data.type !== 'review')(
+      var str = eventData[0].split(',')
+      if(this.data.type !== 'review' &&  str[2] !== '多选题')(
         this.count()
       )
     },
-
     // 统计对错 
     count() {
       const wxs = this
@@ -61,6 +67,7 @@ Component({
       })
       let doList = wxs.data.answerObj.filter(item=>!!item.isDo)
       doList.map(item=>{
+        item.ok = ''
         item.ok = item.Options.filter(n=>!!n.IsCorrectAnswer)
         if(item.ok.filter(n2=>!n2.myCheck).length>0){
           wxs.setData({
@@ -76,7 +83,7 @@ Component({
 
     submit(){
       let noDoList = this.data.answerObj.filter(n=>{
-          return !n.isDo
+          return (!n.isDo && n.QuestionType!=='多选题' ) || n.Options.length === 0
       })
       if(noDoList.length>0){
         common.showToast('你还有未答试题，不能交卷', 3000)
@@ -108,10 +115,14 @@ Component({
         const resData = res.data
         if(resData && resData.code === 0){
           if(resData.data){
+            let list = wxs.data.answerObj
+            let index = list.findIndex(item=>item.Id === e.currentTarget.dataset.id)
+            list.splice(index,1)
             wxs.setData({
-              answerObj: wxs.data.answerObj.splice(e.currentTarget.dataset.id,1)
-             })
-             common.showToast('删除成功', 3000)
+              answerObj: list
+            })
+            wxs.count()
+            common.showToast('删除成功', 3000)
           }else {
             common.showToast('删除失败，请重试', 3000)
           }        
@@ -124,7 +135,13 @@ Component({
     // 多选确认答案
     okClick(e) {
       const wxs = this
-      debugger
+      let list = wxs.data.answerObj
+      let index = list.findIndex(item=>e.currentTarget.dataset.id === item.Id)
+      list[index].isDo = true
+      wxs.setData({
+        answerObj: list
+      })
+      wxs.count()
     }
   }
 
