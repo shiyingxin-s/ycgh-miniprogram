@@ -31,13 +31,16 @@
 }
 .items .item .txt{
     color: #333333;
-    font-size: 36rpx;
+    font-size: 30rpx;
 }
 .items .item .txt text , .list .item .item-l .title .iconfont{
     color: #fc414a;
 }
+.list .item .item-l .text{
+    font-size: 28rpx;
+}
 .list .item .item-l .title{
-    font-size: 34rpx;
+    font-size: 30rpx;
 }
 .list .item .item-l .title .iconfont{
     font-size: 30rpx;
@@ -61,7 +64,7 @@
 }
 .list .item .item-l .text-view{
     text-align: right;
-    font-size: 34rpx;
+    font-size: 30rpx;
 }
 .list .item .item-l .text-view .score{
     color: #fc414a;

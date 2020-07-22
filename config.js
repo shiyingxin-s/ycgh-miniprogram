@@ -43,6 +43,18 @@ var config = {
 
     getWrongRecords: `${host}/exam/getWrongRecords`,
 
+    getExercise: `${host}/exam/getExercise`,
+
+    // 删除错题
+    deleteWrong: `${host}/exam/deleteWrongRecords`,
+
+    // 考试列表
+    getExamList: `${host}/exam/getExamList`,
+
+    // 获取试卷详情 getExamDetail
+    getExamDetail:`${host}/exam/getExamDetial`,// getExamDetial
+
+
 };
 
 module.exports = config

@@ -1,0 +1,81 @@
+.header{
+    background: #f4424a;
+    height: 220rpx;
+    border-bottom-left-radius: 100%;
+    border-bottom-right-radius: 100%;
+    padding:30rpx 30rpx 0;
+}
+.header van-button{
+    padding: 0 15rpx 0 15rpx
+}
+.header van-button button{
+    width: calc((100% - 120rpx) / 4);
+    font-size: 26rpx;
+    height: 50rpx;
+    line-height: 50rpx;
+}
+
+.active  button{
+    color: #f4424a !important;
+}
+.list{
+    top: -58px;
+    position: relative;
+    margin:0 30rpx;
+}
+.list-l{
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 0 20rpx 20rpx 0;
+    margin-bottom: 30rpx;
+    font-size: 30rpx;
+}
+.list-l .title{
+    font-size: #333333;
+    font-weight: 500;
+    font-size: 28rpx;
+    padding-left: 30rpx;
+    padding-top: 10px;
+    display: inline-block;
+}
+.bottom{
+    padding-left: 15px;
+    margin-top:19px;
+    font-size: 28rpx;
+    font-weight: 400;
+}
+.list-l .right{
+    float: right;
+}
+.list-l .text{
+    color: #999999;
+    font-size: 26rpx;
+}
+.num{
+color: #333333;
+}
+
+.line{
+    height: 50rpx;
+    float: left;
+    width: 4px;
+    border-top-left-radius: 2px;
+}
+.bg-red{
+    background: #f4424a;
+}
+.bg-2be3b9{
+    background: #2be3b9;
+}
+.bg-fec83d{
+    background: #fec83d;
+}
+.color-red{
+    color: #f4424a;
+}
+.color-2be3b9{
+    color: #2be3b9;
+}
+.color-fec83d{
+    color: #fec83d;
+}

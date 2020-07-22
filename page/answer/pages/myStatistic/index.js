@@ -18,7 +18,7 @@ Page({
     },
     loadMore:false,
     totalScore: 0,
-    data:[]
+    data:''
    
   },
   onShow: function () {
@@ -58,7 +58,7 @@ Page({
         let count = 0
         if(!resData.data){return}
         resData.data.map(item=>{
-           return count = count + parseInt(item.Score)
+          count = count + parseInt(item.score)
         })
         wxs.setData({
           data: {...resData.data},

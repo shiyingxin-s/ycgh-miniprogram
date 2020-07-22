@@ -1,7 +1,7 @@
 <wxs module="filter" src="../../../../util/filter.wxs"></wxs>
 <myHeader id="myHeader" navbar-data='{{nvabarData}}'></myHeader>
 <view class="myStatistic" style='margin-top:{{height}}px'>
-  <comNoData text="暂无成绩统计" wx:if="{{!data || !data.length}}" class="comNoData"/>
+  <comNoData text="暂无成绩统计" wx:if="{{!data}}" class="comNoData"/>
   
   <block  wx:else>
     <view class="totalScore">总积分：<text class="score">{{totalScore}}</text></view>

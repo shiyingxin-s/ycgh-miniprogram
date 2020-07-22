@@ -2,7 +2,7 @@
 .con{
     position: absolute;
     text-align: center;
-    top: 180px;
+    top: 120px;
     left: 40rpx;
     right: 40rpx;
     padding:30rpx;

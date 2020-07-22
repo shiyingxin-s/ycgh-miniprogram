@@ -5,7 +5,9 @@ Component({
     resultData: Object,
   },
   data: {
-    height: app.globalData.whHeight - 120
+    height: app.globalData.whHeight - 120,
+    name: '',
+    professionName:''
   },
   methods: {
     submit(){

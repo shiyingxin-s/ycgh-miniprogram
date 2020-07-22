@@ -1,12 +1,12 @@
 <myHeader id="myHeader" navbar-data='{{nvabarData}}'></myHeader>
 <view class="answer-everyDay {{isSubmit ? 'resultBg':''}}" style='margin-top:{{height}}px'>
-  <comNoData text="暂无错题" wx:if="{{!data || !data.length}}" class="comNoData"/>
+  <comNoData text="暂无错题" wx:if="{{!data}}" class="comNoData"/>
   <block wx:else>
     <comAnswer wx:if="{{!isSubmit}}" 
-      type="exam-everyDay"
-      answerObj="{{dataList}}" 
+      type="wrong"
+      answerObj="{{data}}" 
       bind:submit="submit" />
-    <comResult wx:else resultData="{{resultData}}"  bind:ok="ok"/>
+    <!-- <comResult wx:else resultData="{{data}}"  bind:ok="ok"/> -->
   </block>
   <van-dialog id="van-dialog" />
 </view>

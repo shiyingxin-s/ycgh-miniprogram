@@ -45,6 +45,7 @@
         "pages/ranking/index",
         "pages/myStatistic/index",
         "pages/myExam/index",
+        "pages/examList/index",
         "pages/myWrong/index",
         "pages/exercises/index"
       ]

@@ -7,7 +7,7 @@
     left: 20rpx;
 }
 swiper{
-    padding:50rpx 30rpx;
+    padding:50rpx 30rpx 0;
     overflow: hidden;
 }
 .type{
@@ -44,9 +44,53 @@ swiper{
     margin-top: 150rpx;
     height: 45px;
 }
+
+.showResult{
+    border-top: 1px solid #ededed;
+    padding-top: 40rpx;
+}
+.showResult view{
+    color: #666666;
+    line-height: 80rpx;
+    font-size: 34rpx;
+    margin-left: 30rpx;
+}
+.my text{
+    color: #FF4536;
+}
+.right text{
+    color: #333333;
+}
+
+
 .bottom-style{
     left: 30rpx;
     right: 30rpx;
     position: absolute;
-    bottom: 18px;
+    bottom: 12px;
+}
+.bottom-style .left{
+    color: #999999;
+    font-size: 30rpx;
+}
+.bottom-style .delete{
+    color: #999999;
+    font-size: 34rpx;
+}
+.bottom-style .right{
+    margin-top: 2px;
+    float: right;
+    color: #999999;
+}
+.bottom-style .right van-icon{
+    font-size: 36rpx;
+    vertical-align: -3px;
+} 
+.bottom-style .right .checked{
+    color: #7bc2bf;
+    margin-right: 5px;
+}   
+.bottom-style .right .clear{
+    color: #e0afaf;
+    margin:0 5px;
 }

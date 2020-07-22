@@ -1,6 +1,6 @@
 <wxs module="filter" src="../../../../util/filter.wxs"></wxs>
 <myHeader id="myHeader" navbar-data='{{nvabarData}}'></myHeader>
-<view class="ranking" style='margin-top:{{height}}px'>
+<view class="ranking {{data? 'rankBg': ''}}" style='margin-top:{{height}}px'>
   <comNoData text="暂无排名" wx:if="{{!data}}" class="comNoData"/>
   
   <block  wx:else>

@@ -1,4 +1,5 @@
 const app = getApp()
+import Dialog from '../../../../dist/dialog/dialog'
 const requestLib = require('../../../../api/request')
 var UserData = require('../../../../api/userData')
 const httpUrl = require('../../../../config')
@@ -43,12 +44,23 @@ Page({
       })
       return item
     })
-    let param = {
-      employeeId: UserData.get().id,
-      paperId: data.paperId,
-      data: listData
-    }
-    this.submitFun(param)
+    // let notDone =listData.filter(item=>item.Options.length === 0)
+    // if(notDone.length > 0){
+    //   common.showToast('你还有未答试题，不能交卷', 3000)
+    //   return
+    // }
+    Dialog.confirm({
+      title: '确认',
+      message: '确认交卷，本次成绩将会计入系统'
+    }).then(() => {
+      let param = {
+        employeeId: UserData.get().id,
+        paperId: data.paperId,
+        data: listData
+      }
+      this.submitFun(param)
+    }).catch(() => {
+    });
   },
   // 提交考试结果接口
   submitFun(data){
@@ -66,9 +78,12 @@ Page({
     function successFun(res){
       const resData = res.data
       if(resData && resData.code === 0){
-        this.setData({
+        resData.data['name'] =  UserData.get().name
+        resData.data['professionName'] = UserData.get().professionName
+        wxs.setData({
           isSubmit: true,
-          'nvabarData.title':'成绩单'
+          'nvabarData.title':'成绩单',
+          resultData: resData.data
         })
       } else {
         common.showToast(error.errMessage, 3000)
@@ -98,9 +113,10 @@ Page({
       const resData = res.data
       if(resData && resData.code === 0){
         resData.data.map(item=>{
-          item.Options.map(item=>{
-            item.myCheck = false
+          item.Options.map(n=>{
+            n.myCheck = false
           })
+          item.isDo = false
         })
         wxs.setData({
           dataList:resData.data

@@ -11,7 +11,7 @@
    <view class="items" >
       <view class="item {{type === 1? 'itembg':''}}" 
         bindtap="itemClick"
-        data-path="../../answer/pages/myExam/index"
+        data-path="../../answer/pages/examList/index"
         data-type="1">
         <text  class="iconfont iconwodekaoshi"  />
       </view>

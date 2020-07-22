@@ -1,4 +1,5 @@
 const app = getApp()
+import Dialog from '../../../../dist/dialog/dialog'
 const requestLib = require('../../../../api/request')
 var UserData = require('../../../../api/userData')
 const httpUrl = require('../../../../config')
@@ -16,6 +17,7 @@ Page({
         bgColor:'#f4424a' //导航背景色
       },
       dataList: [],
+      paperId: null,
       resultData:{},
       isSubmit: false,
    
@@ -30,12 +32,21 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function () {
-    common.showLoading()
-    this.getDataFun()
+  onLoad: function (options) {
+    if(options.id){
+      this.setData({
+        paperId:options.id
+      })
+      common.showLoading()
+      this.getDataFun()
+    } else {
+      common.showToast('获取试卷失败', 3000)
+      wx.navigateBack()
+    }
   },
   // 提交考试
   submit(e){
+    const wxs = this
     let data = {...e.detail}
     let listData = data.list.map(item=>{
       item.Options = item.Options.filter(n=>{
@@ -43,12 +54,18 @@ Page({
       })
       return item
     })
-    let param = {
-      employeeId: UserData.get().id,
-      paperId: data.paperId,
-      data: listData
-    }
-    this.submitFun(param)
+    Dialog.confirm({
+      title: '确认',
+      message: '确认交卷，本次成绩将会计入系统'
+    }).then(() => {
+      let param = {
+        employeeId: UserData.get().id,
+        paperId: wxs.data.paperId,
+        data: listData
+      }
+      wxs.submitFun(param)
+    }).catch(() => {
+    })
   },
   // 提交考试结果接口
   submitFun(data){
@@ -78,14 +95,15 @@ Page({
   },
 
 
-  // 获取每日十题状态
+  // 获取数据
   getDataFun() {
     const wxs = this
     let data = {
       employeeId: UserData.get().id,
+      paperId: wxs.data.paperId
     }
     requestLib.request({
-      url:  httpUrl.getEverDay,
+      url:  httpUrl.getExamDetail,
       method: 'post',
       data: data,
       success: successFun,
@@ -98,9 +116,10 @@ Page({
       const resData = res.data
       if(resData && resData.code === 0){
         resData.data.map(item=>{
-          item.Options.map(item=>{
-            item.myCheck = false
+          item.Options.map(n=>{
+            n.myCheck = false
           })
+          item.isDo = false
         })
         wxs.setData({
           dataList:resData.data

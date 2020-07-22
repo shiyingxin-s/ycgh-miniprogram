@@ -1,0 +1,9 @@
+{
+    "navigationBarTitleText": "",
+    "usingComponents": {
+      "myHeader": "../../components/header/header",
+      "van-button": "../../../../dist/button/index",
+      "van-icon": "../../../../dist/icon/index",
+      "van-dialog": "../../../dist/dialog/index"
+    }
+}

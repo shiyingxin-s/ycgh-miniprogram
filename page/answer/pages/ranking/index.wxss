@@ -7,8 +7,10 @@
     height: 252px;
 }
 .ranking{
-    background: #FF4536;
     height: 100%;
+}
+.rankindBg{
+    background: #FF4536;   
 }
 .section , .list{
     margin: 0 30rpx;

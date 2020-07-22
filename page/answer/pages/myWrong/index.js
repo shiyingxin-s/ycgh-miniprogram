@@ -15,7 +15,7 @@ Page({
         isBackPer: true, //不显示返回按钮,
         bgColor:'#f4424a' //导航背景色
       },
-      data: [],
+      data:'',
    
   },
   onShow: function () {
@@ -95,6 +95,12 @@ Page({
     function successFun(res){
       const resData = res.data
       if(resData && resData.code === 0){
+        resData.data.map(item=>{
+          item.Options.map(item=>{
+            item.myCheck = false
+          })
+          item.isDo = false
+        })
         wxs.setData({
           data:resData.data
         })

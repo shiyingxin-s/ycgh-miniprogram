@@ -1,7 +1,7 @@
 <myHeader id="myHeader" navbar-data='{{nvabarData}}'></myHeader>
 <view class="answer-everyDay {{isSubmit ? 'resultBg':''}}" style='margin-top:{{height}}px'>
   <comAnswer wx:if="{{!isSubmit}}" 
-    type="exam-everyDay"
+    type="exam"
     answerObj="{{dataList}}" 
     bind:submit="submit" />
   <comResult wx:else resultData="{{resultData}}"  bind:ok="ok"/>

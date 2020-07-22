@@ -17,14 +17,35 @@
           <van-checkbox use-icon-slot 
             wx:for="{{item.Options}}"
             wx:for-item="items"  wx:key="index"
-            name="{{item.Id + ','+ items.Id +',' + item.QuestionType}}">
+            name="{{item.Id + ','+ items.Id +',' + item.QuestionType +','+ item.isDo}}">
             <text class="iconfont {{items.myCheck? 'icondanxuan': 'icondanxuan1'}}"/>
             <text class="txt"> {{items.Name}}</text>
           </van-checkbox>
         </van-checkbox-group>
 
+        <!-- show 答案 -->
+        <block  wx:if="{{item.isDo && (type === 'wrong' || type === 'practice')}}">
+          <view class="showResult">
+            <view class="my">你的选择：
+              <text  wx:for="{{item.Options}}"
+                wx:for-item="myItem"  wx:key="index"
+                wx:if="{{myItem.myCheck}}">
+                {{myItem.Name}}
+              </text>
+            </view>
+            <view class="right">
+              <text   wx:for-item="rightItem"  wx:key="index"
+                wx:if="{{rightItem.IsCorrectAnswer}}">
+                {{rightItem.Name}}>
+              </text> 
+            </view>
+          </view>
+        </block>
+        <!-- show 答案 -->
+
         <van-button
-          wx:if="{{item.QuestionType === '多选题'}}"
+          wx:if="{{item.QuestionType === '多选题' && (type === 'wrong' || type === 'practice')}}"
+          data-id="{{item.id}}"
           class="btnOk"
           type="primary"
           block  
@@ -32,22 +53,34 @@
           size="large"
           color="#f4424a" 
           bindtap="okClick">确认答案</van-button>
+        <view  class="bottom-style" wx:if="{{answerObj.length}}">
+          <block wx:if="{{type === 'exam'}}">
+            <van-button
+              class="btnStyle"
+              type="primary"
+              block  
+              round
+              size="large"
+              color="#f4424a"
+              disabled="{{isShow}}"
+              loading="{{isShow}}"
+              loading-type="spinner"
+              loading-text="处理中..." 
+              bindtap="submit">交卷</van-button>
+          </block>
+          <block wx:elif="{{type === 'wrong' || type === 'practice'}}">
+              <text wx:if="{{type === 'wrong'}}" class="iconfont iconshanchu delete" bindtap="delete"
+                  data-index="{{index}}"
+                  data-id="{{item.Id}}"> 删除</text>
+              <view class="right">
+                <van-icon class="checked" name="checked" /><text>  0</text>
+                <van-icon class="clear" name="clear" /><text>  0</text>    
+              </view> 
+          </block>
+        </view>
       </view>
     </swiper-item>
   </swiper>
-  <view  class="bottom-style" wx:if="{{answerObj.length}}">
-     <van-button
-      class="btnStyle"
-      type="primary"
-      block  
-      round
-      size="large"
-      color="#f4424a"
-      disabled="{{isShow}}"
-      loading="{{isShow}}"
-      loading-type="spinner"
-      loading-text="注册中..." 
-      bindtap="submit">提交</van-button>
-  </view>
+ 
   <van-dialog id="van-dialog" />
 </view>

@@ -33,7 +33,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function () {
-   this.getDataFun()
+  //  this.getDataFun()
   },
 
   // 获取每日十题状态
@@ -57,6 +57,7 @@ Page({
        wxs.setData({
         resData:resData.data
        })
+       wxs.toPath()
       } else {
         common.showToast(error.errMessage, 3000)
       }
@@ -74,13 +75,16 @@ Page({
     }
   },
   toEveryDay(){
+    this.getDataFun()
+  },
+  toPath() {
     if(this.data.resData){
       common.showToast('今日任务已完成', 3000)
       return
     }
     wx.navigateTo({
       url:'../../answer/pages/everyDay/index'
-    })
+    })  
   }
 })
 

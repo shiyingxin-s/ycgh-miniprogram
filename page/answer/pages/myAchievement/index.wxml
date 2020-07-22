@@ -1,7 +1,7 @@
 <wxs module="filter" src="../../../../util/filter.wxs"></wxs>
 <myHeader id="myHeader" navbar-data='{{nvabarData}}'></myHeader>
 <view class="myAchievement" style='margin-top:{{height}}px'>
-  <comNoData text="暂无考试成绩" wx:if="{{data}}" class="comNoData"/>
+  <comNoData text="暂无考试成绩" wx:if="{{!data}}" class="comNoData"/>
 
   <view class="section" wx:else>
     <van-row class="items" gutter="20">
@@ -28,15 +28,15 @@
               <view  class="title">
                  <text class="iconfont iconlishichengji" /> {{item.title}}
               </view>
-              <view class="text"><text >专业类型：</text>{{item.professionName}}</view>
-              <view class="text"><text >答对题数：</text>{{item.rightCount}}题</view>
+              <view class="text"><text >专业：</text>{{item.professionName}}</view>
+              <view class="text"><text >答对：</text>{{item.rightCount}}题</view>
             </view>
             <view class="item-l">
               <view  class="text-view">
-                成绩：<text class="score">{{item.Score}}分</text>
+                成绩：<text class="score">{{item.score}}分</text>
               </view>
-              <view class="text"><text >答题时间：</text>{{item.examDate}}</view>
-              <view class="text"><text >答错题数：</text>{{item.wrongCount}}题</view>
+              <view class="text"><text >时间：</text>{{item.examDate}}</view>
+              <view class="text"><text >答错：</text>{{item.wrongCount}}题</view>
             </view>
           </view>
         </block>
