@@ -79,6 +79,7 @@ swiper{
 .bottom-style .delete{
     color: #999999;
     font-size: 34rpx;
+    left: 0;
 }
 .bottom-style .right{
     margin-top: 2px;

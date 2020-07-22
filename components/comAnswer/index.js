@@ -13,6 +13,8 @@ Component({
   data:{
     check:false,
     height: app.globalData.whHeight - 260,
+    right: 0,
+    wrong: 0
   },
   methods: {
     onChange(e) {
@@ -40,10 +42,30 @@ Component({
       this.setData({
         answerObj: itemList
       })
+      this.count()
     },
 
     // 统计对错 
-    
+    count() {
+      const wxs = this
+      wxs.setData({
+        wrong: 0,
+        right: 0
+      })
+      let doList = wxs.data.answerObj.filter(item=>!!item.isDo)
+      doList.map(item=>{
+        item.ok = item.Options.filter(n=>!!n.IsCorrectAnswer)
+        if(item.ok.filter(n2=>!n2.myCheck).length>0){
+          wxs.setData({
+            wrong: wxs.data.wrong+1
+          })
+        } else {
+          wxs.setData({
+            right: wxs.data.right+1
+          })
+        }
+      })
+    },
 
     submit(){
       let noDoList = this.data.answerObj.filter(n=>{

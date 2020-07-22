@@ -67,8 +67,8 @@
                   data-index="{{index}}"
                   data-id="{{item.Id}}"> 删除</text>
               <view class="right">
-                <van-icon class="checked" name="checked" /><text>  0</text>
-                <van-icon class="clear" name="clear" /><text>  0</text>    
+                <van-icon class="checked" name="checked" /><text> {{right}}</text>
+                <van-icon class="clear" name="clear" /><text>  {{wrong}}</text>    
               </view> 
           </block>
         </view>
