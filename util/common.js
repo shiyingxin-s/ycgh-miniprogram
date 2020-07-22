@@ -1,7 +1,7 @@
 const util = require('./util.js');
 
 let common = {
-  //获取token  openid  加密排列 eg: str = 'e96a8690-5d70-4eb5-b21d-d6ac4b8be448$&&993652c4407d-7616-47e6-8373-b7524262c297';
+  //获取token  
   encryptionToken:function (str) {
     util.sortBase64(str);
     var base = new util.sortBase64();

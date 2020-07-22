@@ -17,11 +17,11 @@ Page({
     isShow: false
   },
   onShow: function () {
-    if(!UserData.get() || !UserData.get().openid){
+    if(!UserData.get() || !UserData.get().openId){
       this.loginByCodeFun()
     } else {
       this.setData({
-        openId: UserData.get().openid
+        openId: UserData.get().openId
       })
     }
   },
