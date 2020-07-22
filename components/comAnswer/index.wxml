@@ -26,18 +26,12 @@
         <!-- show 答案 -->
         <block  wx:if="{{item.isDo && (type === 'wrong' || type === 'practice')}}">
           <view class="showResult">
-            <view class="my">你的选择：
-              <text  wx:for="{{item.Options}}"
-                wx:for-item="myItem"  wx:key="index"
-                wx:if="{{myItem.myCheck}}">
-                {{myItem.Name}}
-              </text>
+            <view class="my">你的选择：<text  wx:for="{{item.Options}}" 
+                class="{{myItem.myCheck && myItem.myCheck === myItem.IsCorrectAnswer ? 'text-3ad577' : 'text-red'}}"
+                wx:for-item="myItem"  wx:key="index"  wx:if="{{myItem.myCheck}}">{{myItem.Name}}</text>
             </view>
-            <view class="right">
-              <text   wx:for-item="rightItem"  wx:key="index"
-                wx:if="{{rightItem.IsCorrectAnswer}}">
-                {{rightItem.Name}}>
-              </text> 
+            <view class="right"> 正确答案：<text wx:for="{{item.Options}}" wx:for-item="rightItem"  wx:key="index"
+                wx:if="{{rightItem.IsCorrectAnswer}}"> {{rightItem.Name}}</text> 
             </view>
           </view>
         </block>

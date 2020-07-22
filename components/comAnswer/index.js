@@ -13,26 +13,15 @@ Component({
   data:{
     check:false,
     height: app.globalData.whHeight - 260,
-    showResult: true
   },
   methods: {
-  // 返回上一页面
-    _navback() {
-        wx.navigateBack()   
-    },
-  //返回到首页
-    _backhome() {
-      wx.switchTab({
-        url: '/pages/learnings/learning',
-      })
-    },
     onChange(e) {
       let eventData = e.detail
       var itemList = this.data.answerObj
       eventData.map(item=>{
         var strArray = item.split(',')
           itemList = this.data.answerObj.map(n1=>{
-            if(strArray[3] === 'false'){
+            if(strArray[3] === 'false' || this.data.type === 'exam'){
               if(n1.Id === strArray[0]){
                 n1.Options.map(n2=>{
                   if(n2.Id === strArray[1]){

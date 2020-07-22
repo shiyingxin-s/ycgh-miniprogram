@@ -55,8 +55,11 @@ swiper{
     font-size: 34rpx;
     margin-left: 30rpx;
 }
-.my text{
+.my .text-red{
     color: #FF4536;
+}
+.my .text-3ad577{
+    color: #3ad577;
 }
 .right text{
     color: #333333;
