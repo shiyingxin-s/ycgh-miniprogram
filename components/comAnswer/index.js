@@ -41,6 +41,10 @@ Component({
         answerObj: itemList
       })
     },
+
+    // 统计对错 
+    
+
     submit(){
       let noDoList = this.data.answerObj.filter(n=>{
           return !n.isDo

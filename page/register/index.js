@@ -20,11 +20,11 @@ Page({
   },
 
   onShow() {
-    if(!UserData || !UserData.get().openid){
+    if(!UserData || !UserData.get().openId){
       this.loginByCodeFun()
     } else {
       this.setData({
-        openId: UserData.get().openid
+        openId: UserData.get().openId
       })
     }
   },
@@ -33,7 +33,7 @@ Page({
       method: 'get',
       success: (res)=>{
         this.setData({
-          openId:res.openid
+          openId:res.openId
         })
       },
       fail: (error)=>{
