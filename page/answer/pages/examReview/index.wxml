@@ -1,0 +1,11 @@
+<myHeader id="myHeader" navbar-data='{{nvabarData}}'></myHeader>
+<view class="answer-everyDay" style='margin-top:{{height}}px'>
+  <comNoData text="暂无数据" wx:if="{{!data}}" class="comNoData"/>
+  <block wx:else>
+    <comAnswer wx:if="{{!isSubmit}}" 
+      type="review"
+      answerObj="{{data}}" 
+      bind:submit="submit" />
+  </block>
+  <van-dialog id="van-dialog" />
+</view>

@@ -16,6 +16,11 @@ Component({
     right: 0,
     wrong: 0
   },
+  attached: function () {
+    if(this.data.type === 'review'){
+      this.count()
+    }
+  },
   methods: {
     onChange(e) {
       let eventData = e.detail
@@ -42,7 +47,9 @@ Component({
       this.setData({
         answerObj: itemList
       })
-      this.count()
+      if(this.data.type !== 'review')(
+        this.count()
+      )
     },
 
     // 统计对错 

@@ -52,7 +52,10 @@ var config = {
     getExamList: `${host}/exam/getExamList`,
 
     // 获取试卷详情 getExamDetail
-    getExamDetail:`${host}/exam/getExamDetial`,// getExamDetial
+    getExamDetail: `${host}/exam/getExamDetial`,// getExamDetial
+
+    // 获取考试回顾
+    getRecordDetail: `${host}/exam/getRecordDetial`
 
 
 };

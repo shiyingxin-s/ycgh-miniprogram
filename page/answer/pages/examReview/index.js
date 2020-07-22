@@ -11,16 +11,12 @@ Page({
        // 组件所需的参数
        nvabarData: {
         showCapsule: 1, //是否显示左上角图标   1表示显示    0表示不显示
-        title: '我的成绩', //导航栏 中间的标题,
+        title: '考试回顾', //导航栏 中间的标题,
         isBackPer: true, //不显示返回按钮,
         bgColor:'#f4424a' //导航背景色
       },
-      pageIndex:1,
-      pageSize:10,
-      loadMore:false,
-
       data:'',
-      list: [],
+      paperId:''
    
   },
   onShow: function () {
@@ -33,69 +29,58 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function () {
-    // common.showLoading()
-    this._getList()
+  onLoad: function (options) {
+    if(options.id){
+      this.setData({
+        paperId:options.id
+      })
+      common.showLoading()
+      this.getDataFun()
+    } else {
+      common.showToast('获取试卷失败', 3000)
+      wx.navigateBack()
+    }
   },
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-    let pageIndex = this.data.pageIndex
-    this.setData({
-      loadMore: true,
-      pageIndex: ++pageIndex
-    })
-    this._getList()
-  },
-  // 
-  _getList() {
+  // 获取
+  getDataFun() {
     const wxs = this
     let data = {
       employeeId: UserData.get().id,
-      pageIndex: wxs.data.pageIndex,
-      pageSize: wxs.data.pageSize
+      paperId: wxs.data.paperId
     }
     requestLib.request({
-      url:  httpUrl.getExamRecords,
+      url:  httpUrl.getRecordDetail,
       method: 'post',
       data: data,
       success: successFun,
       fail: (error)=>{
-        // common.hideLoading()
+        common.hideLoading()
         common.showToast(error.errMessage, 3000)
       }
     })
     function successFun(res){
       const resData = res.data
       if(resData && resData.code === 0){
-        wxs.setData({
-          data: {...resData.data}
+        resData.data.map(item=>{
+          item.isDo = true
         })
-        if(wxs.data.loadMore){
-          let list = wxs.data.list
-          list.push(...resData.data.records)
-          wxs.setData({
-            list: list,
-            loadMore:false
-          })
-        }else{
-          let list = resData.data.records
-          wxs.setData({
-            list: list
-          })
-        }
+        wxs.setData({
+          data:resData.data
+        })
       } else {
         common.showToast(error.errMessage, 3000)
       }
-      // common.hideLoading()
+      common.hideLoading()
     }
   },
-  gotoDetail(e){
-    wx.navigateTo({
-      url:'../examReview/index?id='+ e.currentTarget.dataset.id
-    }) 
+  itemClick(e){
+    this.setData({
+      type : parseInt(e.currentTarget.dataset.type)
+    })
   },
+  ok(){
+    wx.navigateBack() 
+  }
   
 })
 

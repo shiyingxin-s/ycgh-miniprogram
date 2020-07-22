@@ -83,9 +83,10 @@ Page({
     function successFun(res){
       const resData = res.data
       if(resData && resData.code === 0){
-        this.setData({
+        wxs.setData({
           isSubmit: true,
-          'nvabarData.title':'成绩单'
+          'nvabarData.title':'成绩单',
+          resultData: resData.data
         })
       } else {
         common.showToast(error.errMessage, 3000)

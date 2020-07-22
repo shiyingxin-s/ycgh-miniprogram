@@ -51,7 +51,7 @@ swiper{
 }
 .showResult view{
     color: #666666;
-    line-height: 80rpx;
+    line-height: 59rpx;
     font-size: 34rpx;
     margin-left: 30rpx;
 }

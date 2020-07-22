@@ -47,7 +47,8 @@
         "pages/myExam/index",
         "pages/examList/index",
         "pages/myWrong/index",
-        "pages/exercises/index"
+        "pages/exercises/index",
+        "pages/examReview/index"
       ]
     },
     {

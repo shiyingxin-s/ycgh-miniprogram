@@ -23,7 +23,7 @@
     <view class="list">
       <block wx:if="{{list.length>0}}">
         <block wx:for="{{list}}" wx:key="*this">
-          <view class="item clearfix" bindtap="gotoDetail"  data-id="{{item.Id}}">
+          <view class="item clearfix" bindtap="gotoDetail"  data-id="{{item.paperId}}">
             <view class="item-l">
               <view  class="title">
                  <text class="iconfont iconlishichengji" /> {{item.title}}
