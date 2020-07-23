@@ -15,6 +15,7 @@ Page({
         isBackPer: true, //不显示返回按钮,
         bgColor:'#f4424a' //导航背景色
       },
+      id:'',
       active: 0,
       paramData:{
         employeeName:'',
@@ -37,7 +38,7 @@ Page({
   onLoad: function (options) {
     if(options.id){
       this.setData({
-        paperId:options.id,
+        id:options.id,
         // 'nvabarData.title':'详情'
       })
       common.showLoading()

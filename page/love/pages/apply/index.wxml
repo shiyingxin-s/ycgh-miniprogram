@@ -1,6 +1,6 @@
 <myHeader id="myHeader" navbar-data='{{nvabarData}}'></myHeader>
 <view class="apply" style='margin-top:{{height}}px'>
-    <view class="header">
+    <view class="header" wx:if="{{!id}}">
       <view class="mySteps">
         <view class="top">
           <text class="circle {{active >= 0 ? 'active': ''}}">1</text>
@@ -16,8 +16,8 @@
         </view>
       </view>
     </view>
-    <view class="tips"><van-icon class="icon" name="warning" /> 务必确保您填写的信息真实，否则会影响您的申请进度</view>
-    <view class="form-box form0" wx:if="{{active === 0}}">
+    <view class="tips" wx:if="{{!id}}"><van-icon class="icon" name="warning" /> 务必确保您填写的信息真实，否则会影响您的申请进度</view>
+    <view class="form-box form0 {{id!== ''? 'margin-top':''}}" wx:if="{{active === 0 || id}}">
       <view class="lable">求助人姓名</view>
       <van-field value="{{ paramData.employeeName }}" 
         class="input-box" 
@@ -67,7 +67,7 @@
         bind:change="onChange"
       />
     </view>
-    <view class="form-box form1" wx:if="{{active === 1}}">
+    <view class="form-box form1  {{id!== ''? 'margin-top':''}}" wx:if="{{active === 1 || id}}">
       <view class="lable">求助标题</view>
       <van-field value="{{ paramData.employeeName }}" 
         class="input-box" 
@@ -85,14 +85,14 @@
         bind:change="onChange"
       />
     </view>
-    <view class="form-box form2" wx:if="{{active === 2}}">
+    <view class="form-box form2  {{id!== ''? 'margin-top':''}}" wx:if="{{active === 2 || id }}">
       <view class="lable">申请书照片上传</view>
       <view >
         
       </view>
     </view>
     <van-button
-        wx:if="{{active >=1}}"
+        wx:if="{{active >=1 && !id}}"
         class="btnStyle {{active >=1 ?'width':''}}"
         block  
         round
@@ -104,6 +104,7 @@
         loading-text="注册中..." 
         bindtap="prev">上一步</van-button>
     <van-button
+        wx:if="{{!id}}"
         class="btnStyle {{active >=1 ?'width':''}}"
         type="primary"
         block  
@@ -115,4 +116,17 @@
         loading-type="spinner"
         loading-text="注册中..." 
         bindtap="next">{{active === 2?'提交':'下一步'}}</van-button>
+      <van-button
+        wx:if="{{id}}"
+        class="btnStyle"
+        type="primary"
+        block  
+        round
+        size="large"
+        color="#f4424a"
+        disabled="{{isShow}}"
+        loading="{{isShow}}"
+        loading-type="spinner"
+        loading-text="注册中..." 
+        bindtap="next">撤销申请</van-button>
 </view>

@@ -1,6 +1,9 @@
-
+.apply{
+    height: 100%;
+    padding: 30rpx 0 40rpx;
+}
 .header .mySteps .top{
-    padding:50rpx 50rpx 20rpx;
+    padding:25rpx 50rpx 20rpx;
 }
 .header .mySteps .top , .header .mySteps .bottom{
     color: #808080;
@@ -84,4 +87,7 @@
     margin: 15px 30rpx;
     height: 45px;
     width: calc((100% - 120rpx) / 2);
+}
+.margin-top{
+    margin-bottom: 30rpx;
 }
