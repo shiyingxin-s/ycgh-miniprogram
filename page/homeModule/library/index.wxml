@@ -1,0 +1,5 @@
+<view class="page-body">
+  <view class="page-section page-section-gap">
+    <web-view src="https://content.dzzgsw.com/website/weixin/visit.html?appid=sxyc&house="></web-view>
+  </view>
+</view>

@@ -32,6 +32,11 @@ Page({
     wx.navigateTo({
       url: toPath
     })
+  },
+  toLibrary(){
+    wx.navigateTo({
+      url: '../../homeModule/library/index'
+    })
   }
 })
 

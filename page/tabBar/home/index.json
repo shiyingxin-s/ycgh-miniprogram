@@ -1,5 +1,5 @@
 {
-    "navigationBarTitleText": "",
+    "navigationBarTitleText": "职工书屋",
     "usingComponents":{
       "myHeader": "../../components/header/header",
       "van-button":"../../../dist/button/index",

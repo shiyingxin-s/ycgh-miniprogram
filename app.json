@@ -7,7 +7,8 @@
     "page/forgetPwd/index",
     "page/tabBar/my/index",
     "page/homeModule/selectProfession/index",
-    "page/homeModule/answer/index"
+    "page/homeModule/answer/index",
+    "page/homeModule/library/index"
   ],
   "window": {
     "navigationBarTextStyle": "white",

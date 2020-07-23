@@ -1,7 +1,7 @@
 <!--comAnswer.wxml-->
 <view class='comAnswer'>
   <swiper class="swiper clearfix" style="height:{{height}}rpx">
-    <swiper-item wx:for="{{answerObj}}" wx:key="index">
+    <swiper-item wx:for="{{answerObj}}" wx:key="index" style="overflow-y: auto;">
       <view class="item">
         <view >
           <text class="iconfont iconxuanzeti2">
