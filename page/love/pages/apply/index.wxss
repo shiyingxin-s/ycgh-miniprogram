@@ -1,5 +1,4 @@
 .apply{
-    height: 100%;
     padding: 30rpx 0 40rpx;
 }
 .header .mySteps .top{
