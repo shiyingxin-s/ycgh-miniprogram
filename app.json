@@ -8,7 +8,8 @@
     "page/tabBar/my/index",
     "page/homeModule/selectProfession/index",
     "page/homeModule/answer/index",
-    "page/homeModule/library/index"
+    "page/homeModule/library/index",
+    "page/homeModule/loveHelp/index"
   ],
   "window": {
     "navigationBarTextStyle": "white",
@@ -50,6 +51,13 @@
         "pages/myWrong/index",
         "pages/exercises/index",
         "pages/examReview/index"
+      ]
+    },
+    {
+      "root": "page/love/",
+      "pages": [
+        "pages/apply/index",
+        "pages/applyRecord/index"
       ]
     },
     {

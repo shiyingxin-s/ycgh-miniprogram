@@ -37,6 +37,11 @@ Page({
     wx.navigateTo({
       url: '../../homeModule/library/index'
     })
+  },
+  toLoveHelp(){
+    wx.navigateTo({
+      url: '../../homeModule/loveHelp/index'
+    })
   }
 })
 

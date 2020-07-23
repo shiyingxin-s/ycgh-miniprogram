@@ -111,6 +111,20 @@
 					"id": -1,
 					"name": "page/answer/pages/examList/index",
 					"pathName": "page/answer/pages/examList/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "page/homeModule/loveHelp/index",
+					"pathName": "page/homeModule/loveHelp/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "page/love/pages/apply/index",
+					"pathName": "page/love/pages/apply/index",
 					"scene": null
 				}
 			]

@@ -1,0 +1,118 @@
+<myHeader id="myHeader" navbar-data='{{nvabarData}}'></myHeader>
+<view class="apply" style='margin-top:{{height}}px'>
+    <view class="header">
+      <view class="mySteps">
+        <view class="top">
+          <text class="circle {{active >= 0 ? 'active': ''}}">1</text>
+          <text class="line {{active >= 1 ? 'active': ''}}"></text>
+          <text class="circle {{active >= 1 ? 'active': ''}}">2</text>
+          <text class="line {{active >= 2 ? 'active': ''}}"></text>
+          <text class="circle {{active >= 2 ? 'active': ''}}">3</text>
+        </view>
+        <view class="bottom clearfix">
+          <view class="text {{active >= 0 ? 'active': ''}}">基本信息</view>
+          <view class="text {{active >= 1 ? 'active': ''}}">情况说明</view>
+          <view class="text {{active >= 2 ? 'active': ''}}">提交申请书</view>
+        </view>
+      </view>
+    </view>
+    <view class="tips"><van-icon class="icon" name="warning" /> 务必确保您填写的信息真实，否则会影响您的申请进度</view>
+    <view class="form-box form0" wx:if="{{active === 0}}">
+      <view class="lable">求助人姓名</view>
+      <van-field value="{{ paramData.employeeName }}" 
+        class="input-box" 
+        placeholder="请输入姓名"
+        border="{{ false }}"
+        clearable
+        bind:change="onChange"
+      />
+      <view class="lable">工号</view>
+      <van-field value="{{ paramData.employeeCode }}"
+        class="input-box"  
+        placeholder="请输入工号"
+        border="{{ false }}"
+        clearable
+        bind:change="onChange"
+      />
+      <view class="lable">部门</view>
+      <van-field value="{{ paramData.departName }}"
+        class="input-box"  
+        placeholder="请输入部门"
+        border="{{ false }}"
+        clearable
+        bind:change="onChange"
+      />
+      <view class="lable">员工类型</view>
+      <van-field value="{{ paramData.employeeType }}"
+        class="input-box"  
+        placeholder="请输入员工类型"
+        border="{{ false }}"
+        clearable
+        bind:change="onChange"
+      />
+      <view class="lable">身份证号</view>
+      <van-field value="{{ paramData.idNo }}"
+        class="input-box"  
+        placeholder="请填写身份证号"
+        border="{{ false }}"
+        clearable
+        bind:change="onChange"
+      />
+      <view class="lable">手机号</view>
+      <van-field value="{{ paramData.phone }}"
+        class="input-box"  
+        placeholder="请填写手机号"
+        border="{{ false }}"
+        clearable
+        bind:change="onChange"
+      />
+    </view>
+    <view class="form-box form1" wx:if="{{active === 1}}">
+      <view class="lable">求助标题</view>
+      <van-field value="{{ paramData.employeeName }}" 
+        class="input-box" 
+        placeholder="请输入求助标题"
+        border="{{ false }}"
+        clearable
+        bind:change="onChange"
+      />
+      <view class="lable">求助情况说明</view>
+      <van-field value="{{ paramData.employeeCode }}"
+        class="input-box textarea"
+        placeholder="简单描述个人困难情况，及申请原因"
+        border="{{ false }}"
+        type="textarea"
+        bind:change="onChange"
+      />
+    </view>
+    <view class="form-box form2" wx:if="{{active === 2}}">
+      <view class="lable">申请书照片上传</view>
+      <view >
+        
+      </view>
+    </view>
+    <van-button
+        wx:if="{{active >=1}}"
+        class="btnStyle {{active >=1 ?'width':''}}"
+        block  
+        round
+        plain
+        size="large"
+        disabled="{{isShow}}"
+        loading="{{isShow}}"
+        loading-type="spinner"
+        loading-text="注册中..." 
+        bindtap="prev">上一步</van-button>
+    <van-button
+        class="btnStyle {{active >=1 ?'width':''}}"
+        type="primary"
+        block  
+        round
+        size="large"
+        color="#f4424a"
+        disabled="{{isShow}}"
+        loading="{{isShow}}"
+        loading-type="spinner"
+        loading-text="注册中..." 
+        bindtap="next">{{active === 2?'提交':'下一步'}}</van-button>
+</view>

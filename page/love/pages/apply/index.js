@@ -1,0 +1,98 @@
+const app = getApp()
+const requestLib = require('../../../../api/request')
+var UserData = require('../../../../api/userData')
+const httpUrl = require('../../../../config')
+const common = require('../../../../util/common.js')
+
+Page({
+  data: {
+     // 此页面 页面内容距最顶部的距离
+     height: app.globalData.navHeight * 2 + 19 ,
+       // 组件所需的参数
+       nvabarData: {
+        showCapsule: 1, //是否显示左上角图标   1表示显示    0表示不显示
+        title: '爱心救助', //导航栏 中间的标题,
+        isBackPer: true, //不显示返回按钮,
+        bgColor:'#f4424a' //导航背景色
+      },
+      active: 0,
+      paramData:{
+        employeeName:'',
+        employeeCode:'',
+        departName:'',
+        employeeType:'',
+        idNo:'',
+        phone:'',
+
+      },
+      dataList: [],
+      listQuery:{
+        StatusName:'',
+      }
+   
+  },
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+    if(options.id){
+      this.setData({
+        paperId:options.id,
+        // 'nvabarData.title':'详情'
+      })
+      common.showLoading()
+      this.getDataFun()
+    }
+  },
+  onShow: function () {
+    if(!UserData || !UserData.get().token ){
+      wx.redirectTo({
+        url: '../../login/index'
+      })
+    }
+  },
+  // 获取数据
+  getDataFun(param) {
+    const wxs = this
+    let data = {
+      employeeId: UserData.get().id,
+    }
+    requestLib.request({
+      url:  httpUrl.getExamList,
+      method: 'post',
+      data: data,
+      success: successFun,
+      fail: (error)=>{
+        common.hideLoading()
+        common.showToast(error.errMessage, 3000)
+      }
+    })
+    function successFun(res){
+      const resData = res.data
+      if(resData && resData.code === 0){
+        wxs.setData({
+          paramData:resData.data
+        })
+      } else {
+        common.showToast(error.errMessage, 3000)
+      }
+      common.hideLoading()
+    }
+  },
+  next() {
+    const wxs = this
+    if(wxs.data.active === 2){
+      return
+    }
+    wxs.setData({
+      active:wxs.data.active+1
+    })
+  },
+  prev(){
+    const wxs = this
+    wxs.setData({
+      active:wxs.data.active - 1
+    })
+  }
+})
+

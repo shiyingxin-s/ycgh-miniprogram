@@ -27,7 +27,7 @@
       <view class="item item2bg">
         <text  class="iconfont iconzhigongfengcai"  />
       </view>
-      <view class="item item3bg">
+      <view class="item item3bg" bindtap="toLoveHelp">
         <text  class="iconfont iconaixinjiuzhu"  />
       </view>
     </view>

@@ -1,0 +1,23 @@
+<myHeader id="myHeader" navbar-data='{{nvabarData}}'></myHeader>
+<view class="applyRecord" style='margin-top:{{height}}px'>
+    <view class="list">
+      <view class="list-l" wx:for="{{dataList}}" wx:key="index" 
+        data-id= '{{item.Id}}'
+        data-text='{{item.StatusName}}'
+        data-num ='{{item.QuestionCount}}'
+        bindtap="itemClick">
+        <view class="line {{item.StatusName === '已完成'?'bg-2be3b9':item.StatusName === '待完成'?'bg-fec83d':'bg-red'}}"></view>
+        <view >
+          <text class="title">{{item.Name}}</text>
+          <van-button type="primary" round
+            class="right"
+            color="{{item.StatusName === '已完成'?'#2be3b9':item.StatusName === '待完成'?'#fec83d':'#f4424a'}}"
+            size="mini">{{item.StatusName}}</van-button>
+        </view>
+        <view class="bottom">
+          <text class="text">题数：<text class="num">{{item.QuestionCount}}</text></text>
+          <text class="text right">参加人数：<text class="num">{{item.ExamCount}}</text></text>
+        </view>
+      </view>
+    </view>
+</view>
