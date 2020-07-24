@@ -7,18 +7,16 @@
         data-text='{{item.StatusText}}'
         data-num ='{{item.QuestionCount}}'
         bindtap="itemClick">
-        <view class="line {{item.StatusText === '已完成'?'bg-2be3b9':item.StatusText === '待完成'?'bg-fec83d':item.StatusText === '已撤销'?'bg-3b3b3':'bg-red'}}"></view>
-        <view >
+        <view class="line {{item.StatusText === '待审核'?'bg-fec83d':item.StatusText === '待审批'?'bg-F89C00':item.StatusText === '已审批' || item.StatusText === '已审核'?'bg-2be3b9':item.StatusText === '已撤销'?'bg-3b3b3':'bg-red'}}"></view>
+        <view  class="content">
           <text class="title">{{item.Title}}</text>
           <view class="text">{{item.Statement}}</view>
-          <van-button type="primary" round
-            class="right"
-            color="{{item.StatusText === '已完成'?'#2be3b9':item.StatusText === '待完成'?'#fec83d':item.StatusText === '已撤销'?'#b3b3b3':'#f4424a'}}"
-            size="mini">{{item.StatusText}}</van-button>
         </view>
         <view class="bottom">
-          <text class="text">题数：<text class="num">{{item.QuestionCount}}</text></text>
-          <text class="text right">参加人数：<text class="num">{{item.ExamCount}}</text></text>
+           <van-button type="primary" round class="btn-style"
+            color="{{item.StatusText === '待审核'?'#fec83d':item.StatusText === '待审批'?'#F89C00':item.StatusText === '已审批' || item.StatusText === '已审核'?'#2be3b9':item.StatusText === '已撤销'?'#b3b3b3':'#f4424a'}}"
+            size="mini">{{item.StatusText}}</van-button>
+          <text class="text right">申请时间：{{item.CreateTime}}</text>
         </view>
       </view>
     </view>

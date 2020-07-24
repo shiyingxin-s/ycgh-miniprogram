@@ -125,6 +125,13 @@
 					"id": -1,
 					"name": "page/love/pages/apply/index",
 					"pathName": "page/love/pages/apply/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "page/love/pages/applyRecord/index",
+					"pathName": "page/love/pages/applyRecord/index",
 					"scene": null
 				}
 			]
