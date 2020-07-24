@@ -24,23 +24,23 @@
         placeholder="请输入姓名"
         border="{{ false }}"
         clearable
-        bind:change="onChange"
+        disabled
       />
       <view class="lable">工号</view>
-      <van-field value="{{ paramData.employeeCode }}"
+      <van-field value="{{ paramData.EmployeeId }}"
         class="input-box"  
         placeholder="请输入工号"
         border="{{ false }}"
         clearable
-        bind:change="onChange"
+        disabled
       />
-      <view class="lable">部门</view>
-      <van-field value="{{ paramData.departName }}"
+      <view class="lable" wx:if="{{paramData.departName}}">部门</view>
+      <van-field  wx:if="{{paramData.departName}}" value="{{ paramData.departName }}"
         class="input-box"  
         placeholder="请输入部门"
         border="{{ false }}"
         clearable
-        bind:change="onChange"
+        disabled
       />
       <view class="lable">员工类型</view>
       <van-field value="{{ paramData.employeeType }}"
@@ -48,48 +48,64 @@
         placeholder="请输入员工类型"
         border="{{ false }}"
         clearable
-        bind:change="onChange"
+        disabled
       />
       <view class="lable">身份证号</view>
-      <van-field value="{{ paramData.idNo }}"
+      <van-field value="{{ paramData.IdCard }}"
         class="input-box"  
         placeholder="请填写身份证号"
         border="{{ false }}"
         clearable
-        bind:change="onChange"
+        disabled="{{id}}"
+        bind:input="inputIdCard"
       />
       <view class="lable">手机号</view>
-      <van-field value="{{ paramData.phone }}"
+      <van-field value="{{ paramData.Phone }}"
         class="input-box"  
         placeholder="请填写手机号"
         border="{{ false }}"
+        disabled="{{id}}"
         clearable
-        bind:change="onChange"
+        bind:input="inputPhone"
       />
     </view>
     <view class="form-box form1  {{id!== ''? 'margin-top':''}}" wx:if="{{active === 1 || id}}">
       <view class="lable">求助标题</view>
-      <van-field value="{{ paramData.employeeName }}" 
+      <van-field value="{{ paramData.Title }}" 
         class="input-box" 
         placeholder="请输入求助标题"
         border="{{ false }}"
+        disabled="{{id}}"
         clearable
-        bind:change="onChange"
+        bind:input="inputTitle"
       />
       <view class="lable">求助情况说明</view>
-      <van-field value="{{ paramData.employeeCode }}"
+      <van-field value="{{ paramData.Statement }}"
         class="input-box textarea"
         placeholder="简单描述个人困难情况，及申请原因"
         border="{{ false }}"
         type="textarea"
-        bind:change="onChange"
+        disabled="{{id}}"
+        bind:input="inputDesc"
       />
     </view>
     <view class="form-box form2  {{id!== ''? 'margin-top':''}}" wx:if="{{active === 2 || id }}">
       <view class="lable">申请书照片上传</view>
-      <view >
-        
-      </view>
+      <van-row class="items" gutter="20">
+        <van-col span="12" class="item" wx:for="{{ paramData.imageList }}" wx:key="index">
+          <view class="item">
+            <view class="delete" wx:if="{{!id}}" data-index="{{index}}" bindtap="deleteBtn">
+              <van-icon name="clear" />
+            </view>
+            <image  src="{{item}}" />
+          </view>
+        </van-col>
+        <van-col span="12" class="item" wx:if="{{ paramData.imageList.length < 4}}" bindtap="selectImg">
+          <view class="item">
+            <image class="img" src="/image/uploadImg.png" />
+          </view>
+        </van-col>
+       </van-row>      
     </view>
     <van-button
         wx:if="{{active >=1 && !id}}"
@@ -101,7 +117,6 @@
         disabled="{{isShow}}"
         loading="{{isShow}}"
         loading-type="spinner"
-        loading-text="注册中..." 
         bindtap="prev">上一步</van-button>
     <van-button
         wx:if="{{!id}}"
@@ -114,10 +129,10 @@
         disabled="{{isShow}}"
         loading="{{isShow}}"
         loading-type="spinner"
-        loading-text="注册中..." 
+        loading-text="处理中..." 
         bindtap="next">{{active === 2?'提交':'下一步'}}</van-button>
       <van-button
-        wx:if="{{id}}"
+        wx:if="{{id && paramData.StatusText === '待审核'}}"
         class="btnStyle"
         type="primary"
         block  
@@ -127,6 +142,6 @@
         disabled="{{isShow}}"
         loading="{{isShow}}"
         loading-type="spinner"
-        loading-text="注册中..." 
-        bindtap="next">撤销申请</van-button>
+        loading-text="撤销申请..." 
+        bindtap="cancel">撤销申请</van-button>
 </view>

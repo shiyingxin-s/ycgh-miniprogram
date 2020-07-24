@@ -24,6 +24,10 @@ form{
     clear: both;
     height: 0;
 }
+.comNoData{
+  line-height: 500rpx;
+  font-size: 50rpx;
+}
 /* lib */
 .strong{
   font-weight: bold;

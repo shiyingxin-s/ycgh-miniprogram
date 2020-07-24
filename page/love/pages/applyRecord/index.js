@@ -37,7 +37,7 @@ Page({
       employeeId: UserData.get().id,
     }
     requestLib.request({
-      url:  httpUrl.getExamList,
+      url:  httpUrl.getAidList,
       method: 'post',
       data: data,
       success: successFun,
@@ -50,7 +50,7 @@ Page({
       const resData = res.data
       if(resData && resData.code === 0){
         wxs.setData({
-          dataList:data
+          dataList:resData.data
         })
       } else {
         common.showToast(error.errMessage, 3000)

@@ -52,6 +52,9 @@ color: #333333;
 .bg-fec83d{
     background: #fec83d;
 }
+.bg-3b3b3{
+    background: #b3b3b3;
+}
 .color-red{
     color: #f4424a;
 }
@@ -60,4 +63,7 @@ color: #333333;
 }
 .color-fec83d{
     color: #fec83d;
+}
+.color-b3b3b3{
+    color: #b3b3b3;
 }

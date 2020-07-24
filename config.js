@@ -55,8 +55,17 @@ var config = {
     getExamDetail: `${host}/exam/getExamDetial`,// getExamDetial
 
     // 获取考试回顾
-    getRecordDetail: `${host}/exam/getRecordDetial`
+    getRecordDetail: `${host}/exam/getRecordDetial`,
+    
+    //aid/getAidList
+    getAidList: `${host}/aid/getAidList`,
 
+    // 提交
+    submitAid: `${host}/aid/submitAid`,
+    
+    getAidDetial: `${host}/aid/getAidDetial`,
+
+    revokeAid: `${host}/aid/revokeAid`
 
 };
 

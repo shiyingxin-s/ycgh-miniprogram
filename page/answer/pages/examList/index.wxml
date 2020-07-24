@@ -26,7 +26,8 @@
         bindtap="search"
         size="mini">已完成</van-button>
     </view>
-    <view class="list">
+    <comNoData text="暂无数据" wx:if="{{!dataList}}" class="comNoData"/>
+    <view class="list" wx:else>
       <view class="list-l" wx:for="{{dataList}}" wx:key="index" 
         data-id= '{{item.Id}}'
         data-text='{{item.StatusName}}'

@@ -1,18 +1,20 @@
 <myHeader id="myHeader" navbar-data='{{nvabarData}}'></myHeader>
 <view class="applyRecord" style='margin-top:{{height}}px'>
-    <view class="list">
+    <comNoData text="暂无数据" wx:if="{{!dataList}}" class="comNoData"/>
+    <view class="list" wx:else>
       <view class="list-l" wx:for="{{dataList}}" wx:key="index" 
         data-id= '{{item.Id}}'
-        data-text='{{item.StatusName}}'
+        data-text='{{item.StatusText}}'
         data-num ='{{item.QuestionCount}}'
         bindtap="itemClick">
-        <view class="line {{item.StatusName === '已完成'?'bg-2be3b9':item.StatusName === '待完成'?'bg-fec83d':'bg-red'}}"></view>
+        <view class="line {{item.StatusText === '已完成'?'bg-2be3b9':item.StatusText === '待完成'?'bg-fec83d':item.StatusText === '已撤销'?'bg-3b3b3':'bg-red'}}"></view>
         <view >
-          <text class="title">{{item.Name}}</text>
+          <text class="title">{{item.Title}}</text>
+          <view class="text">{{item.Statement}}</view>
           <van-button type="primary" round
             class="right"
-            color="{{item.StatusName === '已完成'?'#2be3b9':item.StatusName === '待完成'?'#fec83d':'#f4424a'}}"
-            size="mini">{{item.StatusName}}</van-button>
+            color="{{item.StatusText === '已完成'?'#2be3b9':item.StatusText === '待完成'?'#fec83d':item.StatusText === '已撤销'?'#b3b3b3':'#f4424a'}}"
+            size="mini">{{item.StatusText}}</van-button>
         </view>
         <view class="bottom">
           <text class="text">题数：<text class="num">{{item.QuestionCount}}</text></text>
