@@ -31,7 +31,8 @@
 }
 .list-l .right{
     float: right;
-    line-height: 70rpx;
+    font-size: 28rpx !important;
+    line-height: 74rpx;
 }
 .list-l .text{
     color: #999999;
