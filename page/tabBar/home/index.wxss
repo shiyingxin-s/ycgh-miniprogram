@@ -97,3 +97,28 @@
     font-size: 80px;
     line-height: 208rpx;
 }
+.heartbeat {
+    animation: heartbeat 1.2s linear 1s infinite;    
+}
+@keyframes heartbeat {
+    0% {
+        -webkit-transform: scale(1);
+        transform: scale(1)
+    }
+    14% {
+        -webkit-transform: scale(1..06);
+        transform: scale(1.06)
+    }
+    28% {
+        -webkit-transform: scale(1);
+        transform: scale(1)
+    }
+    42% {
+        -webkit-transform: scale(1.06);
+        transform: scale(1.06)
+    }
+    70% {
+        -webkit-transform: scale(1);
+        transform: scale(1)
+    }
+}

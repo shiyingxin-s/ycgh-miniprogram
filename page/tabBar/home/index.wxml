@@ -11,7 +11,7 @@
     <view class="item clearfix">
       <view class="left" bindtap="toAnswer">
         <text  class="iconfont iconwangshanglianbing"  />
-        <view class="top-view">
+        <view class="top-view heartbeat">
             <view >每日</view>
             <text >十题</text>
         </view>
