@@ -139,6 +139,13 @@
 					"id": -1,
 					"name": "page/tabBar/my/index",
 					"pathName": "page/tabBar/my/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "page/my/pages/msg/index",
+					"pathName": "page/my/pages/msg/index",
 					"scene": null
 				}
 			]

@@ -1,0 +1,10 @@
+<myHeader id="myHeader" navbar-data='{{nvabarData}}'></myHeader>
+<view class="msgPage" style='margin-top:{{height}}px'>
+  
+  <van-collapse class="item" value="{{ activeNames }}" bind:change="onChange" wx:for="{{list}}" wx:key="index">
+    <van-collapse-item class="item-l" title="{{item.Title}}" name="{{item.Id}}" value="{{item.Id}}">
+      {{item.Content}}
+    </van-collapse-item>
+  </van-collapse>
+ 
+</view>

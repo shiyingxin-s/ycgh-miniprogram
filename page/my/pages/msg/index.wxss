@@ -1,0 +1,6 @@
+.item{
+  margin-top: 30rpx;
+}
+.item-l .van-cell{
+  margin-top: 30rpx;
+}

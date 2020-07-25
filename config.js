@@ -71,7 +71,11 @@ var config = {
     getPersonalInfo:`${host}/employee/getPersonalInfo`,
 
     // 保存 微信头像
-    saveWxInfo:`${host}/employee/saveWxInfo`
+    saveWxInfo:`${host}/employee/saveWxInfo`,
+
+    //
+    getMessages:`${host}/employee/getMessages`,
+
 
 };
 

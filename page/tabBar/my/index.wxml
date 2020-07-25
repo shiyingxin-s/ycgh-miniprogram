@@ -22,7 +22,9 @@
         </view>
     </view>
     <view class="section">
-        <van-cell class="cell" title="消息中心">
+        <van-cell class="cell" title="消息中心"
+            data-path="../../my/pages/msg/index"
+            bindtap="toPath">
             <text slot="icon" class="iconfont iconxiaoxi"></text>
             <view class="cell-r" slot="right-icon">
                 <view class="unRead">{{data.unRead}}</view>

@@ -1,0 +1,17 @@
+{
+    "usingComponents":{
+       "myHeader": "../../components/header/header",
+        "van-cell": "../../../dist/cell/index",
+        "van-button":"../../../dist/button/index",
+        "van-icon":"../../../dist/icon/index",
+        "van-switch": "../../../dist/switch/index",
+        "van-image": "../../../dist/image/index",
+        "van-dialog": "../../../dist/dialog/index",
+        "van-datetime-picker": "../../../dist/datetime-picker/index",
+        "van-field": "../../../dist/field/index",
+        "van-cell-group": "../../../dist/cell-group/index",
+        "van-loading": "../../../dist/loading/index",
+        "van-collapse": "../../../dist/collapse/index",
+        "van-collapse-item": "../../../dist/collapse-item/index"
+      }  
+}
