@@ -29,7 +29,7 @@ var config = {
     getEverDayResult: `${host}/exam/checkDailyExam`,
 
     // 获取每日十题
-    getEverDay: `${host}/exam/getDailyDuty`,
+    getEverDay: `${host}/exam/getDailyExam`,
 
     // 保存考试结果
     saveExamResult: `${host}/exam/saveQuestions`,
