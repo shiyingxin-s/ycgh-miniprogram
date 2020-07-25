@@ -76,6 +76,8 @@ var config = {
     //
     getMessages:`${host}/employee/getMessages`,
 
+    setMessageStatus: `${host}/employee/setMessageStatus`,
+
 
 };
 

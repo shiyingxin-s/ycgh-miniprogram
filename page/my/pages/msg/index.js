@@ -37,34 +37,61 @@ Page({
     getDataFun() {
         const wxs = this
         let data = {
-        EmployeeId:UserData.get().id,
-        Id: wxs.data.id,
+            EmployeeId:UserData.get().id,
+            Id: wxs.data.id,
         }
         requestLib.request({
-        url:  httpUrl.getMessages,
-        method: 'post',
-        data: data,
-        success: successFun,
-        fail: (error)=>{
-            common.hideLoading()
-            common.showToast(error.errMessage, 3000)
-        }
+            url:  httpUrl.getMessages,
+            method: 'post',
+            data: data,
+            success: successFun,
+            fail: (error)=>{
+                common.hideLoading()
+                common.showToast(error.errMessage, 3000)
+            }
         })
         function successFun(res){
-        const resData = res.data
-        if(resData && resData.code === 0){
-            wxs.setData({
-                list:resData.data
-            })
-        } else {
-            common.showToast(error.errMessage, 3000)
-        }
-        common.hideLoading()
+            const resData = res.data
+            if(resData && resData.code === 0){
+                wxs.setData({
+                    list:resData.data
+                })
+            } else {
+                common.showToast(error.errMessage, 3000)
+            }
+            common.hideLoading()
         }
     },
-    onChange(event) {
+    onChange(e) {
         this.setData({
-          activeNames: event.detail
-        });
+            activeNames: e.detail
+        })
+        let status = e.currentTarget.dataset.status
+        if(!status){
+           this.updateStatus(e.detail[0])
+        }
+    },
+
+    updateStatus(data){
+        const wxs = this
+        requestLib.request({
+            url:  httpUrl.setMessageStatus,
+            method: 'post',
+            data: { messageId: data },
+            success: successFun,
+            fail: (error)=>{
+                common.hideLoading()
+                common.showToast(error.errMessage, 3000)
+            }
+        })
+        function successFun(res){
+            const resData = res.data
+            if(resData && resData.code === 0){
+                wxs.getDataFun()
+            } else {
+                common.showToast(error.errMessage, 3000)
+            }
+            common.hideLoading()
+        }
     }
 })

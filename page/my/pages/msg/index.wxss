@@ -1,6 +1,49 @@
+.msgPage{
+  padding: 30rpx;
+}
 .item{
-  margin-top: 30rpx;
 }
 .item-l .van-cell{
-  margin-top: 30rpx;
+  /* border-top-left-radius: 8px;
+  border-top-right-radius: 8px; */
 }
+.item-l .van-cell .van-cell__title{
+  font-size: 30rpx;
+  color: #333333;
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  white-space: normal !important;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+.item-l .van-cell .van-cell__value {
+  font-size: 26rpx;
+  color: #B3B3B3;
+}
+.item-l .van-collapse-item{
+  margin-bottom: 30rpx;
+}
+.item-l .van-collapse-item .van-collapse-item__content {
+  /* border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px; */
+  line-height: 40rpx;
+  font-weight: 300;
+  font-size: 28rpx;
+  letter-spacing: 2rpx;
+}
+
+.item .van-hairline,.van-hairline--bottom,.van-hairline--left,.van-hairline--right,.van-hairline--surround,.van-hairline--top,.van-hairline--top-bottom {
+  position: unset !important;
+}
+.noread{
+  width: 4px;
+  height: 4px;
+  border-radius: 100%;
+  background: #FC414A;
+  float: left;
+  margin-top: 10px;
+  margin-right: 5px;
+}
+  
