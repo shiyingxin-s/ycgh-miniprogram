@@ -25,7 +25,7 @@ Page({
   onShow: function () {
     if(!UserData || !UserData.get().token ){
       wx.redirectTo({
-        url: '../../login/index'
+        url: '../../../../page/login/index'
       })
     }
   },

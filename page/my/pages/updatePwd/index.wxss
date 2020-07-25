@@ -1,0 +1,9 @@
+.input-style .van-cell .van-field__input {
+  text-align: right;
+}
+
+.btnStyle button{
+  height: 40px;
+  width: 90%;
+  margin-top: 40px;
+}

@@ -1,0 +1,47 @@
+<myHeader id="myHeader" navbar-data='{{nvabarData}}'></myHeader>
+<view class="updatePwd" style='margin-top:{{height}}px'>
+  <view  class="setting-section">
+    <van-cell-group title="旧密码">
+      <van-field
+        class="input-style"
+        value="{{ password }}"
+        type= "password"
+        bind:input="inputOldPwd"
+        label="请输入旧密码"
+        placeholder="请输入旧密码"
+      />
+    </van-cell-group>
+     <van-cell-group title="新密码">
+      <van-field
+        class="input-style"
+        value="{{ newPwd }}"
+        label="请输入新密码"
+        placeholder="请输入新密码"
+        type= "password"
+        bind:input="inputNewPwd"
+      />
+      <van-field
+        class="input-style"
+        value="{{confirmPwd}}"
+        label="请确认新密码"
+        type= "password"
+        placeholder="请确认新密码"
+        border="{{ false }}"
+        bind:input="inputCPwd"
+      />
+    </van-cell-group>
+     <van-button
+        class="btnStyle"
+        type="primary"
+        block  
+        round
+        size="large"
+        color="#f4424a"
+        disabled="{{isShow}}"
+        loading="{{isShow}}"
+        loading-type="spinner"
+        loading-text="处理中..."
+        bindtap="save">保存新密码</van-button>
+ </view>
+ 
+</view>

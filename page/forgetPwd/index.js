@@ -138,5 +138,11 @@ Page({
       }
     }
   },
+  loaddingFun(data) {
+    const wxs = this
+    wxs.setData({
+      isShow: data? true: false
+    })
+  }
 
 })

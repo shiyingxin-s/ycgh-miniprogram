@@ -63,7 +63,6 @@ Page({
   getUserInfo: function(e) {
     var wxs = this
     let userInfo = e.detail.userInfo
-    console.log(userInfo)
     common.showLoading()
     wxs.saveFun(userInfo)
   },

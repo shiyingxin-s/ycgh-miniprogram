@@ -28,7 +28,7 @@ Page({
     onShow: function () {
         if(!UserData || !UserData.get().token ){
             wx.redirectTo({
-              url: '../../login/index'
+                url: '../../../../page/login/index'
             })
           }
     },
@@ -64,7 +64,7 @@ Page({
     esc(){
         UserData.clear()
         wx.redirectTo({
-            url: '../../login/index'
+            url: '../../../../page/login/index'
         })
     }
 })

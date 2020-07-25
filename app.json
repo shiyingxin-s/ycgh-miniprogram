@@ -64,7 +64,8 @@
       "root": "page/my/",
       "pages": [
         "pages/info/index",
-        "pages/msg/index"
+        "pages/msg/index",
+        "pages/updatePwd/index"
       ]
     }
   ],

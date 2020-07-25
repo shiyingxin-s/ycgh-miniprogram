@@ -27,11 +27,13 @@
             bindtap="toPath">
             <text slot="icon" class="iconfont iconxiaoxi"></text>
             <view class="cell-r" slot="right-icon">
-                <view class="unRead">{{data.unRead}}</view>
+                <view class="unRead" wx:if="{{data.unRead}}">{{data.unRead}}</view>
                 <van-icon class="icon-style" name="arrow" />
             </view>
         </van-cell>
-        <van-cell  class="cell" title="密码修改" is-link  >
+        <van-cell  class="cell" title="密码修改" is-link 
+            data-path="../../my/pages/updatePwd/index"
+            bindtap="toPath" >
             <text slot="icon" class="iconfont iconmima"></text>
         </van-cell>
         <van-cell class="cell" title="个人信息" is-link 
