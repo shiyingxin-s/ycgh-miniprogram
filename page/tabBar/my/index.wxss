@@ -76,7 +76,10 @@
 
 }
 .section .cell .van-cell .van-cell__right-icon-wrap{
-    margin-top: 6px;
+    height: 83rpx;
+}
+.section .cell .van-cell .van-cell__title{
+    font-size: 30rpx;
 }
 .cell-r{
     position: relative;
@@ -91,12 +94,13 @@
     line-height: 40rpx;
     text-align: center;
     font-size: 20rpx;
-    top: 18rpx;
+    top: 23rpx;
     right: 25px;
 }
 .cell-r .icon-style{
     color: #969799;
-    font-size: 38rpx
+    font-size: 15px;
+    height: 46px;
 }
 .cell .van-cell{
     color: #666666;
