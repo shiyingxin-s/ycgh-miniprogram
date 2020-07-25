@@ -1,5 +1,6 @@
 {
     "usingComponents":{
+       "myHeader": "../../components/header/header",
         "van-cell": "../../../dist/cell/index",
         "van-button":"../../../dist/button/index",
         "van-icon":"../../../dist/icon/index",

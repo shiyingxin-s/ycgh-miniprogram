@@ -1,0 +1,31 @@
+<myHeader id="myHeader" navbar-data='{{nvabarData}}'></myHeader>
+<view class="settingPage" style='margin-top:{{height}}px'>
+  <view  class="setting-section">
+    <van-cell-group>
+      <van-cell title="头像"  class="avatar-cell" >
+        <view slot="right-icon" class="avatar">
+          <van-image
+            width="50" 
+            round  fit="fill"  
+            height="50" src="{{data.photo}}" 
+            use-loading-slot >
+              <van-loading slot="loading" type="spinner" size="20" vertical />
+          </van-image>
+        </view>
+      </van-cell>
+      <van-cell title="姓名" value="{{data.name}}" />
+      <van-cell title="工号" value="{{data.employeeCode}}" />
+      <van-cell wx:if="{{data.deptName}}" title="部门" value="{{data.deptName}}" />
+      <van-cell title="单位" value="{{data.unitName}}" />
+    </van-cell-group>
+     <van-button
+        class="btnStyle"
+        type="primary"
+        block  
+        round
+        size="large"
+        color="#f4424a"
+        bindtap="esc">退出</van-button>
+ </view>
+ 
+</view>

@@ -63,7 +63,7 @@
     {
       "root": "page/my/",
       "pages": [
-        "pages/index/index"
+        "pages/info/index"
       ]
     }
   ],

@@ -1,0 +1,21 @@
+.avatar-cell .van-cell__title,.avatar-cell .avatar,.avatar-cell .avatar .van-icon{
+  position: relative;
+  top: 40rpx;
+}
+.avatar-cell .avatar{
+  top: 10rpx;
+}
+.avatar-cell .avatar van-image{
+  margin-right: 10rpx;
+}
+.avatar-cell .avatar .van-icon{
+  top: -35rpx;
+  color: #969799;
+  font-size: 32rpx;
+}
+
+.btnStyle button{
+  height: 40px;
+  width: 90%;
+  margin-top: 40px;
+}

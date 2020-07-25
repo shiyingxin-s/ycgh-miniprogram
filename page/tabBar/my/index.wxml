@@ -32,7 +32,9 @@
         <van-cell  class="cell" title="密码修改" is-link  >
             <text slot="icon" class="iconfont iconmima"></text>
         </van-cell>
-        <van-cell class="cell" title="个人信息" is-link  >
+        <van-cell class="cell" title="个人信息" is-link 
+            data-path="../../my/pages/info/index"
+            bindtap="toPath" >
             <text slot="icon" class="iconfont icongeren"></text>
         </van-cell>
         <van-cell  class="cell" title="专业设置" is-link
