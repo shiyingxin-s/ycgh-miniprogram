@@ -18,7 +18,8 @@ Page({
       },
       professionId: '',
       selectId: -1,
-      dataList: []
+      dataList: [],
+      fromName: '',
    
   },
   onShow: function () {
@@ -28,7 +29,10 @@ Page({
       })
     }
   },
-  onLoad:function(){
+  onLoad:function(options){
+    this.setData({
+      fromName: options.name
+    })
     this.getDataFun()
   },
   // 获取类型
@@ -93,11 +97,18 @@ Page({
           let userData = UserData.get()
           userData.professionId = wxs.data.professionId
           UserData.set(userData)
-          wx.navigateTo({
-            url:'../answer/index'
-          })
+          if(wxs.data.fromName){
+            common.showToast('设置成功，快去答题', 3000)
+            setTimeout(()=>{
+              wx.navigateBack()
+            },1000)
+          } else {
+            wx.navigateTo({
+              url:'../answer/index'
+            })
+          }
         } else {
-          common.showToast('进入失败', 3000)
+          common.showToast('设置失败', 3000)
         }
       } else {
         common.showToast(error.errMessage, 3000)

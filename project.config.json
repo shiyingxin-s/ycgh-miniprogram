@@ -132,6 +132,13 @@
 					"id": -1,
 					"name": "page/love/pages/applyRecord/index",
 					"pathName": "page/love/pages/applyRecord/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "page/tabBar/my/index",
+					"pathName": "page/tabBar/my/index",
 					"scene": null
 				}
 			]

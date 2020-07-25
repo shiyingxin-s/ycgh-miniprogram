@@ -25,13 +25,16 @@ Page({
     }
   },
   toAnswer(){
-    let toPath = '../../homeModule/answer/index'
     if(!UserData || !UserData.get().professionId ){
-      toPath = '../../homeModule/selectProfession/index'
-    } 
-    wx.navigateTo({
-      url: toPath
-    })
+      wx.redirectTo({
+        url: '../../homeModule/selectProfession/index'
+      })
+    } else {
+      wx.navigateTo({
+        url: '../../homeModule/answer/index'
+      })
+    }
+   
   },
   toLibrary(){
     wx.navigateTo({

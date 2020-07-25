@@ -27,6 +27,6 @@
     size="large"
     color="#f4424a"
     bindtap="btnClick">
-    进入网上练兵
+    {{fromName?'确定':'进入网上练兵'}}
   </van-button>
 </view>

@@ -65,7 +65,13 @@ var config = {
     
     getAidDetial: `${host}/aid/getAidDetial`,
 
-    revokeAid: `${host}/aid/revokeAid`
+    revokeAid: `${host}/aid/revokeAid`,
+
+    // 获取个人信息
+    getPersonalInfo:`${host}/employee/getPersonalInfo`,
+
+    // 保存 微信头像
+    saveWxInfo:`${host}/employee/saveWxInfo`
 
 };
 

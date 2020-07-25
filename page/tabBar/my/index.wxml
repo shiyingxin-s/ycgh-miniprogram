@@ -1,4 +1,44 @@
 <myHeader id="myHeader" navbar-data='{{nvabarData}}'></myHeader>
 <view class="myPage" style='margin-top:{{height}}px'>
-
+    <view class="header">
+        <view class="left">
+            <view  class="avatar">
+                <block wx:if="{{!data || !data.photo}}">
+                    <button open-type="getUserInfo" 
+                        bindgetuserinfo="getUserInfo">获取头像</button>
+                </block>
+                <block wx:else>
+                     <image class="img" src="{{data.photo}}" />
+                </block>
+            </view>
+        </view>
+        <view class="left info">
+            <view class="name">{{data.name}}</view>
+            <view class="num">工号：{{data.employeeCode}}</view>
+        </view>
+        <view class="right">
+            <view class="text">积分</view>
+            <view class="score">{{data.score}}</view>
+        </view>
+    </view>
+    <view class="section">
+        <van-cell class="cell" title="消息中心">
+            <text slot="icon" class="iconfont iconxiaoxi"></text>
+            <view class="cell-r" slot="right-icon">
+                <view class="unRead">{{data.unRead}}</view>
+                <van-icon class="icon-style" name="arrow" />
+            </view>
+        </van-cell>
+        <van-cell  class="cell" title="密码修改" is-link  >
+            <text slot="icon" class="iconfont iconmima"></text>
+        </van-cell>
+        <van-cell class="cell" title="个人信息" is-link  >
+            <text slot="icon" class="iconfont icongeren"></text>
+        </van-cell>
+        <van-cell  class="cell" title="专业设置" is-link
+            data-path="../../homeModule/selectProfession/index"
+            bindtap="toPath">
+            <text slot="icon" class="iconfont iconshezhi"></text>
+        </van-cell>
+    </view>
 </view>
