@@ -49,17 +49,20 @@ Page({
     verify(){
         let wxs = this
         if(!wxs.data.password){
-        common.showToast('请输入旧密码')
-        return false
+            common.showToast('请输入旧密码')
+            return false
         } else if(!wxs.data.newPwd){
-        common.showToast('请输入新密码')
-        return false
-        } else if(!wxs.data.confirmPwd){
-        common.showToast('请输入确认新密码')
-        return false
+            common.showToast('请输入新密码')
+            return false
+        } else if(!(/^[0-9]{6}$/.test(wxs.data.newPwd))){
+            common.showToast('密码必须为数字，且长度为6位')
+            return false
+        }else if(!wxs.data.confirmPwd){
+            common.showToast('请输入确认新密码')
+            return false
         } else if(wxs.data.confirmPwd !== wxs.data.newPwd){
-        common.showToast('输入新密码与确认新密码不一致')
-        return false
+            common.showToast('输入新密码与确认新密码不一致')
+            return false
         } else {
         return true
         }
