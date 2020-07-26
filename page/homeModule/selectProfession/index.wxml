@@ -1,8 +1,8 @@
 <myHeader id="myHeader" navbar-data='{{nvabarData}}'></myHeader>
 <view class="answer-profession" style='margin-top:{{height}}px'>
   <view class="header">
-  <view class="title">职位、职称选择</view>
-  <text class="desc">选择了职位和支撑才能答题</text> 
+  <view class="title">专业选择</view>
+  <text class="desc">选择了专业才能答题</text> 
   </view>
   <van-row class="items" gutter="20">
     <van-col span="12" class="item" wx:for="{{ dataList }}" wx:key="index">
