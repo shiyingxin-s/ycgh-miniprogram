@@ -6,7 +6,7 @@
    <view class="section">
      <view class="con con-1">
        <text class="title">爱心救助</text><van-icon class="like-icon" name="like" />
-       <view class="txt">爱心救助平台为为帮助公司家庭经济困难职工而设立的平台，符合条件的困难职工、助学对象等人员均可在线上进行申请。</view>
+       <view class="txt">爱心救助平台为帮助公司家庭经济困难职工而设立的平台，符合条件的困难职工、助学对象等人员均可在线上进行申请。</view>
      </view>
     <view class="con con-2">
        <text class="title">申请救助</text>
