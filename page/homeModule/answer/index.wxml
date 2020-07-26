@@ -16,11 +16,11 @@
         <text  class="iconfont iconwodekaoshi"  />
       </view>
       <view class="item {{type === 6? 'itembg':''}}"
-      bindtap="itemClick" 
-      data-path="../../answer/pages/exercises/index"
-      data-type="6">
-      <text  class="iconfont icontikuxuexi"  />
-    </view>
+        bindtap="itemClick" 
+        data-path="../../answer/pages/exercises/index"
+        data-type="6">
+        <text  class="iconfont icontikuxuexi"  />
+      </view>
       <view class="item {{type === 3? 'itembg':''}}"
         bindtap="itemClick"
         data-path="../../answer/pages/myWrong/index"
@@ -30,23 +30,23 @@
    </view>
    <view class="items">
     <view class="item {{type === 2? 'itembg':''}}"
-    bindtap="itemClick" 
-    data-path="../../answer/pages/myAchievement/index"
-    data-type="2">
-    <text  class="iconfont iconwodechengji"  />
-  </view>
-      <view class="item {{type === 4? 'itembg':''}}" 
-        bindtap="itemClick" 
-        data-path="../../answer/pages/myStatistic/index"
-        data-type="4" >
-        <text  class="iconfont iconchengjitongji"  />
-      </view>
-      <view class="item {{type === 5? 'itembg':''}}" 
-        bindtap="itemClick"
-        data-path="../../answer/pages/ranking/index"  
-        data-type="5">
-        <text  class="iconfont iconjinbangtiming"  />
-      </view>
+      bindtap="itemClick" 
+      data-path="../../answer/pages/myAchievement/index"
+      data-type="2">
+      <text  class="iconfont iconwodechengji"  />
+    </view>
+    <view class="item {{type === 4? 'itembg':''}}" 
+      bindtap="itemClick" 
+      data-path="../../answer/pages/myStatistic/index"
+      data-type="4" >
+      <text  class="iconfont iconchengjitongji"  />
+    </view>
+    <view class="item {{type === 5? 'itembg':''}}" 
+      bindtap="itemClick"
+      data-path="../../answer/pages/ranking/index"  
+      data-type="5">
+      <text  class="iconfont iconjinbangtiming"  />
+    </view>
     
    </view>
 </view>
