@@ -1,6 +1,6 @@
 <myHeader id="myHeader" navbar-data='{{nvabarData}}'></myHeader>
 <view class="answer-everyDay {{isSubmit ? 'resultBg':''}}" style='margin-top:{{height}}px'>
-  <comNoData text="暂无错题" wx:if="{{!data}}" class="comNoData"/>
+  <comNoData text="暂无错题" wx:if="{{!data || data.length === 0}}" class="comNoData"/>
   <block wx:else>
     <comAnswer wx:if="{{!isSubmit}}" 
       type="wrong"

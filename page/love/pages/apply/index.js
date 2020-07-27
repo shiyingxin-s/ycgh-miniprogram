@@ -27,7 +27,10 @@ Page({
         Title:'',
         Statement: '',//情况描述
         Attachments:'', //图片
-        imageList:[]
+        imageList:[],
+        IdCardImgA :'',//身份证正面照
+        IdCardImgB:'',//身份证反面照
+        FullFaceImg:''//人身正面照 
       },
       isShow: false
    
@@ -159,6 +162,15 @@ Page({
       if(wxs.data.paramData.imageList.length === 0){
         common.showToast('请上传申请书照片',3000)
         return false
+      } else if(!wxs.data.paramData.FullFaceImg){
+        common.showToast('请上传申请人本身照片',3000)
+        return false
+      } else if(!wxs.data.paramData.IdCardImgA){
+        common.showToast('请上传申请人身份证正面照片',3000)
+        return false
+      } else if(!wxs.data.paramData.IdCardImgB){
+        common.showToast('请上传申请人身份证反面照片',3000)
+        return false
       } else {
         return true
       }
@@ -176,7 +188,11 @@ Page({
     wxs.setData({
       'paramData.Attachments': imgStr
     })
-    wxs.submitFun()
+    if(wxs.data.id) {
+      wxs.updateClickFun()
+    } else {
+      wxs.submitFun()
+    }
   },
   submitFun(){
     const wxs = this
@@ -211,29 +227,97 @@ Page({
     }
   },
   // 选择照片
-  selectImg() {
+  selectImg(e) {
     const wxs = this
+    let index = e.currentTarget.dataset.index
     wx.chooseImage({
       count: 4,
       sizeType: ['original', 'compressed'], //可选择原图或压缩后的图片
       sourceType: ['album', 'camera'], //可选择性开放访问相册、相机
       success: res => {
         let base64 ='data:image/png;base64,' + wx.getFileSystemManager().readFileSync(res.tempFilePaths[0],'base64')
-        let list = wxs.data.paramData.imageList
-        list.push(base64)
-        wxs.setData({
-          'paramData.imageList':list
-        })
+        if(index === 'FullFaceImg'){
+          this.setData({
+            'paramData.FullFaceImg': base64
+          })
+        } else if(index === 'IdCardImgA'){
+          this.setData({
+            'paramData.IdCardImgA': base64
+          })
+        } else if(index === 'IdCardImgB'){
+          this.setData({
+            'paramData.IdCardImgB': base64
+          })
+        } else {
+          let list = wxs.data.paramData.imageList
+          list.push(base64)
+          wxs.setData({
+            'paramData.imageList':list
+          })
+        }
       }
     })
   },
   deleteBtn(e){
     let index = e.currentTarget.dataset.index
     let list = this.data.paramData.imageList
-    list.splice(index,1)
-    this.setData({
-      'paramData.imageList': list
+    if(index === 'FullFaceImg'){
+      this.setData({
+        'paramData.FullFaceImg': ''
+      })
+    } else if(index === 'IdCardImgA'){
+      this.setData({
+        'paramData.IdCardImgA': ''
+      })
+    } else if(index === 'IdCardImgB'){
+      this.setData({
+        'paramData.IdCardImgB': ''
+      })
+    } else {
+      list.splice(index,1)
+      this.setData({
+        'paramData.imageList': list
+      })
+    }
+  },
+  updateClick(){
+    const wxs = this
+    if(!wxs.verify()){ return }
+    wxs.submit()   
+  },
+  updateClickFun(){
+    const wxs = this
+    wxs.setData({
+      isShow: true
     })
+    let data = {... wxs.data.paramData}
+    data['Id'] = wxs.data.id
+    requestLib.request({
+      url:  httpUrl.submitAid,
+      method: 'post',
+      data: data,
+      success: successFun,
+      fail: (error)=>{
+        wxs.setData({
+          isShow: false
+        })
+        common.hideLoading()
+        common.showToast(error.errMessage, 3000)
+      }
+    })
+    function successFun(res){
+      wxs.setData({
+        isShow: false
+      })
+      const resData = res.data
+      if(resData && resData.code === 0){
+        common.showToast('修改成功', 3000)
+        wx.navigateBack() 
+      } else {
+        common.showToast(error.errMessage, 3000)
+      }
+      common.hideLoading()
+    }
   },
   cancel(){
     const wxs = this

@@ -62,7 +62,7 @@ var config = {
 
     // 提交
     submitAid: `${host}/aid/submitAid`,
-    
+
     getAidDetial: `${host}/aid/getAidDetial`,
 
     revokeAid: `${host}/aid/revokeAid`,
