@@ -11,10 +11,13 @@ Component({
      type: String
   },
   data:{
+    isHide:true,
     check:false,
+    opcityHeight: app.globalData.whHeight - (app.globalData.navHeight * 2 + 19),
     height: app.globalData.whHeight - 260,
     right: 0,
-    wrong: 0
+    wrong: 0,
+    isShowBtn: false
   },
   attached: function () {
     if(this.data.type === 'review'){
@@ -22,6 +25,7 @@ Component({
     }
   },
   methods: {
+    
     onChange(e) {
       let eventData = e.detail
       var itemList = this.data.answerObj
@@ -57,6 +61,21 @@ Component({
       if(this.data.type !== 'review' &&  str[2] !== '多选题')(
         this.count()
       )
+      let noDoList = this.data.answerObj.filter(n=>{
+        return (!n.isDo && n.QuestionType!=='多选题' ) || n.Options.length === 0
+      })
+      let isShowBtn = false
+      if(noDoList.length === 0){
+        isShowBtn = true
+      }
+      this.setData({
+        isShowBtn: isShowBtn
+      })
+    },
+    myOk(){
+      this.setData({
+        isHide: false
+      })
     },
     // 统计对错 
     count() {

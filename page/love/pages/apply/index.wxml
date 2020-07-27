@@ -55,8 +55,8 @@
         class="input-box"  
         placeholder="请填写身份证号"
         border="{{ false }}"
+        disabled="{{id && paramData.ReviewStatus === 'ToBeReviewed'}}"
         clearable
-        disabled="{{id}}"
         bind:input="inputIdCard"
       />
       <view class="lable">手机号</view>
@@ -64,8 +64,8 @@
         class="input-box"  
         placeholder="请填写手机号"
         border="{{ false }}"
-        disabled="{{id}}"
         clearable
+        disabled="{{id && paramData.ReviewStatus === 'ToBeReviewed'}}"
         bind:input="inputPhone"
       />
     </view>
@@ -75,8 +75,8 @@
         class="input-box" 
         placeholder="请输入求助标题"
         border="{{ false }}"
-        disabled="{{id}}"
         clearable
+        disabled="{{id && paramData.ReviewStatus === 'ToBeReviewed'}}"
         bind:input="inputTitle"
       />
       <view class="lable">求助情况说明</view>
@@ -85,7 +85,7 @@
         placeholder="简单描述个人困难情况，及申请原因"
         border="{{ false }}"
         type="textarea"
-        disabled="{{id}}"
+        disabled="{{id && paramData.ReviewStatus != 'ToBeReviewed'}}"
         bind:input="inputDesc"
       />
     </view>
@@ -94,18 +94,64 @@
       <van-row class="items" gutter="20">
         <van-col span="12" class="item" wx:for="{{ paramData.imageList }}" wx:key="index">
           <view class="item">
-            <view class="delete" wx:if="{{!id}}" data-index="{{index}}" bindtap="deleteBtn">
+            <view class="delete" data-index="{{index}}" bindtap="deleteBtn">
               <van-icon name="clear" />
             </view>
             <image  src="{{item}}" />
           </view>
         </van-col>
-        <van-col span="12" class="item" wx:if="{{ paramData.imageList.length < 4}}" bindtap="selectImg">
+        <van-col span="12" class="item" wx:if="{{ paramData.imageList.length < 1}}" bindtap="selectImg">
           <view class="item">
             <image class="img" src="/image/uploadImg.png" />
           </view>
         </van-col>
-       </van-row>      
+      </van-row>
+      <view class="lable">半身照上传</view>
+      <van-row class="items" gutter="20">
+         <van-col span="12" class="item" wx:if="{{paramData.FullFaceImg}}">
+          <view class="item">
+            <view class="delete" data-index="FullFaceImg" bindtap="deleteBtn">
+              <van-icon name="clear" />
+            </view>
+            <image  src="{{paramData.FullFaceImg}}" />
+          </view>
+        </van-col>
+        <van-col span="12" class="item" data-index="FullFaceImg" wx:if="{{!paramData.FullFaceImg}}" bindtap="selectImg">
+          <view class="item">
+            <image class="img" src="/image/banshen.png" />
+          </view>
+        </van-col>
+      </van-row>
+      <view class="lable">身份证上传</view>
+      <van-row class="items" gutter="20">
+        <van-col span="12" class="item" wx:if="{{paramData.IdCardImgA}}">
+          <view class="item">
+            <view class="delete" data-index="IdCardImgA" bindtap="deleteBtn">
+              <van-icon name="clear" />
+            </view>
+            <image  src="{{paramData.IdCardImgA}}" />
+          </view>
+        </van-col>
+        <van-col span="12" class="item" wx:if="{{paramData.IdCardImgB}}">
+          <view class="item">
+            <view class="delete" data-index="IdCardImgB" bindtap="deleteBtn">
+              <van-icon name="clear" />
+            </view>
+            <image  src="{{paramData.IdCardImgB}}" />
+          </view>
+        </van-col>
+    
+        <van-col span="12" class="item" data-index="IdCardImgA" wx:if="{{!paramData.IdCardImgA}}" bindtap="selectImg">
+          <view class="item">
+            <image class="img" src="/image/IdCardA.png" />
+          </view>
+        </van-col>
+        <van-col span="12" class="item" data-index="IdCardImgB" wx:if="{{!paramData.IdCardImgB}}" bindtap="selectImg">
+          <view class="item">
+            <image class="img" src="/image/IdCardB.png" />
+          </view>
+        </van-col>
+      </van-row>  
     </view>
     <van-button
         wx:if="{{active >=1 && !id}}"
@@ -132,8 +178,8 @@
         loading-text="处理中..." 
         bindtap="next">{{active === 2?'提交':'下一步'}}</van-button>
       <van-button
-        wx:if="{{id && paramData.StatusText === '待审核'}}"
-        class="btnStyle"
+        wx:if="{{id && paramData.ReviewStatus === 'ToBeReviewed'}}"
+        class="btnStyle width"
         type="primary"
         block  
         round
@@ -144,4 +190,17 @@
         loading-type="spinner"
         loading-text="撤销申请..." 
         bindtap="cancel">撤销申请</van-button>
+      <van-button
+        wx:if="{{id && paramData.ReviewStatus === 'ToBeReviewed'}}"
+        class="btnStyle width"
+        type="primary"
+        block  
+        round
+        size="large"
+        color="#f4424a"
+        disabled="{{isShow}}"
+        loading="{{isShow}}"
+        loading-type="spinner"
+        loading-text="撤销申请..." 
+        bindtap="updateClick">提交修改</van-button>
 </view>

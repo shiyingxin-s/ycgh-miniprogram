@@ -1,5 +1,10 @@
 <!--comAnswer.wxml-->
 <view class='comAnswer'>
+  <view class="opcityBg" wx:if="{{answerObj.length>0 && isHide}}" style="height:{{opcityHeight}}rpx">
+     <text class="iconfont iconzuoyouhuadong"/>
+     <view >左右滑动可进行答题</view>
+     <view class="myOk" bindtap="myOk">我知道了</view>
+  </view>
   <swiper class="swiper clearfix" style="height:{{height}}rpx">
     <swiper-item wx:for="{{answerObj}}" wx:key="index" style="overflow-y: auto;">
       <view class="item">
@@ -48,7 +53,7 @@
           color="#f4424a" 
           bindtap="okClick">确认答案</van-button>
         <view  class="bottom-style" wx:if="{{answerObj.length}}">
-          <block wx:if="{{type === 'exam'}}">
+          <block wx:if="{{type === 'exam' && isShowBtn}}">
             <van-button
               class="btnStyle"
               type="primary"
@@ -75,6 +80,5 @@
       </view>
     </swiper-item>
   </swiper>
- 
   <van-dialog id="van-dialog" />
 </view>

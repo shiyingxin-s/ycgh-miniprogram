@@ -61,7 +61,7 @@ Page({
           count = count + parseInt(item.score)
         })
         wxs.setData({
-          data: {...resData.data},
+          data: resData.data,
           totalScore: count
         })
       } else {

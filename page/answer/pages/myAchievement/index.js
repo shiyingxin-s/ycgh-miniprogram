@@ -70,17 +70,17 @@ Page({
       const resData = res.data
       if(resData && resData.code === 0){
         wxs.setData({
-          data: {...resData.data}
+          data: resData.data? {...resData.data}: ''
         })
         if(wxs.data.loadMore){
-          let list = wxs.data.list
-          list.push(...resData.data.records)
+          let list = wxs.data ? wxs.data.list: []
+          list.push(resData.data?resData.data.records:[])
           wxs.setData({
             list: list,
             loadMore:false
           })
         }else{
-          let list = resData.data.records
+          let list = resData.data?resData.data.records:[]
           wxs.setData({
             list: list
           })
