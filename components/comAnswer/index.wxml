@@ -1,6 +1,7 @@
 <!--comAnswer.wxml-->
 <view class='comAnswer'>
-  <view class="opcityBg" wx:if="{{answerObj.length>0 && isHide}}" style="height:{{opcityHeight}}rpx">
+  <view class="opcityBg" wx:if="{{answerObj.length>0 && isHide}}" 
+    style="height:{{opcityHeight}}rpx;padding-top: {{opcityHeight / 3}}rpx;">
      <text class="iconfont iconzuoyouhuadong"/>
      <view >左右滑动可进行答题</view>
      <view class="myOk" bindtap="myOk">我知道了</view>
