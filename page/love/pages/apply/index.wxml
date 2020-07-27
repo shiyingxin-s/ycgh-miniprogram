@@ -143,12 +143,12 @@
     
         <van-col span="12" class="item" data-index="IdCardImgA" wx:if="{{!paramData.IdCardImgA}}" bindtap="selectImg">
           <view class="item">
-            <image class="img" src="/image/IdCardA.png" />
+            <image class="img" src="/image/idCardA.png" />
           </view>
         </van-col>
         <van-col span="12" class="item" data-index="IdCardImgB" wx:if="{{!paramData.IdCardImgB}}" bindtap="selectImg">
           <view class="item">
-            <image class="img" src="/image/IdCardB.png" />
+            <image class="img" src="/image/idCardB.png" />
           </view>
         </van-col>
       </van-row>  
