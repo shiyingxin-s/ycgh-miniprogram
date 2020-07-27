@@ -95,7 +95,7 @@
         <van-col span="12" class="item" wx:for="{{ paramData.imageList }}" wx:key="index">
           <view class="item">
             <view class="delete" data-index="{{index}}" bindtap="deleteBtn">
-              <van-icon name="clear" />
+              <van-icon class="delIcon" name="clear" />
             </view>
             <image  src="{{item}}" />
           </view>
@@ -111,7 +111,7 @@
          <van-col span="12" class="item" wx:if="{{paramData.FullFaceImg}}">
           <view class="item">
             <view class="delete" data-index="FullFaceImg" bindtap="deleteBtn">
-              <van-icon name="clear" />
+              <van-icon class="delIcon" name="clear" />
             </view>
             <image  src="{{paramData.FullFaceImg}}" />
           </view>
@@ -127,7 +127,7 @@
         <van-col span="12" class="item" wx:if="{{paramData.IdCardImgA}}">
           <view class="item">
             <view class="delete" data-index="IdCardImgA" bindtap="deleteBtn">
-              <van-icon name="clear" />
+              <van-icon class="delIcon" name="clear" />
             </view>
             <image  src="{{paramData.IdCardImgA}}" />
           </view>
@@ -135,7 +135,7 @@
         <van-col span="12" class="item" wx:if="{{paramData.IdCardImgB}}">
           <view class="item">
             <view class="delete" data-index="IdCardImgB" bindtap="deleteBtn">
-              <van-icon name="clear" />
+              <van-icon class="delIcon" name="clear" />
             </view>
             <image  src="{{paramData.IdCardImgB}}" />
           </view>

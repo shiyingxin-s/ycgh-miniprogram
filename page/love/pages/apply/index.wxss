@@ -103,14 +103,17 @@
 }
 .item .delete{
     position: absolute;
-    font-size: 60rpx;
     color: #3D3D3D;
     top:5px;
-    height: 25px;
-    width: 25px;
-    line-height: 25px;
+    height: 18px;
+    width: 18px;
     border-radius: 100%;
     right: 5px;
     background: #ffffff;
+}
+.delIcon .van-icon{
+    font-size: 23px;
+    margin-left: -2px;
+    line-height: 18px;
 }
 
