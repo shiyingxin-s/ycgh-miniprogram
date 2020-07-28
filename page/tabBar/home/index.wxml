@@ -32,4 +32,7 @@
       </view>
     </view>
   </view>
+  <view class="bottom-bg">
+    <image class="img" src="/image/bg-homeBottom.jpg" />
+  </view>
 </view>
