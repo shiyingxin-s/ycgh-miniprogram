@@ -22,6 +22,7 @@ Page({
         departName:'',
         employeeType:'',
         Phone:'',
+        EmployeeCode:'',
         EmployeeId: '',
         IdCard: '', //身份证号
         Title:'',
@@ -63,6 +64,7 @@ Page({
     wxs.setData({
       'paramData.employeeName':wxs.data.id? data.Name:data.name,
       'paramData.EmployeeId': data.id,
+      'paramData.EmployeeCode':wxs.data.id? data.EmployeeCode:data.employeeCode,
       'paramData.departName': wxs.data.id?data.DepartName:data.departName,
       'paramData.employeeType': wxs.data.id?data.EmployeeType:data.employeeType
     })

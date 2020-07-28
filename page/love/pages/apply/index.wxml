@@ -27,7 +27,7 @@
         disabled
       />
       <view class="lable">工号</view>
-      <van-field value="{{ paramData.EmployeeId }}"
+      <van-field value="{{ paramData.EmployeeCode }}"
         class="input-box"  
         placeholder="请输入工号"
         border="{{ false }}"
