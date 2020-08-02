@@ -9,7 +9,9 @@
     "page/homeModule/selectProfession/index",
     "page/homeModule/answer/index",
     "page/homeModule/library/index",
-    "page/homeModule/loveHelp/index"
+    "page/homeModule/loveHelp/index",
+    "page/homeModule/staffStyle/index",
+    "page/homeModule/staffLecture/index"
   ],
   "window": {
     "navigationBarTextStyle": "white",
@@ -51,6 +53,12 @@
         "pages/myWrong/index",
         "pages/exercises/index",
         "pages/examReview/index"
+      ]
+    },
+    {
+      "root": "page/staffStyle/",
+      "pages": [
+        "pages/add/index"
       ]
     },
     {

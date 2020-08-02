@@ -22,10 +22,10 @@
     </view>
     <view class="items">
       <view class="item item1bg">
-        <text  class="iconfont iconzhigongjiangtang"  />
+        <text  class="iconfont iconzhigongjiangtang" bindtap="toStaffLecture" />
       </view>
       <view class="item item2bg">
-        <text  class="iconfont iconzhigongfengcai"  />
+        <text  class="iconfont iconzhigongfengcai" bindtap="toStaffStyle" />
       </view>
       <view class="item item3bg" bindtap="toLoveHelp">
         <text  class="iconfont iconaixinjiuzhu"  />

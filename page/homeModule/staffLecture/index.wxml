@@ -1,0 +1,71 @@
+<myHeader id="myHeader" navbar-data='{{nvabarData}}'></myHeader>
+<view class="page-body" style='margin-top:{{height}}px' wx:if="{{typeList.length > 0}}">
+  <view class="left" style='height:{{conHeight}}rpx'>
+    <van-sidebar active-key="{{ activeKey }}" bind:change="onChange" class="leftList" style='height:{{conHeight}}rpx'>
+      <block wx:for="{{typeList}}"  wx:key="index">
+        <van-sidebar-item wx:if="{{item.id != 'add' && item.id!= 'my'}}" title="{{item.text}}"  class="item"/>
+        <van-sidebar-item class="add" wx:if="{{item.id === 'add'}}" >
+          <view slot="title"><van-icon name="add-o" class="addIcon" /></view>
+        </van-sidebar-item>
+        <van-sidebar-item  wx:if="{{item.id === 'my'}}"  class="item my"  title="{{item.text}}" />
+      </block>
+    </van-sidebar>  
+  </view>
+  <view class="right" style='height:{{conHeight- 100}}rpx'>
+      <block wx:if="{{dataList.length>0}}">
+        <block wx:for="{{dataList}}" wx:key="index">
+          <view class="item">
+            <view class="my-view">
+              <view class="left-del" data-id="{{item.Id}}" wx:if="{{typeCode === 'my'}}" bind:tap="del"><van-icon name="delete" class="del" /></view>
+              <view class="status {{item.StateText === '待审核'?'bg-fec83d': item.StateText === '已审核'?'bg-2be3b9':'bg-red'}}">{{item.StateText}}</view>
+            </view>
+             <view class="ppt"  wx:if="{{item.fileType === 'ppt' || item.fileType === 'pptx'}}"
+              data-file="{{item.AttachementUrl}}"
+              bindtap="downFile">
+              <text class="iconfont iconppt1"/> 
+            </view>
+            <view class="word"  wx:elif="{{item.fileType === 'doc' || item.fileType === 'docx'}}"
+              data-file="{{item.AttachementUrl}}"
+              bindtap="downFile">
+              <text class="iconfont iconword1"/> 
+            </view>
+            <video  
+                wx:else
+                id="myVideo" 
+                src="{{item.AttachementUrl}}" 
+                binderror="videoErrorCallback" 
+                show-center-play-btn='{{false}}' 
+                show-play-btn="{{true}}" 
+                controls
+                picture-in-picture-mode="{{['push', 'pop']}}"
+                bindenterpictureinpicture='bindVideoEnterPictureInPicture'
+                bindleavepictureinpicture='bindVideoLeavePictureInPicture'
+            ></video>
+            <view class="text">
+              <view class="txt"> {{item.Title}} </view>
+              <view class="icon">
+                <van-icon name="like" data-type="cancel" data-id="{{item.Id}}" class="like like-o" wx:if="{{item.IsLike}}" bindtap="upateLike" />
+                <van-icon name="like-o" data-type="like" data-id="{{item.Id}}"  class="like"  bindtap="upateLike" wx:else/>
+               {{item.LikeNums}}</view>
+            </view>
+          </view>
+        </block>
+        <view class="tips" hidden="{{!loadMore}}">加载中...</view>
+        <view class="tips" hidden="{{loadMore}}">没有更多了...</view>
+      </block>
+      <block wx:else >
+        <comNoData text="暂无数据"  class="comNoData"/>
+      </block>
+      <!-- <view class="item">
+        <van-image width="100%" height="300rpx" src="/image/banner.png" />
+        <view class="text">
+          <view class="txt"> 这里放劳模风采标题   长了的话就换行  限28个字 </view>
+          <view class="icon">
+            <van-icon name="like" class="like like-o" />
+           16</view>
+        </view>
+      </view> -->
+  </view>
+</view>
+<comNoData text="暂无数据" wx:else class="comNoData"/>
+

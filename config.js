@@ -78,7 +78,26 @@ var config = {
 
     setMessageStatus: `${host}/employee/setMessageStatus`,
 
+    getHomeHtml:`${host}/employee/getHtml`,
 
+    // 保存职工讲堂
+    saveHallStyle:`${host}/staffHall/saveStaffHall`,
+
+    saveStaffStyle:`${host}/staffStyle/saveStaffStyle`,
+
+    // 上传文件
+    uploadfile:`${host}/file/uploadfile`,
+
+    getStaffHall:`${host}/staffHall/getStaffHall`,
+    
+    getStaffStyle:`${host}/staffStyle/getStaffStyle`,
+
+    staffHallLike: `${host}/staffHall/updateLikeNum`, 
+
+    staffStyleLike:`${host}/staffStyle/updateLikeNum`,
+
+    deleteHall:`${host}/staffHall/deleteStaffHall`,
+    
 };
 
 module.exports = config

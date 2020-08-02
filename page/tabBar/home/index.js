@@ -45,6 +45,16 @@ Page({
     wx.navigateTo({
       url: '../../homeModule/loveHelp/index'
     })
+  },
+  toStaffStyle() {
+    wx.navigateTo({
+      url: '../../homeModule/staffStyle/index'
+    })
+  },
+  toStaffLecture() {
+    wx.navigateTo({
+      url: '../../homeModule/staffLecture/index'
+    })
   }
 })
 

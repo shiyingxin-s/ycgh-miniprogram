@@ -146,6 +146,20 @@
 					"id": -1,
 					"name": "page/my/pages/msg/index",
 					"pathName": "page/my/pages/msg/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "page/homeModule/staffLecture/index",
+					"pathName": "page/homeModule/staffLecture/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "page/homeModule/staffStyle/index",
+					"pathName": "page/homeModule/staffStyle/index",
 					"scene": null
 				}
 			]

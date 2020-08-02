@@ -1,0 +1,42 @@
+<myHeader id="myHeader" navbar-data='{{nvabarData}}'></myHeader>
+<view class="page-body" style='margin-top:{{height}}px' wx:if="{{typeList.length > 0}}">
+  <view class="left" style='height:{{conHeight}}rpx'>
+    <van-sidebar active-key="{{ activeKey }}" bind:change="onChange" class="leftList" style='height:{{conHeight}}rpx'>
+      <block wx:for="{{typeList}}"  wx:key="index">
+        <van-sidebar-item wx:if="{{item.id != 'add' && item.id!= 'my'}}" title="{{item.text}}"  class="item"/>
+        <van-sidebar-item class="add" wx:if="{{item.id === 'add'}}" >
+          <view slot="title"><van-icon name="add-o" class="addIcon" /></view>
+        </van-sidebar-item>
+        <van-sidebar-item  wx:if="{{item.id === 'my'}}"  class="item my"  title="{{item.text}}" />
+      </block>
+    </van-sidebar>  
+  </view>
+  <view class="right">
+      <view class="item">
+        <view class="my-view">
+          <view class="left-del"><van-icon name="delete" class="del" /></view>
+          <view class="status">未审核</view>
+        </view>
+        <van-image width="100%" height="300rpx" src="/image/banner.png" />
+        <view class="text">
+          <view class="txt"> 这里放劳模风采标题   长了的话就换行  限28个字 </view>
+          <view class="icon">
+            <van-icon name="like" class="like like-o" />
+            <!-- <van-icon name="like-o"  class="like "/> -->
+           16</view>
+        </view>
+      </view>
+      <view class="item">
+        <van-image width="100%" height="300rpx" src="/image/banner.png" />
+        <view class="text">
+          <view class="txt"> 这里放劳模风采标题   长了的话就换行  限28个字 </view>
+          <view class="icon">
+            <van-icon name="like" class="like like-o" />
+            <!-- <van-icon name="like-o"  class="like "/> -->
+           16</view>
+        </view>
+      </view>
+  </view>
+</view>
+<comNoData text="暂无数据" wx:else class="comNoData"/>
+
