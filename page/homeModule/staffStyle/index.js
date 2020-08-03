@@ -153,6 +153,12 @@ Page({
     }
    
   },
+  goDetail(e){
+    let index = e.currentTarget.dataset.index
+    wx.navigateTo({
+      url:'../../staffStyle/pages/detail/index?index='+index
+    })  
+  },
   // 点赞或取消点赞
   upateLike(e){
     const wxs = this

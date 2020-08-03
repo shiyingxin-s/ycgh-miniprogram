@@ -1,169 +1,42 @@
-.apply{
-    padding: 30rpx 0 40rpx;
-}
-.header .mySteps .top{
-    padding:25rpx 50rpx 20rpx;
-}
-.header .mySteps .top , .header .mySteps .bottom{
-    color: #808080;
-    text-align: center;
-}
-.header .mySteps .top .circle{
-    height: 20px;
-    width: 20px;
-    font-size: 24rpx;
-    border-radius: 50%;
-    display: inline-block;
-    background: #ffffff;
-    border: 1px solid #C2C2C2;
-    line-height: 20px;
-    text-align: center;
-}
-.header .mySteps .top .circle.active{
-    background: #FC414A;
-    border: 1px solid #FC414A;
-    color: #ffffff;
-}
-.header .mySteps .top .line{
-    margin: 0 15px;
-    display: inline-block;
-    width: calc((100% - 170px) / 2);
-    border-bottom:2px dashed #C2C2C2 ;
-}
-.header .mySteps .top .line.active{
-    border-bottom:2px dashed #FC414A ;
-}
-.header .mySteps {
-    margin-bottom: 30rpx;
-}
-.header .mySteps .bottom .text{
-    float: left;
-    width:calc(100% / 3);
-    font-size: 28rpx;
-    font-weight: 300;
-}
-.header .mySteps .bottom .text.active{
-    color: #FC414A;
-}
-.tips{
-    margin: 0 30rpx;
-    font-size: 24rpx;
-    color: #FF762B;
-}
-.tips .icon{
-    vertical-align: -2rpx;
-}
-.form-box{
-    border-radius: 8px;
-    background: #ffffff;
-    padding:30rpx;
-    margin: 170rpx 30rpx 0;
-}
-.form-box .lable{
-    padding-left: 5px;
-    font-size: 30rpx;
-    font-weight: 600;
-    color: #3D3D3D;
-}
-.input-box .van-cell{
-    margin: 5px 0 20px;
-    background: #FCF7F6;
-    border-radius: 8px;
-}
-.input-box.textarea .van-cell ,.input-box.textarea .van-cell .van-field__input--textarea{ 
-    min-height: 200px;
-    overflow-y: auto;
-    line-height: 22px;
-}
-.btnStyle button{
-    margin: 15px 30rpx;
-    height: 45px;
-    width: calc(100% - 65rpx);
-}
-.btnStyle.width button{
-    float: left;
-    color: #FC414A;
-    margin: 15px 30rpx;
-    height: 45px;
-    width: calc((100% - 120rpx) / 2);
-}
-.margin-top{
-    margin-bottom: 30rpx;
-}
-.form2 .items .van-row{
-    margin-top: 10px;
-}
-.item {
-    position: relative;
-    margin-bottom: 15px;
-}
-.item image{
-    width: 100%;
-    height: 120px;
-}
-.itemAdd{
-    height: 120px;
-    background: #FCF7F6;
-    text-align: center;
-    line-height: 120px;
-}
-.addIcon{
-   color: #C2C2C2; 
-   font-size: 60rpx;
-}
-.item .word, .item .ppt{
-    width: 100%;
-    height: 120px;
-    text-align: center;
-    border:1px solid #c2c2cc ;
-    line-height: 120px;
-}
-.iconword1{
-    color: #41A2FC;
-    font-size: 60px;
-}
-.iconppt1{
-    color: #FC414A;
-    font-size: 60px;
-}
-
-.item .delete{
-    z-index: 1;
-    position: absolute;
-    color: #3D3D3D;
-    top:5px;
-    height: 18px;
-    width: 18px;
-    border-radius: 100%;
-    right: 5px;
-    background: #ffffff;
-}
-.delIcon .van-icon{
-    font-size: 23px;
-    margin-left: -2px;
-    line-height: 18px;
-}
-
-
-.type .van-cell{
-    padding:10px 0;
-    padding-left: 5px;
-    font-size: 30rpx;
-    font-weight: 600;
-    color: #3D3D3D;
-    margin-bottom: 10px;
-    position:unset;
-}
-.upload-view button{
-    width: calc((100% - 31rpx) / 2);
-}
-.upload-view .btn1:first-child{
-   margin-right: 30rpx;
-}
-.upload-view button.van-button--disabled{
-    color: #999999 !important;
-    border-color: #999999 !important;
+.detail{
+    height: 100%;
+    background-color: #333333;
 }
 #myVideo{
+    height: 300px;
     width: 100%;
+}
+.content{
+    position: relative;
+}
+.like-view{
+    text-align: right;
+    color: #C2C2C2;
+}
+.like-view .like{
+  font-size: 45rpx;
+}
+.like-view .like.like-o{
+  color:#FC414A
+}
+.text{
+    line-height: 40rpx;
+    position: absolute;
+    bottom:0;
+    background-color: rgba(0, 0, 0, 0.7);
+    height: 400rpx;
+    left: 0;
+    right: 0;
+    padding:30rpx;
+    color:#C2C2C2;
+    font-size: 26rpx;
+    overflow: hidden;
+}
+.text .title{
+    font-size: 28rpx;
+    margin-bottom: 15rpx;
+}
+.text .txt{
+    height: 300rpx;
+    overflow-y: scroll;
 }

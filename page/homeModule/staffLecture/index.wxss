@@ -134,6 +134,7 @@
   height:40rpx;
   border-radius:20px;
   float: right;
+  line-height: 40rpx;
 }
 .tips{
   text-align: center;

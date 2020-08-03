@@ -1,6 +1,7 @@
 {
     "navigationBarTitleText": "",
     "usingComponents": {
+      "comNoData": "../../components/comNoData/comNoData",
       "myHeader": "../../components/header/header",
       "van-button": "../../../../dist/button/index",
       "van-icon": "../../../../dist/icon/index",
@@ -13,6 +14,7 @@
       "van-picker": "../../../dist/picker/index",
       "van-popup": "../../../dist/popup/index",
       "van-radio": "../../../dist/radio/index",
-      "van-radio-group": "../../../dist/radio-group/index"
+      "van-radio-group": "../../../dist/radio-group/index",
+      "van-image": "../../../dist/image/index"
     }
 }

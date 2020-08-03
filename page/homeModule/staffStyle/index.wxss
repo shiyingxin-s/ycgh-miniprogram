@@ -126,6 +126,7 @@
   color: #ffffff; 
   width:100rpx;
   height:40rpx;
+  line-height: 40rpx;
   border-radius:20px;
 }
 .tips{

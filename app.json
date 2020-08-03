@@ -58,7 +58,8 @@
     {
       "root": "page/staffStyle/",
       "pages": [
-        "pages/add/index"
+        "pages/add/index",
+        "pages/detail/index"
       ]
     },
     {
