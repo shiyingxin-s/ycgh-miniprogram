@@ -16,7 +16,7 @@
         <block wx:for="{{dataList}}" wx:key="index">
           <view class="item" data-index="{{index}}" bindtap="goDetail">  
               <view class="my-view">
-                <view class="left-del" data-id="{{item.Id}}" wx:if="{{typeCode === 'my'}}" bind:tap="del"><van-icon name="delete" class="del" /></view>
+                <view class="left-del" data-id="{{item.Id}}" wx:if="{{typeCode === 'my'}}" catchtap="del"><van-icon name="delete" class="del" /></view>
               </view> 
               <view class="my-imageNum">
                 <view class="left-del" wx:if="{{item.Pictures}}" >
