@@ -18,7 +18,13 @@ Page({
       bgColor:'#f4424a' //导航背景色
     },
     activeKey: 0,
-    typeList:[],     
+    typeList:[],  
+    imgaeList:[],
+    loadMore:false,
+    pageIndex:1,
+    pageSize:5,
+    dataList:[],
+    typeCode: ''    
    
   },
   onShow: function () {
@@ -27,6 +33,12 @@ Page({
         url: '../../../page/login/index'
       })
     }
+    this.setData({
+      typeList:[],
+      activeKey: 0
+    })
+    common.showLoading()
+    this.getDataFun()
   },
   /**
    * 生命周期函数--监听页面加载
@@ -57,16 +69,82 @@ Page({
           resData.data.push({id:'add', text: ''},{id: 'my', text:'我的上传'})
         }
         wxs.setData({
-          typeList:resData.data
+          typeList:resData.data,
+          typeCode: resData.data[0].id
         })
+        wxs.getDataList()
+      } else {
+        common.showToast(error.errMessage, 3000)
+      }
+    }
+  },
+   /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function () {
+    let pageIndex = this.data.pageIndex
+    this.setData({
+      loadMore: true,
+      pageIndex: ++pageIndex
+    })
+    this.getDataList()
+  },
+  getDataList() {
+    const wxs = this
+    let data = {
+      employeeId: UserData.get().id,
+      pageIndex: wxs.data.pageIndex,
+      pageSize: wxs.data.pageSize,
+      typeCode: wxs.data.typeCode,
+    }
+    requestLib.request({
+      url:  httpUrl.getStaffStyle,
+      method: 'post',
+      data: data,
+      success: successFun,
+      fail: (error)=>{
+        common.hideLoading()
+        common.showToast(error.errMessage, 3000)
+      }
+    })
+    function successFun(res){
+      common.hideLoading()
+      const resData = res.data
+      if(resData && resData.code === 0){
+        resData.data.map(item=>{
+          item.fileType = item.AttachementUrl? (item.AttachementUrl.split('.'))[1] : ''
+          item.AttachementUrl = httpUrl.host + item.AttachementUrl
+        })
+        if(wxs.data.loadMore){
+          let list = wxs.data.dataList
+          if(resData.data.length>0){
+            list.push(resData.data)
+          }
+          wxs.setData({
+            dataList: list,
+            loadMore:false
+          })
+        } else{
+          wxs.setData({
+            dataList: resData.data
+          })
+        }
       } else {
         common.showToast(error.errMessage, 3000)
       }
     }
   },
   onChange(e) {
+    const wxs = this
     let index = e.detail
     let name = this.data.typeList[index].id
+    wxs.setData({
+      typeCode: name,
+      loadMore:false,
+      pageIndex:1,
+      pageSize:5,
+    })
+    wxs.getDataList()
     if(name === 'add'){
       wx.navigateTo({
         url:'../../staffStyle/pages/add/index'
@@ -74,6 +152,73 @@ Page({
     }
    
   },
-  
+    // 点赞或取消点赞
+    upateLike(e){
+      const wxs = this
+      let id = e.currentTarget.dataset.id
+      let type = e.currentTarget.dataset.type
+      let data = {
+        employeeId: UserData.get().id,
+        id: id,
+        isLike: type === 'like'? true :false
+      }
+      common.showLoading()
+      requestLib.request({
+        url:  httpUrl.staffHallLike,
+        method: 'post',
+        data: data,
+        success: successFun,
+        fail: (error)=>{
+          common.hideLoading()
+          common.showToast(error.errMessage, 3000)
+        }
+      })
+      function successFun(res){
+        common.hideLoading()
+        const resData = res.data
+        if(resData && resData.code === 0){
+          wxs.setData({
+            loadMore:false,
+            pageIndex:1,
+            pageSize:5,
+          })
+         wxs.getDataList()
+        } else {
+          common.showToast(error.errMessage, 3000)
+        }
+      }
+    },
+    del(e){
+      const wxs = this
+      let id = e.currentTarget.dataset.id
+      let data = {
+        id: id,
+      }
+      common.showLoading()
+      requestLib.request({
+        url:  httpUrl.deleteHall,
+        method: 'post',
+        data: data,
+        success: successFun,
+        fail: (error)=>{
+          common.hideLoading()
+          common.showToast(error.errMessage, 3000)
+        }
+      })
+      function successFun(res){
+        common.hideLoading()
+        const resData = res.data
+        if(resData && resData.code === 0){
+          wxs.setData({
+            loadMore:false,
+            pageIndex:1,
+            pageSize:5,
+          })
+         wxs.getDataList()
+        } else {
+          common.showToast(error.errMessage, 3000)
+        }
+      }
+    }
 })
 
