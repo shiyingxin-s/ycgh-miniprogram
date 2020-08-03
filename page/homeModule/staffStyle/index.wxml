@@ -11,7 +11,7 @@
       </block>
     </van-sidebar>  
   </view>
-  <view class="right" style='height:{{conHeight- 100}}rpx'>
+  <view class="right" style='height:{{conHeight}}rpx'>
       <block wx:if="{{dataList.length>0}}">
         <block wx:for="{{dataList}}" wx:key="index">
           <view class="item">  
@@ -49,7 +49,7 @@
                 <view class="txt"> {{item.Title}} </view>
                 <view class="status {{item.StateText === '待审核'?'bg-fec83d': item.StateText === '已审核'?'bg-2be3b9':'bg-red'}}">{{item.StateText}}</view>
                 <view class="item-bottom">
-                  <text class="time">时间: {{item.CreateTime}}</text>
+                  <text class="time">时间: {{item.CreateDate}}</text>
                   <view class="icon">
                     <van-icon name="like" data-type="cancel" data-id="{{item.Id}}" class="like like-o" wx:if="{{item.IsLike}}" bindtap="upateLike" />
                     <van-icon name="like-o" data-type="like" data-id="{{item.Id}}"  class="like"  bindtap="upateLike" wx:else/>

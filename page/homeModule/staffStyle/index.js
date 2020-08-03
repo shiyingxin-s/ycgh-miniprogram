@@ -9,7 +9,7 @@ Page({
   data: {
       // 此页面 页面内容距最顶部的距离
       height: app.globalData.navHeight * 2 + 19 ,
-      conHeight: app.globalData.whHeight - (app.globalData.navHeight * 2 + 19) - 80,
+      conHeight: app.globalData.whHeight - (app.globalData.navHeight * 2 + 19) - 20,
       // 组件所需的参数
       nvabarData: {
       showCapsule: 1, //是否显示左上角图标   1表示显示    0表示不显示

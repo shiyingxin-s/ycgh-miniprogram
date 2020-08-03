@@ -77,7 +77,6 @@
 }
 .right .item .item-bottom{
   position: relative;
-  padding-right: 10px;
   padding-top: 5rpx;
   color: #C2C2C2;
   font-size: 24rpx;
