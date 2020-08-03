@@ -237,8 +237,9 @@ Page({
       },
       success: function (res) {
         common.hideLoading()
+        let data = JSON.parse(res.data)
+        console.log(res)
         if(res.data.code === 0) {
-          let data = JSON.parse(res.data)
           wxs.setData({
             'paramData.AttachementUrl':data.data
           })
