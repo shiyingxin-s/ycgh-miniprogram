@@ -21,7 +21,7 @@ Page({
     typeList:[], 
     loadMore:false,
     pageIndex:1,
-    pageSize:5,
+    pageSize:10,
     dataList:[],
     typeCode: ''    
    
@@ -143,7 +143,7 @@ Page({
       typeCode: name,
       loadMore:false,
       pageIndex:1,
-      pageSize:5,
+      pageSize:10,
     })
     wxs.getDataList()
     if(name === 'add'){
@@ -187,7 +187,7 @@ Page({
         wxs.setData({
           loadMore:false,
           pageIndex:1,
-          pageSize:5,
+          pageSize:10,
         })
         wxs.getDataList()
       } else {
@@ -219,7 +219,7 @@ Page({
         wxs.setData({
           loadMore:false,
           pageIndex:1,
-          pageSize:5,
+          pageSize:10,
         })
         wxs.getDataList()
       } else {
