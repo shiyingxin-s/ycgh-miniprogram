@@ -57,17 +57,15 @@
 
 .right .item{
   position: relative;
-  height: 415rpx;
+  height: 210rpx;
   background-color: #ffffff;
   margin-bottom: 10px;
   box-shadow:0px 0px 9px 0px rgba(211,211,211,1);
   border-radius:4px;
 }
-.right .item .txt{
-  float: left;
+.right .item .txt{ 
   font-size: 29rpx;
-  padding: 1px 5px;
-  width: calc(100% - 60px);
+  width: 100%;
   display: -webkit-box;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -77,25 +75,39 @@
   -webkit-box-orient: vertical;
   color: #3D3D3D;
 }
-.right .item .icon{
+.right .item .item-bottom{
+  position: relative;
   padding-right: 10px;
+  padding-top: 5rpx;
   color: #C2C2C2;
-  padding-top: 40rpx;
-  float: right;
   font-size: 24rpx;
+  z-index: 2;
 }
-.right .item .icon .like{
-  font-size: 45rpx;
+.right .item .item-bottom .icon {
+  float: right;
 }
-.right .item .icon .like.like-o{
+.right .item .item-bottom .icon .like{
+  font-size: 35rpx;
+}
+.right .item .item-bottom .icon .like.like-o{
   color:#FC414A
 }
 .my-view{
   position: absolute;
   z-index: 1;
   width: 100%;
+  top: 20rpx;
+  left: 20rpx;
 }
-
+.my-imageNum{
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  bottom: 25rpx;
+  left: 135rpx;
+  font-size: 24rpx;
+  color: #ffffff;
+}
 .my-view .left-del{
   float: left;
   width: 50rpx;
@@ -108,14 +120,39 @@
   color: #ffffff;
   margin-top: 2px;
 }
-.my-view .status{
+.status{
   margin: 5px 10px 0 0;
   font-size: 24rpx;
   text-align: center;
-  color: #ffffff;
-  background: #FC414A;
+  color: #ffffff; 
   width:100rpx;
   height:40rpx;
   border-radius:20px;
-  float: right;
+}
+.tips{
+  text-align: center;
+  color: #999999;
+}
+.bg-red{
+  background: #f4424a;
+}
+.bg-2be3b9{
+  background: #2be3b9;
+}
+.bg-fec83d{
+  background: #fec83d;
+}
+.bg-F89C00{
+  background: #F89C00;
+}
+.bg-3b3b3{
+  background: #b3b3b3;
+}
+.item-left{float: left; width: 180rpx; height: 180rpx;
+  padding: 20rpx 10rpx 20rpx 20rpx;
+}
+
+.item-right{float:right; height: 180rpx;
+  width: calc(100% - 232rpx);
+  padding: 20rpx 20rpx 20rpx 0;
 }

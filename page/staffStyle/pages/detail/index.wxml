@@ -1,0 +1,96 @@
+<myHeader id="myHeader" navbar-data='{{nvabarData}}'></myHeader>
+<view class="lecture" style='margin-top:{{height}}px'>
+    <view class="form-box form1 form2">
+      <van-cell class="type" title="类别" value="{{selectTypeName? selectTypeName: '请选择类别'}}" bind:tap="selectClick" is-link/>
+     
+      <view class="lable">上传选择（二选一）</view>
+      <view class="upload-view">
+        <van-button plain class="btn1" color="#FC414A" 
+          disabled="{{!!paramData.fileType}}"  type="primary" bind:tap="selectImg">
+          <text class="iconfont iconp-photo-copy"/> 图片</van-button>
+        <van-button  plain  color="#FC414A" 
+          disabled="{{!!paramData.fileType}}" type="primary" bind:tap="selectVideo">
+          <text class="iconfont iconshipin"/> 视频</van-button>
+      </view>
+      <van-row class="items" gutter="20">
+        <block wx:if="{{paramData.fileType === 'img'}}">
+          <van-col span="12" class="item" wx:for="{{ paramData.imageList }}" wx:key="index">
+            <view class="item">
+              <view class="delete" data-index="{{index}}" data-type="{{paramData.fileType}}" bindtap="deleteBtn">
+                <van-icon class="delIcon" name="clear" />
+              </view>
+              <image  src="{{item}}" />
+            </view>
+          </van-col>
+          <van-col span="12" class="item" wx:if="{{ paramData.imageList.length > 0 && paramData.imageList.length < 9}}" bindtap="addIconClick">
+            <view class="item itemAdd">
+              <van-icon name="plus"  class="addIcon"/>
+            </view>
+          </van-col>
+        </block>
+        <block wx:if="{{paramData.fileType === 'video'}}">
+          <van-col span="12" class="item">
+            <view class="item">
+              <view class="delete" bindtap="deleteBtn" data-type="{{paramData.fileType}}">
+                <van-icon class="delIcon" name="clear" />
+              </view>
+              <video  
+                  wx:if="{{paramData.fileType === 'video' && paramData.fileUrl}}"
+                  id="myVideo" 
+                  src="{{paramData.fileUrl}}" 
+                  binderror="videoErrorCallback" 
+                  show-center-play-btn='{{false}}' 
+                  show-play-btn="{{true}}" 
+                  controls
+                  picture-in-picture-mode="{{['push', 'pop']}}"
+                  bindenterpictureinpicture='bindVideoEnterPictureInPicture'
+                  bindleavepictureinpicture='bindVideoLeavePictureInPicture'
+              ></video>
+            </view>
+          </van-col>
+        </block>
+      </van-row>
+      <view class="lable">标题</view>
+      <van-field value="{{ paramData.Title }}" 
+        class="input-box" 
+        placeholder="此处输入标题..."
+        maxlength="28"
+        show-word-limit="{{true}}"
+        border="{{ false }}"
+        bind:input="inputTitle"
+      />
+      <view class="lable">内容</view>
+      <van-field value="{{ paramData.Description }}"
+        class="input-box textarea"
+        placeholder="请输入内容"
+        border="{{ false }}"
+        maxlength="200"
+        show-word-limit="{{true}}"
+        type="textarea"
+        bind:input="inputDesc"
+      />
+    </view>
+    <van-button
+      class="btnStyle"
+      type="primary"
+      block  
+      round
+      size="large"
+      color="#f4424a"
+      disabled="{{isShow}}"
+      loading="{{isShow}}"
+      loading-type="spinner"
+      loading-text="发表中..." 
+      bindtap="pushBtn">发表</van-button>
+      <van-popup show="{{ showPop }}" round
+        position="bottom"
+        custom-style="height: 50%"
+        bind:close="onClose">
+        <van-picker columns="{{ typeList }}"  loading="{{typeLoading}}"
+          show-toolbar
+          bind:cancel="onCancel"
+          bind:confirm="onConfirm"
+         />
+      </van-popup>
+      
+</view>

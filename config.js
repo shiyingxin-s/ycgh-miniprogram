@@ -97,6 +97,8 @@ var config = {
     staffStyleLike:`${host}/staffStyle/updateLikeNum`,
 
     deleteHall:`${host}/staffHall/deleteStaffHall`,
+
+    deleteStyle: `${host}/staffStyle/deleteStaffStyle`,
     
 };
 

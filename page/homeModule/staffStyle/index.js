@@ -18,8 +18,7 @@ Page({
       bgColor:'#f4424a' //导航背景色
     },
     activeKey: 0,
-    typeList:[],  
-    imgaeList:[],
+    typeList:[], 
     loadMore:false,
     pageIndex:1,
     pageSize:5,
@@ -97,6 +96,7 @@ Page({
       pageSize: wxs.data.pageSize,
       typeCode: wxs.data.typeCode,
     }
+    common.showLoading()
     requestLib.request({
       url:  httpUrl.getStaffStyle,
       method: 'post',
@@ -112,6 +112,7 @@ Page({
       const resData = res.data
       if(resData && resData.code === 0){
         resData.data.map(item=>{
+          item.imageList = item.Pictures?item.Pictures.split('||'):[]
           item.fileType = item.AttachementUrl? (item.AttachementUrl.split('.'))[1] : ''
           item.AttachementUrl = httpUrl.host + item.AttachementUrl
         })
@@ -152,73 +153,73 @@ Page({
     }
    
   },
-    // 点赞或取消点赞
-    upateLike(e){
-      const wxs = this
-      let id = e.currentTarget.dataset.id
-      let type = e.currentTarget.dataset.type
-      let data = {
-        employeeId: UserData.get().id,
-        id: id,
-        isLike: type === 'like'? true :false
-      }
-      common.showLoading()
-      requestLib.request({
-        url:  httpUrl.staffHallLike,
-        method: 'post',
-        data: data,
-        success: successFun,
-        fail: (error)=>{
-          common.hideLoading()
-          common.showToast(error.errMessage, 3000)
-        }
-      })
-      function successFun(res){
+  // 点赞或取消点赞
+  upateLike(e){
+    const wxs = this
+    let id = e.currentTarget.dataset.id
+    let type = e.currentTarget.dataset.type
+    let data = {
+      employeeId: UserData.get().id,
+      id: id,
+      isLike: type === 'like'? true :false
+    }
+    common.showLoading()
+    requestLib.request({
+      url:  httpUrl.staffStyleLike,
+      method: 'post',
+      data: data,
+      success: successFun,
+      fail: (error)=>{
         common.hideLoading()
-        const resData = res.data
-        if(resData && resData.code === 0){
-          wxs.setData({
-            loadMore:false,
-            pageIndex:1,
-            pageSize:5,
-          })
-         wxs.getDataList()
-        } else {
-          common.showToast(error.errMessage, 3000)
-        }
+        common.showToast(error.errMessage, 3000)
       }
-    },
-    del(e){
-      const wxs = this
-      let id = e.currentTarget.dataset.id
-      let data = {
-        id: id,
-      }
-      common.showLoading()
-      requestLib.request({
-        url:  httpUrl.deleteHall,
-        method: 'post',
-        data: data,
-        success: successFun,
-        fail: (error)=>{
-          common.hideLoading()
-          common.showToast(error.errMessage, 3000)
-        }
-      })
-      function successFun(res){
-        common.hideLoading()
-        const resData = res.data
-        if(resData && resData.code === 0){
-          wxs.setData({
-            loadMore:false,
-            pageIndex:1,
-            pageSize:5,
-          })
-         wxs.getDataList()
-        } else {
-          common.showToast(error.errMessage, 3000)
-        }
+    })
+    function successFun(res){
+      common.hideLoading()
+      const resData = res.data
+      if(resData && resData.code === 0){
+        wxs.setData({
+          loadMore:false,
+          pageIndex:1,
+          pageSize:5,
+        })
+        wxs.getDataList()
+      } else {
+        common.showToast(error.errMessage, 3000)
       }
     }
+  },
+  del(e){
+    const wxs = this
+    let id = e.currentTarget.dataset.id
+    let data = {
+      id: id,
+    }
+    common.showLoading()
+    requestLib.request({
+      url:  httpUrl.deleteStyle,
+      method: 'post',
+      data: data,
+      success: successFun,
+      fail: (error)=>{
+        common.hideLoading()
+        common.showToast(error.errMessage, 3000)
+      }
+    })
+    function successFun(res){
+      common.hideLoading()
+      const resData = res.data
+      if(resData && resData.code === 0){
+        wxs.setData({
+          loadMore:false,
+          pageIndex:1,
+          pageSize:5,
+        })
+        wxs.getDataList()
+      } else {
+        common.showToast(error.errMessage, 3000)
+      }
+    }
+  }
 })
 

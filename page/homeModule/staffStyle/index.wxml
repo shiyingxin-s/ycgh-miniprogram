@@ -14,18 +14,25 @@
   <view class="right" style='height:{{conHeight- 100}}rpx'>
       <block wx:if="{{dataList.length>0}}">
         <block wx:for="{{dataList}}" wx:key="index">
-          <view class="item">
-            <view class="my-view">
-              <view class="left-del" data-id="{{item.Id}}" wx:if="{{typeCode === 'my'}}" bind:tap="del"><van-icon name="delete" class="del" /></view>
-              <view class="status {{item.StateText === '待审核'?'bg-fec83d': item.StateText === '已审核'?'bg-2be3b9':'bg-red'}}">{{item.StateText}}</view>
-            </view>
-             <view class=""  wx:if="{{item.Pictures}}"
-              data-file="{{item.AttachementUrl}}"
-              bindtap="downFile">
-              <text class="iconfont iconppt1"/> 
-            </view>
-            <video  
-                wx:else
+          <view class="item">  
+              <view class="my-view">
+                <view class="left-del" data-id="{{item.Id}}" wx:if="{{typeCode === 'my'}}" bind:tap="del"><van-icon name="delete" class="del" /></view>
+              </view> 
+              <view class="my-imageNum">
+                <view class="left-del" wx:if="{{item.Pictures}}" >
+                  {{item.imageList.length}}图
+                </view>
+              </view>        
+             <view class="item-left"  >
+              <van-image
+                wx:if="{{item.Pictures && item.imageList.length>0}}"
+                width="170rpx"
+                height="170rpx"
+                fit="cover"
+                src="{{item.imageList[0]}}"
+              />
+              <video  
+                wx:if="{{item.AttachemntUrl}}"
                 id="myVideo" 
                 src="{{item.AttachementUrl}}" 
                 binderror="videoErrorCallback" 
@@ -35,14 +42,22 @@
                 picture-in-picture-mode="{{['push', 'pop']}}"
                 bindenterpictureinpicture='bindVideoEnterPictureInPicture'
                 bindleavepictureinpicture='bindVideoLeavePictureInPicture'
-            ></video>
-            <view class="text">
-              <view class="txt"> {{item.Title}} </view>
-              <view class="icon">
-                <van-icon name="like" data-type="cancel" data-id="{{item.Id}}" class="like like-o" wx:if="{{item.IsLike}}" bindtap="upateLike" />
-                <van-icon name="like-o" data-type="like" data-id="{{item.Id}}"  class="like"  bindtap="upateLike" wx:else/>
-               {{item.LikeNums}}</view>
+              ></video>
             </view>
+            <view class="item-right">
+              <view class="text">
+                <view class="txt"> {{item.Title}} </view>
+                <view class="status {{item.StateText === '待审核'?'bg-fec83d': item.StateText === '已审核'?'bg-2be3b9':'bg-red'}}">{{item.StateText}}</view>
+                <view class="item-bottom">
+                  <text class="time">时间: {{item.CreateTime}}</text>
+                  <view class="icon">
+                    <van-icon name="like" data-type="cancel" data-id="{{item.Id}}" class="like like-o" wx:if="{{item.IsLike}}" bindtap="upateLike" />
+                    <van-icon name="like-o" data-type="like" data-id="{{item.Id}}"  class="like"  bindtap="upateLike" wx:else/>
+                    {{item.LikeNums}} 
+                  </view>
+                </view>
+              </view>           
+            </view>            
           </view>
         </block>
         <view class="tips" hidden="{{!loadMore}}">加载中...</view>
