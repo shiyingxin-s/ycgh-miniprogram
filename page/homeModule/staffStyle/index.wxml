@@ -31,18 +31,19 @@
                 fit="cover"
                 src="{{item.imageList[0]}}"
               />
-              <video  
-                wx:if="{{item.AttachemntUrl}}"
-                id="myVideo" 
-                src="{{item.AttachementUrl}}" 
-                binderror="videoErrorCallback" 
-                show-center-play-btn='{{false}}' 
-                show-play-btn="{{true}}" 
-                controls
-                picture-in-picture-mode="{{['push', 'pop']}}"
-                bindenterpictureinpicture='bindVideoEnterPictureInPicture'
-                bindleavepictureinpicture='bindVideoLeavePictureInPicture'
-              ></video>
+              <block   wx:if="{{item.imageList.length===0}}" >
+                <video  
+                  id="myVideo" 
+                  src="{{item.AttachementUrl}}" 
+                  binderror="videoErrorCallback" 
+                  show-center-play-btn='{{false}}' 
+                  show-play-btn="{{true}}" 
+                  controls
+                  picture-in-picture-mode="{{['push', 'pop']}}"
+                  bindenterpictureinpicture='bindVideoEnterPictureInPicture'
+                  bindleavepictureinpicture='bindVideoLeavePictureInPicture'
+                ></video>
+              </block>
             </view>
             <view class="item-right">
               <view class="text">

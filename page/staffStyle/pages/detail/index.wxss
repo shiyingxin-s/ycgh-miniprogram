@@ -2,8 +2,11 @@
     height: 100%;
     background-color: #333333;
 }
+.detail.black{
+    background-color: #000000;
+}
 #myVideo{
-    height: 300px;
+    height: calc(100% - 480rpx);
     width: 100%;
 }
 .content{

@@ -156,3 +156,7 @@
   width: calc(100% - 232rpx);
   padding: 20rpx 20rpx 20rpx 0;
 }
+#myVideo{
+  width: 170rpx;
+  height: 170rpx;
+}

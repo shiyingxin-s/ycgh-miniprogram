@@ -1,5 +1,5 @@
 <myHeader id="myHeader" navbar-data='{{nvabarData}}'></myHeader>
-<view class="detail" style='margin-top:{{height}}px;'>
+<view class="detail {{datas.imageList.length === 0? 'black': ''}}" style='margin-top:{{height}}px;'>
     <view class="content" wx:if="{{datas}}">
       <block wx:if="{{datas.imageList.length>0}}">
         <swiper class="swiper clearfix" style="height:{{conHeight}}rpx; line-height:{{conHeight - 10}}rpx">
@@ -12,18 +12,20 @@
           </swiper-item>
         </swiper>
       </block>
-      <block wx:elif="{{datas.AttachemntUrl}}">
-        <video 
-            id="myVideo" 
-            src="{{paramData.AttachemntUrl}}" 
-            binderror="videoErrorCallback" 
-            show-center-play-btn='{{false}}' 
-            show-play-btn="{{true}}" 
-            controls
-            picture-in-picture-mode="{{['push', 'pop']}}"
-            bindenterpictureinpicture='bindVideoEnterPictureInPicture'
-            bindleavepictureinpicture='bindVideoLeavePictureInPicture'
-        ></video>
+      <block wx:elif="{{datas.imageList.length === 0}}">
+          <view  style="height:{{conHeight}}rpx; line-height:{{conHeight - 10}}rpx;background-color: #000000;" >
+            <video 
+                  id="myVideo" 
+                  src="{{datas.AttachementUrl}}" 
+                  binderror="videoErrorCallback" 
+                  show-center-play-btn='{{false}}' 
+                  show-play-btn="{{true}}" 
+                  controls
+                  picture-in-picture-mode="{{['push', 'pop']}}"
+                  bindenterpictureinpicture='bindVideoEnterPictureInPicture'
+                  bindleavepictureinpicture='bindVideoLeavePictureInPicture'
+            ></video> 
+          </view>
       </block>     
       <view class="text">
         <view class="like-view">
