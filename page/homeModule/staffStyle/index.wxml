@@ -52,8 +52,8 @@
                 <view class="item-bottom">
                   <text class="time">时间: {{item.CreateDate}}</text>
                   <view class="icon">
-                    <van-icon name="like" data-type="cancel" data-id="{{item.Id}}" class="like like-o" wx:if="{{item.IsLike}}" bindtap="upateLike" />
-                    <van-icon name="like-o" data-type="like" data-id="{{item.Id}}"  class="like"  bindtap="upateLike" wx:else/>
+                    <van-icon name="like" data-type="cancel" data-id="{{item.Id}}" class="like like-o" wx:if="{{item.IsLike}}" catchtap="upateLike" />
+                    <van-icon name="like-o" data-type="like" data-id="{{item.Id}}"  class="like"  catchtap="upateLike" wx:else/>
                     {{item.LikeNums}} 
                   </view>
                 </view>
