@@ -37,5 +37,5 @@
         <view class="txt">{{datas.Description}}</view>
       </view>
     </view>
-    <comNoData text="暂无数据" wx:if="{{!datas}}" class="comNoData"/>
+    <comNoData   wx:if="{{!datas}}" class="comNoData"/>
 </view>

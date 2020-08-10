@@ -1,5 +1,8 @@
-<view class="page-body">
-  <view class="page-section page-section-gap">
-    <web-view src="https://content.dzzgsw.com/website/weixin/visit.html?appid=sxyc&house="></web-view>
+<myHeader id="myHeader" navbar-data='{{nvabarData}}'></myHeader>
+<view class="page-body page-section-gap" style='margin-top:{{height}}px; height:{{conHeight}}rpx'>
+  <view class="box" style='height:{{conHeight - 58}}rpx'>
+      <image class="img1" src="/image/pic_baocuntupian.png"></image>
+      <image class="img2" data-url="/image/code.jpg" bindlongpress="saveImage" src="/image/code.jpg"></image>
+      <image class="img3" src="/image/pic_shu.png"></image>
   </view>
 </view>

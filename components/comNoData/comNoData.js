@@ -6,7 +6,7 @@ Component({
   properties: {
     text:{
       type:String,
-      value:'暂无数据'
+      value:'此项内容为空'
     }
   },
 

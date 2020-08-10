@@ -1,7 +1,7 @@
-.comNoData{
+/* .comNoData{
     line-height: 500rpx;
     font-size: 50rpx;
-}
+} */
 .myStatistic{
     height: 100%;
 }

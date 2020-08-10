@@ -1,13 +1,16 @@
 .comNoData{
-  margin: 180rpx auto;
+  margin: 0 auto ;
+  padding-top: 180rpx;
   width: 440rpx;
-  height: 400rpx;
-  text-align: center;
   font-family: PingFangSC-Regular;
   font-size: 28rpx;
   color: #999999;
+  text-align: center;
 }
 .img{
-  width: 420rpx;
-  height: 224rpx;
+  width: 204rpx;
+  height: 212rpx;
+}
+.comNoData view{
+  height: 50rpx;
 }

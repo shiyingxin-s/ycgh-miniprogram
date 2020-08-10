@@ -1,4 +1,30 @@
 .page-section-gap{
   box-sizing: border-box;
-  padding: 0 30rpx;
+  height: 100%;
+  background: linear-gradient(to bottom, #ff6168 , #ff9148);
+  padding: 50rpx 50rpx 0;
+}
+.box{
+  position: relative;
+  border: 2px solid #ffffff;
+  border-bottom:0;
+  text-align: center;
+}
+.img1{
+  width: 440rpx;
+  height: 204rpx;
+  margin-top: 90rpx;
+}
+.img2{
+  margin-top: 130rpx;
+  width: 360rpx;
+  height: 360rpx;
+}
+.img3{
+  position: absolute;
+  left: 40rpx;
+  width: 560rpx;
+  height: 208rpx;
+  right: 0;
+  bottom: 130rpx;
 }

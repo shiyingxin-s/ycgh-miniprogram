@@ -1,6 +1,6 @@
 <myHeader id="myHeader" navbar-data='{{nvabarData}}'></myHeader>
 <view class="applyRecord" style='margin-top:{{height}}px'>
-    <comNoData text="暂无数据" wx:if="{{!dataList}}" class="comNoData"/>
+    <comNoData   wx:if="{{!dataList}}" class="comNoData"/>
     <view class="list" wx:else>
       <view class="list-l" wx:for="{{dataList}}" wx:key="index" 
         data-id= '{{item.Id}}'

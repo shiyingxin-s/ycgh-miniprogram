@@ -9,6 +9,7 @@ Page({
   data: {
      // 此页面 页面内容距最顶部的距离
      height: app.globalData.navHeight * 2 + 19 ,
+     conHeight: app.globalData.whHeight - (app.globalData.navHeight * 2 + 19),
       // 组件所需的参数
       nvabarData: {
       showCapsule: 1, //是否显示左上角图标   1表示显示    0表示不显示
@@ -30,32 +31,17 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function () {
-//    this.getDataFun()
-  },
-
-  //
-  getDataFun() {
-    const wxs = this
-    requestLib.request({
-      url:  httpUrl.getHomeHtml,
-      method: 'post',
-      data: {},
-      success: successFun,
-      fail: (error)=>{
-        common.showToast(error.errMessage, 3000)
-      }
-    })
-    function successFun(res){
-      const resData = res.data
-      if(resData && resData.code === 0){
-       wxs.setData({
-        htmlText:resData.data
-       })
-      } else {
-        common.showToast(error.errMessage, 3000)
-      }
-    }
+  saveImage(e){
+    let url = e.currentTarget.dataset.url;
+    wx.saveImageToPhotosAlbum({
+        filePath:url,
+        success(res) { 
+          common.showToast('已保存至相册',3000)
+        },
+        fail(res){
+          common.showToast('二维码下载失败，请重试或截屏保存',3000)
+        }
+      })
   }
 })
 
