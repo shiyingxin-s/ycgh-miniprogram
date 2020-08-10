@@ -1,7 +1,7 @@
 <view class="container loginIndexPage pageBg" style="padding-top:{{height}}px" >
     <view class="textView">
       <view class="img-view title"> 
-        <image class="img" src="/image/logo-white.png" />
+        <image class="img" src="/image/logo.png" />
       </view>
       <van-field
         class="field-style"
