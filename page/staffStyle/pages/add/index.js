@@ -62,7 +62,7 @@ Page({
     requestLib.request({
       url:  httpUrl.getSelectMajor,
       method: 'post',
-      data: {enCode:'StaffStyle'},
+      data: {enCode:'StaffStyle',isEdit: true},
       success: successFun,
       fail: (error)=>{
         wxs.setData({
