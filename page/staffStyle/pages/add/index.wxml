@@ -14,7 +14,7 @@
       </view>
       <van-row class="items" gutter="20">
         <block wx:if="{{paramData.fileType === 'img'}}">
-          <van-col span="12" class="item" wx:for="{{ paramData.imageList }}" wx:key="index">
+          <van-col span="12" class="item" wx:for="{{ paramData.showImgList }}" wx:key="index">
             <view class="item">
               <view class="delete" data-index="{{index}}" data-type="{{paramData.fileType}}" bindtap="deleteBtn">
                 <van-icon class="delIcon" name="clear" />
@@ -22,7 +22,7 @@
               <image  src="{{item}}" />
             </view>
           </van-col>
-          <van-col span="12" class="item" wx:if="{{ paramData.imageList.length > 0 && paramData.imageList.length < 9}}" bindtap="addIconClick">
+          <van-col span="12" class="item" wx:if="{{ paramData.showImgList.length > 0 && paramData.showImgList.length < 9}}" bindtap="addIconClick">
             <view class="item itemAdd">
               <van-icon name="plus"  class="addIcon"/>
             </view>

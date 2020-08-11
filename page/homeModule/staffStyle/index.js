@@ -112,9 +112,13 @@ Page({
       const resData = res.data
       if(resData && resData.code === 0){
         resData.data.map(item=>{
-          item.imageList = item.Pictures?item.Pictures.split('||'):[]
+          let list = item.Pictures? item.Pictures.split('||'):[]
           item.fileType = item.AttachementUrl? (item.AttachementUrl.split('.'))[1] : ''
           item.AttachementUrl = httpUrl.host + item.AttachementUrl
+          item.imageList= list.map(n=>{
+            n = httpUrl.host + n
+            return n
+          })
         })
         if(wxs.data.loadMore){
           let list = wxs.data.dataList

@@ -29,7 +29,8 @@ Page({
         AttachementUrl: '',
         TypeCode: '',
         Pictures: '',
-        imageList:[]
+        imageList:[],
+        showImgList:[]
       },
       isShow: false
    
@@ -190,13 +191,12 @@ Page({
       sizeType: ['original', 'compressed'], //可选择原图或压缩后的图片
       sourceType: ['album', 'camera'], //可选择性开放访问相册、相机
       success: res => {
-        let base64 ='data:image/png;base64,' + wx.getFileSystemManager().readFileSync(res.tempFilePaths[0],'base64')
-        let list = wxs.data.paramData.imageList
-        list.push(base64)
-        wxs.setData({
-          'paramData.fileType': 'img',
-          'paramData.imageList':list
-        })
+        // let base64 ='data:image/png;base64,' + wx.getFileSystemManager().readFileSync(res.tempFilePaths[0],'base64')
+        // let list = wxs.data.paramData.imageList
+        // list.push(res.tempFilePaths[0])
+       
+        let fileType  = res.tempFilePaths[0].substring(res.tempFilePaths[0].lastIndexOf(".") + 1 , res.tempFilePaths[0].length);
+        wxs.upload({path: res.tempFilePaths[0], name: (new Date()).getTime()+'.'+ fileType },'img')
       }
       
     })
@@ -220,12 +220,12 @@ Page({
           'paramData.fileUrl':res.tempFilePath
         })
         let fileType  = res.tempFilePath.substring(res.tempFilePath.lastIndexOf(".") + 1 , res.tempFilePath.length);
-        _that.upload({path: res.tempFilePath, name: (new Date()).getTime()+'.'+ fileType })
+        _that.upload({path: res.tempFilePath, name: (new Date()).getTime()+'.'+ fileType },'video')
       }
     })
   },
-   //上传图片的接口
-   upload: function (file) {
+  //上传图片的接口
+  upload: function (file,type) {
     let wxs = this
     common.showLoading()
     wx.uploadFile({
@@ -238,12 +238,23 @@ Page({
       success: function (res) {
         common.hideLoading()
         let data = JSON.parse(res.data)
-        console.log(res)
         if(data.code === 0) {
-          wxs.setData({
-            'paramData.AttachementUrl':data.data
-          })
-          common.showToast('文件上传成功', 3000)
+          if(type === 'img'){
+            let list = wxs.data.paramData.imageList
+            let showList = wxs.data.paramData.showImgList
+            list.push(data.data)
+            showList.push(httpUrl.host + data.data)
+            wxs.setData({
+              'paramData.fileType': 'img',
+              'paramData.imageList':list,
+              'paramData.showImgList':showList
+            })
+          } else {
+            wxs.setData({
+              'paramData.AttachementUrl':data.data
+            })
+          }
+          common.showToast('上传成功', 3000)
         } else {
           wxs.setData({
             'paramData.fileType': '',
@@ -268,11 +279,14 @@ Page({
     let index = e.currentTarget.dataset.index
     let type = e.currentTarget.dataset.type
     let list = this.data.paramData.imageList
+    let showList = this.data.paramData.showImgList
     if(type === 'img'){
       list.splice(index,1)
+      showList.splice(index,1)
     } 
     this.setData({
       'paramData.imageList':type === 'img'? list: '',
+      'paramData.showImgList':type === 'img'? showList: '',
       'paramData.fileType':list.length === 0 ? '' :'img',
       'paramData.AttachementUrl':'',
       'paramData.fileUrl':''

@@ -102,7 +102,7 @@ Page({
     const wxs = this
     if(wxs.data.isShow){return}
     if(!wxs.verify()){ return }
-    wxs.registerFun()
+    wxs.btnOkFun()
   },
   btnOkFun(){
     const wxs = this

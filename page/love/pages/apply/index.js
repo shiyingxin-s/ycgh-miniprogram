@@ -31,7 +31,11 @@ Page({
         imageList:[],
         IdCardImgA :'',//身份证正面照
         IdCardImgB:'',//身份证反面照
-        FullFaceImg:''//人身正面照 
+        FullFaceImg:'',//人身正面照 
+        showImgList:[],
+        IdCardImgAShow :'',//身份证正面照
+        IdCardImgBShow:'',//身份证反面照
+        FullFaceImgShow:''//人身正面照 
       },
       isShow: false
    
@@ -237,32 +241,37 @@ Page({
       sizeType: ['original', 'compressed'], //可选择原图或压缩后的图片
       sourceType: ['album', 'camera'], //可选择性开放访问相册、相机
       success: res => {
-        let base64 ='data:image/png;base64,' + wx.getFileSystemManager().readFileSync(res.tempFilePaths[0],'base64')
-        if(index === 'FullFaceImg'){
-          this.setData({
-            'paramData.FullFaceImg': base64
-          })
-        } else if(index === 'IdCardImgA'){
-          this.setData({
-            'paramData.IdCardImgA': base64
-          })
-        } else if(index === 'IdCardImgB'){
-          this.setData({
-            'paramData.IdCardImgB': base64
-          })
-        } else {
-          let list = wxs.data.paramData.imageList
-          list.push(base64)
-          wxs.setData({
-            'paramData.imageList':list
-          })
-        }
+        // let base64 ='data:image/png;base64,' + wx.getFileSystemManager().readFileSync(res.tempFilePaths[0],'base64')
+
+        // if(index === 'FullFaceImg'){
+        //   this.setData({
+        //     'paramData.FullFaceImg': base64
+        //   })
+        // } else if(index === 'IdCardImgA'){
+        //   this.setData({
+        //     'paramData.IdCardImgA': base64
+        //   })
+        // } else if(index === 'IdCardImgB'){
+        //   this.setData({
+        //     'paramData.IdCardImgB': base64
+        //   })
+        // } else {
+        //   let list = wxs.data.paramData.imageList
+        //   list.push(base64)
+        //   wxs.setData({
+        //     'paramData.imageList':list
+        //   })
+        // }
+
+        let fileType  = res.tempFilePaths[0].substring(res.tempFilePaths[0].lastIndexOf(".") + 1 , res.tempFilePaths[0].length);
+        wxs.upload({path: res.tempFilePaths[0], name: (new Date()).getTime()+'.'+ fileType },index)
       }
     })
   },
   deleteBtn(e){
     let index = e.currentTarget.dataset.index
     let list = this.data.paramData.imageList
+    let showList = this.data.paramData.showImgList
     if(index === 'FullFaceImg'){
       this.setData({
         'paramData.FullFaceImg': ''
@@ -277,10 +286,63 @@ Page({
       })
     } else {
       list.splice(index,1)
+      showList.splice(index,1)
       this.setData({
-        'paramData.imageList': list
+        'paramData.imageList': list,
+        'paramData.showImgList': showList
       })
     }
+  },
+  //上传图片的接口
+  upload: function (file,type) {
+    let wxs = this
+    common.showLoading()
+    wx.uploadFile({
+      url: httpUrl.uploadfile, //根据具体后端程序IP修改
+      filePath: file.path,
+      name: 'file',
+      formData: {
+        'fileName': file.name,
+      },
+      success: function (res) {
+        common.hideLoading()
+        let data = JSON.parse(res.data)
+        if(data.code === 0) {
+          if(index === 'FullFaceImg'){
+            this.setData({
+              'paramData.FullFaceImg': data.data,
+              'paramData.FullFaceImgShow': httpUrl.host + data.data,
+            })
+          } else if(index === 'IdCardImgA'){
+            this.setData({
+              'paramData.IdCardImgA': data.data,
+              'paramData.IdCardImgAShow': httpUrl.host + data.data,
+            })
+          } else if(index === 'IdCardImgB'){
+            this.setData({
+              'paramData.IdCardImgB': data.data,
+              'paramData.IdCardImgBShow': httpUrl.host + data.data,
+            })
+          } else {
+            let list = wxs.data.paramData.imageList
+            let showList =  wxs.data.paramData.showImgList
+            list.push(data.data)
+            showList.push(httpUrl.host + data.data)
+            wxs.setData({
+              'paramData.imageList':list,
+              'paramData.showImgList':showList
+            })
+          }
+          common.showToast('上传成功', 3000)
+        } else {
+          common.showToast('文件上传失败', 3000)
+        }
+      },
+      fail: function(){
+        common.hideLoading()
+      },
+    })
+    
   },
   updateClick(){
     const wxs = this
