@@ -67,11 +67,12 @@ Page({
     const wxs = this
     wxs.setData({
       'paramData.employeeName':wxs.data.id? data.Name:data.name,
-      'paramData.EmployeeId': data.id,
+      'paramData.EmployeeId': wxs.data.id? data.EmployeeId: data.id,
       'paramData.EmployeeCode':wxs.data.id? data.EmployeeCode:data.employeeCode,
       'paramData.departName': wxs.data.id?data.DepartName:data.departName,
       'paramData.employeeType': wxs.data.id?data.EmployeeType:data.employeeType
     })
+    console.log(wxs.data.paramData)
   },
   // 获取数据
   getDataFun() {
