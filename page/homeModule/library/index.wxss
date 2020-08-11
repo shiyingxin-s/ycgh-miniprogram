@@ -16,9 +16,14 @@
   margin-top: 90rpx;
 }
 .img2{
-  margin-top: 130rpx;
+  margin-top: 60rpx;
   width: 360rpx;
   height: 360rpx;
+}
+.img4{
+  margin-top: 50rpx;
+  width: 467rpx;
+  height: 164rpx;
 }
 .img3{
   position: absolute;
@@ -26,5 +31,5 @@
   width: 560rpx;
   height: 208rpx;
   right: 0;
-  bottom: 130rpx;
+  bottom: 40rpx;
 }
