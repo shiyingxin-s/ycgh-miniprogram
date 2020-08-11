@@ -94,6 +94,13 @@ Page({
       const resData = res.data
       if(resData && resData.code === 0){
         resData.data.imageList = resData.data.Attachments.split('||')
+        resData.data.showImgList = resData.data.imageList.map(item=>{
+          item = httpUrl.host + item
+          return item
+        })
+        resData.data.FullFaceImgShow = httpUrl.host + resData.data.FullFaceImg
+        resData.data.IdCardImgAShow = httpUrl.host + resData.data.IdCardImgA
+        resData.data.IdCardImgBShow = httpUrl.host + resData.data.IdCardImgB
         wxs.setData({
           paramData:resData.data
         })
@@ -308,18 +315,18 @@ Page({
         common.hideLoading()
         let data = JSON.parse(res.data)
         if(data.code === 0) {
-          if(index === 'FullFaceImg'){
-            this.setData({
+          if(type === 'FullFaceImg'){
+            wxs.setData({
               'paramData.FullFaceImg': data.data,
               'paramData.FullFaceImgShow': httpUrl.host + data.data,
             })
-          } else if(index === 'IdCardImgA'){
-            this.setData({
+          } else if(type === 'IdCardImgA'){
+            wxs.setData({
               'paramData.IdCardImgA': data.data,
               'paramData.IdCardImgAShow': httpUrl.host + data.data,
             })
-          } else if(index === 'IdCardImgB'){
-            this.setData({
+          } else if(type === 'IdCardImgB'){
+            wxs.setData({
               'paramData.IdCardImgB': data.data,
               'paramData.IdCardImgBShow': httpUrl.host + data.data,
             })

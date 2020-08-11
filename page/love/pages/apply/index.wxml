@@ -92,7 +92,7 @@
     <view class="form-box form2  {{id!== ''? 'margin-top':''}}" wx:if="{{active === 2 || id }}">
       <view class="lable">申请书照片上传</view>
       <van-row class="items" gutter="20">
-        <van-col span="12" class="item" wx:for="{{ paramData.imageList }}" wx:key="index">
+        <van-col span="12" class="item" wx:for="{{ paramData.showImgList }}" wx:key="index">
           <view class="item">
             <view class="delete" data-index="{{index}}" bindtap="deleteBtn">
               <van-icon class="delIcon" name="clear" />
@@ -100,7 +100,7 @@
             <image  src="{{item}}" />
           </view>
         </van-col>
-        <van-col span="12" class="item" wx:if="{{ paramData.imageList.length < 1}}" bindtap="selectImg">
+        <van-col span="12" class="item" wx:if="{{ paramData.showImgList.length < 1}}" bindtap="selectImg">
           <view class="item">
             <image class="img" src="/image/uploadImg.png" />
           </view>
@@ -108,15 +108,15 @@
       </van-row>
       <view class="lable">半身照上传</view>
       <van-row class="items" gutter="20">
-         <van-col span="12" class="item" wx:if="{{paramData.FullFaceImg}}">
+         <van-col span="12" class="item" wx:if="{{paramData.FullFaceImgShow}}">
           <view class="item">
             <view class="delete" data-index="FullFaceImg" bindtap="deleteBtn">
               <van-icon class="delIcon" name="clear" />
             </view>
-            <image  src="{{paramData.FullFaceImg}}" />
+            <image  src="{{paramData.FullFaceImgShow}}" />
           </view>
         </van-col>
-        <van-col span="12" class="item" data-index="FullFaceImg" wx:if="{{!paramData.FullFaceImg}}" bindtap="selectImg">
+        <van-col span="12" class="item" data-index="FullFaceImg" wx:if="{{!paramData.FullFaceImgShow}}" bindtap="selectImg">
           <view class="item">
             <image class="img" src="/image/banshen.png" />
           </view>
@@ -124,29 +124,29 @@
       </van-row>
       <view class="lable">身份证上传</view>
       <van-row class="items" gutter="20">
-        <van-col span="12" class="item" wx:if="{{paramData.IdCardImgA}}">
+        <van-col span="12" class="item" wx:if="{{paramData.IdCardImgAShow}}">
           <view class="item">
             <view class="delete" data-index="IdCardImgA" bindtap="deleteBtn">
               <van-icon class="delIcon" name="clear" />
             </view>
-            <image  src="{{paramData.IdCardImgA}}" />
+            <image  src="{{paramData.IdCardImgAShow}}" />
           </view>
         </van-col>
-        <van-col span="12" class="item" wx:if="{{paramData.IdCardImgB}}">
+        <van-col span="12" class="item" wx:if="{{paramData.IdCardImgBShow}}">
           <view class="item">
             <view class="delete" data-index="IdCardImgB" bindtap="deleteBtn">
               <van-icon class="delIcon" name="clear" />
             </view>
-            <image  src="{{paramData.IdCardImgB}}" />
+            <image  src="{{paramData.IdCardImgBShow}}" />
           </view>
         </van-col>
     
-        <van-col span="12" class="item" data-index="IdCardImgA" wx:if="{{!paramData.IdCardImgA}}" bindtap="selectImg">
+        <van-col span="12" class="item" data-index="IdCardImgA" wx:if="{{!paramData.IdCardImgAShow}}" bindtap="selectImg">
           <view class="item">
             <image class="img" src="/image/idCardA.png" />
           </view>
         </van-col>
-        <van-col span="12" class="item" data-index="IdCardImgB" wx:if="{{!paramData.IdCardImgB}}" bindtap="selectImg">
+        <van-col span="12" class="item" data-index="IdCardImgB" wx:if="{{!paramData.IdCardImgBShow}}" bindtap="selectImg">
           <view class="item">
             <image class="img" src="/image/idCardB.png" />
           </view>
