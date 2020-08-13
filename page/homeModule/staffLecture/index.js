@@ -47,7 +47,7 @@ Page({
     requestLib.request({
       url:  httpUrl.getSelectMajor,
       method: 'post',
-      data: {enCode:'StuffHall'},
+      data: {enCode:'StaffHall'},
       success: successFun,
       fail: (error)=>{
         common.hideLoading()
