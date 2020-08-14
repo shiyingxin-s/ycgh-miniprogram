@@ -17,6 +17,7 @@ Page({
       isBackPer: true, //不显示返回按钮,
       bgColor:'#f4424a' //导航背景色
     },
+    goActiveKey: 0,
     activeKey: 0,
     typeList:[], 
     loadMore:false,
@@ -43,6 +44,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function () {
+   this.setData({
+     goActiveKey: 0
+   })
    common.showLoading()
    this.getDataFun()
   },
@@ -69,7 +73,8 @@ Page({
         }
         wxs.setData({
           typeList:resData.data,
-          typeCode: resData.data[0].id
+          typeCode: resData.data[0].id,
+          activeKey: wxs.data.goActiveKey
         })
         wxs.getDataList()
       } else {
@@ -144,6 +149,7 @@ Page({
     let index = e.detail
     let name = this.data.typeList[index].id
     wxs.setData({
+      goActiveKey: index,
       typeCode: name,
       loadMore:false,
       pageIndex:1,
