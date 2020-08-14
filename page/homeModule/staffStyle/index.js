@@ -73,7 +73,7 @@ Page({
         }
         wxs.setData({
           typeList:resData.data,
-          typeCode: resData.data[0].id,
+          typeCode: resData.data[wxs.data.goActiveKey].id,
           activeKey: wxs.data.goActiveKey
         })
         wxs.getDataList()
