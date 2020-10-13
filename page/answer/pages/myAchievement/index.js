@@ -74,13 +74,18 @@ Page({
         })
         if(wxs.data.loadMore){
           let list = wxs.data ? wxs.data.list: []
-          list.push(resData.data?resData.data.records:[])
+          if(resData.data.records.length){
+            list.push(resData.data.records)
+          }
           wxs.setData({
             list: list,
             loadMore:false
           })
         }else{
-          let list = resData.data?resData.data.records:[]
+          let list = []
+          if(resData.data.records.length){
+            list = resData.data.records
+          }
           wxs.setData({
             list: list
           })

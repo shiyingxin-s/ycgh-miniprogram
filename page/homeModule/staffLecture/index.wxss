@@ -33,7 +33,7 @@
   float: left;
   padding: 21rpx;
   overflow-y: scroll;
-  width: calc(100% - 240rpx);
+  width: calc(100% - 260rpx);
 }
 .leftList .add .addIcon{
   color: #FC414A;
