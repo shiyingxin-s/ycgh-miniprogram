@@ -26,7 +26,7 @@ Page({
   },
   toAnswer(){
     if(!UserData || !UserData.get().professionId ){
-      wx.redirectTo({
+      wx.navigateTo({
         url: '../../homeModule/selectProfession/index'
       })
     } else {

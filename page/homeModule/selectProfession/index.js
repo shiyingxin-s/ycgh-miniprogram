@@ -103,7 +103,7 @@ Page({
               wx.navigateBack()
             },1000)
           } else {
-            wx.navigateTo({
+            wx.redirectTo({
               url:'../answer/index'
             })
           }
