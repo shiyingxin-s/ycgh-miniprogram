@@ -24,7 +24,7 @@ Page({
         fileType:'',
         EmployeeId: '',
         Title: '',
-        Description: '123',
+        Description: '',
         AttachementUrl: '',
         TypeCode: '',
         fileUrl:''

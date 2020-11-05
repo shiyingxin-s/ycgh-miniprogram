@@ -8,7 +8,7 @@ Page({
   data: {
     // 此页面 页面内容距最顶部的距离
     height: app.globalData.navHeight * 2 + 19 ,
-    conHeight: app.globalData.whHeight - (app.globalData.navHeight * 2 + 19) - 20,
+    conHeight: wx.getSystemInfoSync().windowHeight - (app.globalData.navHeight * 2 + 19),
     // 组件所需的参数
     nvabarData: {
       showCapsule: 1, //是否显示左上角图标   1表示显示    0表示不显示
@@ -18,6 +18,7 @@ Page({
     },
     index: -1,
     datas:'',
+    imageListData:[]
    
   },
   /**
@@ -27,11 +28,33 @@ Page({
     common.showLoading()
     var pages = getCurrentPages();
     var prevPage = pages[pages.length - 2]; // 上一个页面
+    let prevPageData = prevPage.data.dataList[options.index]
+    let imgLData=[]
+    if(prevPageData.imageList.length>0){
+      prevPageData.imageList.map(item=>{
+        wx.getImageInfo({
+          src: item,
+          success:res=>{
+            let imgData = {
+                width:res.width,
+                height: wx.getSystemInfoSync().windowWidth/res.width*res.height,
+                src: item
+            }
+            imgLData.push(imgData)
+            this.setData({
+              imageListData: imgLData,
+            })
+          }
+        })
+        
+      })
+    }
+    
     this.setData({
       index:options.index,
       datas: prevPage.data.dataList[options.index]
     })
-    console.log(this.data.datas)
+    console.log(this.data.imageListData)
     common.hideLoading()
   },
   onShow: function () {

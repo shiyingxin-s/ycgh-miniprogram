@@ -2,13 +2,21 @@
 <view class="detail {{datas.imageList.length === 0? 'black': ''}}" style='margin-top:{{height}}px;'>
     <view class="content" wx:if="{{datas}}">
       <block wx:if="{{datas.imageList.length>0}}">
-        <swiper class="swiper clearfix" style="height:{{conHeight}}rpx; line-height:{{conHeight - 10}}rpx">
-          <swiper-item wx:for="{{datas.imageList}}" wx:key="index" style="overflow-y: auto;">
-            <van-image
+        <swiper class="swiper clearfix" style="height:{{conHeight}}px;">
+          <swiper-item wx:for="{{imageListData}}" wx:key="index" style="overflow:hidden;">
+          
+            <view class="view-box" 
+            style="height:{{item.height}}px; margin:{{((conHeight - item.height-260)/2) >0?(conHeight -  item.height-260)/2:0}}px 0;" >
+              <!-- <image class="view-img" lazy-load="{{true}}" src="{{item.src}}"
+               /> -->
+              <van-image
+                class="view-img"
                 width="100%"
                 fit="widthFix"
-                src="{{item}}"
-            />  
+                src="{{item.src}}"
+              />   
+            </view>
+            
           </swiper-item>
         </swiper>
       </block>

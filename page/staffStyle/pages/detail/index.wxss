@@ -43,3 +43,13 @@
     height: 300rpx;
     overflow-y: scroll;
 }
+.view-box{
+    display: table;
+    width:100%;
+}
+.view-img{
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    width: 100%;
+}

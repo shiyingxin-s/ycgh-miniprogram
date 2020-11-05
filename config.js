@@ -4,7 +4,7 @@
 
 // 
 
-var host = "https://www.chuanguhai.com"
+var host = "https://api.yqktgh.com"
 
 var config = {
 
