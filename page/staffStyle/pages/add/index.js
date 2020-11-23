@@ -32,7 +32,9 @@ Page({
         imageList:[],
         showImgList:[]
       },
-      isShow: false
+      isShow: false,
+      cWidth: 0,
+      cHeight : 0
    
   },
   /**
@@ -208,7 +210,7 @@ Page({
                 canvasHeight = Math.trunc(res.height / ratio)
                 ratio++;
             }
-            that.setData({
+            wxs.setData({
                 cWidth: canvasWidth,
                 cHeight: canvasHeight
             })

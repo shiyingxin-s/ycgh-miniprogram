@@ -37,7 +37,9 @@ Page({
         IdCardImgBShow:'',//身份证反面照
         FullFaceImgShow:''//人身正面照 
       },
-      isShow: false
+      isShow: false,
+      cWidth: 0,
+      cHeight : 0
    
   },
   /**
@@ -256,7 +258,7 @@ Page({
         //-----返回选定照片的本地文件路径列表，获取照片信息-----------
         wx.getImageInfo({
             src: photo.tempFilePaths[0],  
-            success: function(res){
+            success: res=>{
             //---------利用canvas压缩图片--------------
             var ratio = 2;
             var canvasWidth = res.width //图片原始长宽
@@ -266,7 +268,7 @@ Page({
                 canvasHeight = Math.trunc(res.height / ratio)
                 ratio++;
             }
-            that.setData({
+            wxs.setData({
                 cWidth: canvasWidth,
                 cHeight: canvasHeight
             })
