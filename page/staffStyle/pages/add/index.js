@@ -196,10 +196,10 @@ Page({
         // let base64 ='data:image/png;base64,' + wx.getFileSystemManager().readFileSync(res.tempFilePaths[0],'base64')
         // let list = wxs.data.paramData.imageList
         // list.push(res.tempFilePaths[0])
-
+        let photoPath = photo.tempFilePaths[0]
         //-----返回选定照片的本地文件路径列表，获取照片信息-----------
         wx.getImageInfo({
-          src: photo.tempFilePaths[0],  
+          src: photoPath,  
           success: function(res){
             //---------利用canvas压缩图片--------------
             var ratio = 2;
@@ -214,7 +214,7 @@ Page({
                 cWidth: canvasWidth,
                 cHeight: canvasHeight
             })
-        
+
             //----------绘制图形并取出图片路径--------------
             var ctx = wx.createCanvasContext('canvas')
             ctx.drawImage(res.path, 0, 0, canvasWidth, canvasHeight)
@@ -224,9 +224,9 @@ Page({
                       destWidth: canvasWidth,
                       destHeight: canvasHeight,
                       success: function (res) {
-                          console.log(res.tempFilePath)//最终图片路径
-                          let fileType  = res.tempFilePaths[0].substring(res.tempFilePaths[0].lastIndexOf(".") + 1 , res.tempFilePaths[0].length);
-                          wxs.upload({path: res.tempFilePaths[0], name: (new Date()).getTime()+'.'+ fileType },'img')
+                        console.log(res.tempFilePath)
+                        let fileType  = res.tempFilePath.substring(res.tempFilePath.lastIndexOf(".") + 1 ,res.tempFilePath.length);
+                        wxs.upload({path: res.tempFilePath, name: (new Date()).getTime()+'.'+ fileType },'img')
                       },
                       fail: function (res) {
                           console.log(res.errMsg)
@@ -275,6 +275,7 @@ Page({
       success: function (res) {
         common.hideLoading()
         let data = JSON.parse(res.data)
+        console.log(data)
         if(data.code === 0) {
           if(type === 'img'){
             let list = wxs.data.paramData.imageList

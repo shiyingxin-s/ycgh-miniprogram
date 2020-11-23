@@ -12,6 +12,7 @@
           disabled="{{!!paramData.fileType}}" type="primary" bind:tap="selectVideo">
           <text class="iconfont iconshipin"/> 视频</van-button>
       </view>
+      <canvas wx:show="{{false}}" canvas-id="canvas" style="width:{{cWidth}}px;height:{{cHeight}}px;position: absolute;left:-1000px;top:-1000px;"></canvas>
       <van-row class="items" gutter="20">
         <block wx:if="{{paramData.fileType === 'img'}}">
           <van-col span="12" class="item" wx:for="{{ paramData.showImgList }}" wx:key="index">

@@ -106,6 +106,7 @@
           </view>
         </van-col>
       </van-row>
+      <canvas wx:show="{{false}}" canvas-id="canvas" style="width:{{cWidth}}px;height:{{cHeight}}px;position: absolute;left:-1000px;top:-1000px;"></canvas>
       <view class="lable">半身照上传</view>
       <van-row class="items" gutter="20">
          <van-col span="12" class="item" wx:if="{{paramData.FullFaceImgShow}}">
