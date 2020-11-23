@@ -190,15 +190,50 @@ Page({
       count: 9,
       sizeType: ['original', 'compressed'], //可选择原图或压缩后的图片
       sourceType: ['album', 'camera'], //可选择性开放访问相册、相机
-      success: res => {
+      success: photo => {
         // let base64 ='data:image/png;base64,' + wx.getFileSystemManager().readFileSync(res.tempFilePaths[0],'base64')
         // let list = wxs.data.paramData.imageList
         // list.push(res.tempFilePaths[0])
-       
-        let fileType  = res.tempFilePaths[0].substring(res.tempFilePaths[0].lastIndexOf(".") + 1 , res.tempFilePaths[0].length);
-        wxs.upload({path: res.tempFilePaths[0], name: (new Date()).getTime()+'.'+ fileType },'img')
+
+        //-----返回选定照片的本地文件路径列表，获取照片信息-----------
+        wx.getImageInfo({
+          src: photo.tempFilePaths[0],  
+          success: function(res){
+            //---------利用canvas压缩图片--------------
+            var ratio = 2;
+            var canvasWidth = res.width //图片原始长宽
+            var canvasHeight = res.height
+            while (canvasWidth > 400 || canvasHeight > 400){// 保证宽高在400以内
+                canvasWidth = Math.trunc(res.width / ratio)
+                canvasHeight = Math.trunc(res.height / ratio)
+                ratio++;
+            }
+            that.setData({
+                cWidth: canvasWidth,
+                cHeight: canvasHeight
+            })
+        
+            //----------绘制图形并取出图片路径--------------
+            var ctx = wx.createCanvasContext('canvas')
+            ctx.drawImage(res.path, 0, 0, canvasWidth, canvasHeight)
+            ctx.draw(false, setTimeout(function(){
+                  wx.canvasToTempFilePath({
+                      canvasId: 'canvas',
+                      destWidth: canvasWidth,
+                      destHeight: canvasHeight,
+                      success: function (res) {
+                          console.log(res.tempFilePath)//最终图片路径
+                          let fileType  = res.tempFilePaths[0].substring(res.tempFilePaths[0].lastIndexOf(".") + 1 , res.tempFilePaths[0].length);
+                          wxs.upload({path: res.tempFilePaths[0], name: (new Date()).getTime()+'.'+ fileType },'img')
+                      },
+                      fail: function (res) {
+                          console.log(res.errMsg)
+                    }
+                })
+            },100))  //留一定的时间绘制canvas
+          }
+        })
       }
-      
     })
   },
   addIconClick(){

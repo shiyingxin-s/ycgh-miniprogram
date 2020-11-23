@@ -64,6 +64,41 @@ Page({
       })
     }
   },
+  // 点赞或取消点赞
+  upateLike(e){
+    const wxs = this
+    let id = e.currentTarget.dataset.id
+    let type = e.currentTarget.dataset.type
+   
+    let data = {
+      employeeId: UserData.get().id,
+      id: id,
+      isLike: type === 'like'? true :false
+    }
+    common.showLoading()
+    requestLib.request({
+      url:  httpUrl.staffStyleLike,
+      method: 'post',
+      data: data,
+      success: (res)=>{
+        common.hideLoading()
+        const resData = res.data
+        if(resData && resData.code === 0){
+          let count = this.data.datas.LikeNums
+          this.setData({
+            'datas.IsLike':type === 'like'? true :false,
+            'datas.LikeNums':type === 'like'? count+1 :count-1
+          })
+        } else {
+          common.showToast(error.errMessage, 3000)
+        }
+      },
+      fail: (error)=>{
+        common.hideLoading()
+        common.showToast(error.errMessage, 3000)
+      }
+    })
+  },
  
   
 })

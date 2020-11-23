@@ -33,12 +33,12 @@ Page({
         url: '../../../page/login/index'
       })
     }
-    // this.setData({
-    //   typeList:[],
-    //   activeKey: 0
-    // })
-    // common.showLoading()
-    // this.getDataFun()
+    this.setData({
+      typeList:[],
+      activeKey: 0
+    })
+    common.showLoading()
+    this.getDataFun()
   },
   /**
    * 生命周期函数--监听页面加载

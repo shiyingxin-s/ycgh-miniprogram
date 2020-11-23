@@ -37,8 +37,8 @@
       </block>     
       <view class="text">
         <view class="like-view">
-          <van-icon name="like" data-type="cancel" data-id="{{datas.Id}}" class="like like-o" wx:if="{{datas.IsLike}}"  />
-          <van-icon name="like-o" data-type="like" data-id="{{datas.Id}}"  class="like"  wx:else/>
+          <van-icon name="like" data-type="cancel" data-id="{{datas.Id}}" class="like like-o" catchtap="upateLike" wx:if="{{datas.IsLike}}"  />
+          <van-icon name="like-o" data-type="like" data-id="{{datas.Id}}"  class="like" catchtap="upateLike" wx:else/>
           {{datas.LikeNums}} 
         </view>
         <view class="title">{{datas.title}}</view>
