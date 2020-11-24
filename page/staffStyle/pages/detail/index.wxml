@@ -6,7 +6,7 @@
           <swiper-item wx:for="{{imageListData}}" wx:key="index" style="overflow:hidden;">
           
             <view class="view-box" 
-            style="height:{{item.height}}px; margin:{{((conHeight - item.height-260)/2) >0?(conHeight -  item.height-260)/2:0}}px 0;" >
+              style="height:{{item.height}}px; margin:{{((conHeight - item.height-200)/2) >0?(conHeight -  item.height-200)/2:0}}px 0;" >
               <!-- <image class="view-img" lazy-load="{{true}}" src="{{item.src}}"
                /> -->
               <van-image
@@ -21,7 +21,7 @@
         </swiper>
       </block>
       <block wx:elif="{{datas.imageList.length === 0}}">
-          <view  style="height:{{conHeight}}rpx; line-height:{{conHeight - 10}}rpx;background-color: #000000;" >
+          <view  style="height:{{conHeight}}px; line-height:{{conHeight - 10}}px;background-color: #000000;" >
             <video 
                   id="myVideo" 
                   src="{{datas.AttachementUrl}}" 

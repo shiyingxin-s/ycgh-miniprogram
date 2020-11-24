@@ -1,12 +1,12 @@
 .detail{
     height: 100%;
-    background-color: #333333;
-}
-.detail.black{
     background-color: #000000;
 }
+.detail.black{
+    /* background-color: #000000; */
+}
 #myVideo{
-    height: calc(100% - 480rpx);
+    height: calc(100% - 240rpx);
     width: 100%;
 }
 .content{
@@ -25,22 +25,22 @@
 .text{
     line-height: 40rpx;
     position: absolute;
+    max-height: 200rpx;
     bottom:0;
     background-color: rgba(0, 0, 0, 0.7);
-    height: 400rpx;
     left: 0;
     right: 0;
     padding:30rpx;
     color:#C2C2C2;
     font-size: 26rpx;
-    overflow: hidden;
+    overflow-y:auto;
 }
 .text .title{
     font-size: 28rpx;
     margin-bottom: 15rpx;
 }
 .text .txt{
-    height: 300rpx;
+   
     overflow-y: scroll;
 }
 .view-box{

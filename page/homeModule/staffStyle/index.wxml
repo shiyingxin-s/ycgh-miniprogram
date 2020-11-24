@@ -14,7 +14,7 @@
   <view class="right" style='height:{{conHeight}}rpx'>
       <block wx:if="{{dataList.length>0}}">
         <block wx:for="{{dataList}}" wx:key="index">
-          <view class="item" data-index="{{index}}" bindtap="goDetail">  
+          <view class="item" >  
               <view class="my-view">
                 <view class="left-del" data-id="{{item.Id}}" wx:if="{{typeCode === 'my'}}" catchtap="del"><van-icon name="delete" class="del" /></view>
               </view> 
@@ -45,7 +45,7 @@
                 ></video>
               </block>
             </view>
-            <view class="item-right">
+            <view class="item-right" data-index="{{index}}" catchtap="goDetail">
               <view class="text">
                 <view class="txt"> {{item.Title}} </view>
                 <view class="status {{item.StateText === '待审核'?'bg-fec83d': item.StateText === '已审核'?'bg-2be3b9':'bg-red'}}">{{item.StateText}}</view>
