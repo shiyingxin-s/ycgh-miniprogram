@@ -18,44 +18,44 @@ Page({
     },
     index: -1,
     datas:'',
-    imageListData:[]
+    imageListData:[],
+    id:'',
    
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    common.showLoading()
-    var pages = getCurrentPages();
-    var prevPage = pages[pages.length - 2]; // 上一个页面
-    let prevPageData = prevPage.data.dataList[options.index]
-    let imgLData=[]
-    if(prevPageData.imageList.length>0){
-      prevPageData.imageList.map(item=>{
-        wx.getImageInfo({
-          src: item,
-          success:res=>{
-            let imgData = {
-                width:res.width,
-                height: wx.getSystemInfoSync().windowWidth/res.width*res.height,
-                src: item
-            }
-            imgLData.push(imgData)
-            this.setData({
-              imageListData: imgLData,
-            })
-          }
-        })
+    // common.showLoading()
+    // var pages = getCurrentPages();
+    // var prevPage = pages[pages.length - 2]; // 上一个页面
+    // let prevPageData = prevPage.data.dataList[options.index]
+    // let imgLData=[]
+    // if(prevPageData.imageList.length>0){
+    //   prevPageData.imageList.map(item=>{
+    //     wx.getImageInfo({
+    //       src: item,
+    //       success:res=>{
+    //         let imgData = {
+    //             width:res.width,
+    //             height: wx.getSystemInfoSync().windowWidth/res.width*res.height,
+    //             src: item
+    //         }
+    //         imgLData.push(imgData)
+    //         this.setData({
+    //           imageListData: imgLData,
+    //         })
+    //       }
+    //     })
         
-      })
-    }
+    //   })
+    // }
     
     this.setData({
-      index:options.index,
-      datas: prevPage.data.dataList[options.index]
+      id:options.id
     })
-    console.log(this.data.imageListData)
-    common.hideLoading()
+    
+    this.getDetail()
   },
   onShow: function () {
     if(!UserData || !UserData.get().token ){
@@ -64,6 +64,62 @@ Page({
       })
     }
   },
+  // 获取详情
+  getDetail() {
+    let data = {
+      employeeId: UserData.get().id,
+      id: this.data.id
+    }
+    common.showLoading()
+    requestLib.request({
+      url:  httpUrl.staffstyleDetail,
+      method: 'post',
+      data: data,
+      success: (res)=>{
+        const resData = res.data
+        if(resData && resData.code === 0){
+          let list = resData.data.Pictures? resData.data.Pictures.split('||'):[]
+          resData.data.fileType = resData.data.AttachementUrl? (resData.data.AttachementUrl.split('.'))[1] : ''
+          resData.data.AttachementUrl = httpUrl.host +  resData.data.AttachementUrl
+          resData.data.imageList= list.map(n=>{
+            n = httpUrl.host + n
+            return n
+          })
+          this.setData({
+            datas:resData.data
+          })
+          let imgLData=[]
+          if(resData.data.imageList.length>0){
+            resData.data.imageList.map(item=>{
+              wx.getImageInfo({
+                src: item,
+                success:res=>{
+                  let imgData = {
+                      width:res.width,
+                      height: wx.getSystemInfoSync().windowWidth/res.width*res.height,
+                      src: item
+                  }
+                  imgLData.push(imgData)
+                  this.setData({
+                    imageListData: imgLData,
+                  })
+                }
+              })
+              
+            })
+          }
+        } else {
+          common.showToast(error.errMessage, 3000)
+        }
+        common.hideLoading()
+      },
+      fail: (error)=>{
+        common.hideLoading()
+        common.showToast(error.errMessage, 3000)
+      }
+    })
+  },
+
   // 点赞或取消点赞
   upateLike(e){
     const wxs = this

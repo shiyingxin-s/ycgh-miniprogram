@@ -33,12 +33,12 @@ Page({
         url: '../../../page/login/index'
       })
     }
-    this.setData({
-      typeList:[],
-      activeKey: 0
-    })
-    common.showLoading()
-    this.getDataFun()
+    // this.setData({
+    //   typeList:[],
+    //   activeKey: 0
+    // })
+    // common.showLoading()
+    // this.getDataFun()
   },
   /**
    * 生命周期函数--监听页面加载
@@ -164,9 +164,9 @@ Page({
    
   },
   goDetail(e){
-    let index = e.currentTarget.dataset.index
+    let id = e.currentTarget.dataset.id
     wx.navigateTo({
-      url:'../../staffStyle/pages/detail/index?index='+index
+      url:'../../staffStyle/pages/detail/index?id='+id
     })  
   },
   // 点赞或取消点赞

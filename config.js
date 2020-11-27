@@ -99,6 +99,9 @@ var config = {
     deleteHall:`${host}/staffHall/deleteStaffHall`,
 
     deleteStyle: `${host}/staffStyle/deleteStaffStyle`,
+
+
+    staffstyleDetail: `${host}/staffStyle/getStaffStyleById`,
     
 };
 

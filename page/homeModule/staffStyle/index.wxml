@@ -14,7 +14,7 @@
   <view class="right" style='height:{{conHeight}}rpx'>
       <block wx:if="{{dataList.length>0}}">
         <block wx:for="{{dataList}}" wx:key="index">
-          <view class="item" data-index="{{index}}" catchtap="goDetail">  
+          <view class="item" data-id="{{item.Id}}" catchtap="goDetail">  
               <view class="my-view">
                 <view class="left-del" data-id="{{item.Id}}" wx:if="{{typeCode === 'my'}}" catchtap="del"><van-icon name="delete" class="del" /></view>
               </view> 
