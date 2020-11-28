@@ -124,7 +124,7 @@ Page({
         if(wxs.data.loadMore){
           let list = wxs.data.dataList
           if(resData.data.length>0){
-            list.push(resData.data)
+            list = list.concat(resData.data)
           }
           wxs.setData({
             dataList: list,

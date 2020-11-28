@@ -75,7 +75,7 @@ Page({
         if(wxs.data.loadMore){
           let list = wxs.data ? wxs.data.list: []
           if(resData.data.records.length){
-            list.push(resData.data.records)
+            list=list.concat(resData.data.records)
           }
           wxs.setData({
             list: list,
