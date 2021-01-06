@@ -8,7 +8,7 @@
     </view>
   </view>
   <view class="content">
-    <view class="item clearfix">
+    <!-- <view class="item clearfix">
       <view class="left" bindtap="toAnswer">
         <text  class="iconfont iconwangshanglianbing"  />
         <view class="top-view heartbeat">
@@ -18,6 +18,21 @@
       </view>
       <view class="right" bindtap="toLibrary">
         <text  class="iconfont iconzhigongshuwu"  />
+      </view>
+    </view> -->
+    <view class="items">
+      <view class="item item0bg item1" bindtap="toAnswer">
+        <text  class="iconfont iconwangshanglianbing2"  />
+        <view class="top-view heartbeat">
+            <view >每日</view>
+            <text >十题</text>
+        </view>
+      </view>
+      <view class="item itemTop1bg">
+        <text  class="iconfont iconquanminjianshen" bindtap="toFitness" />
+      </view>
+      <view class="item itemTop3bg" bindtap="toLibrary">
+         <text  class="iconfont iconzhigongshuwu"  />
       </view>
     </view>
     <view class="items">

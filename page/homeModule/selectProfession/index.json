@@ -1,10 +1,10 @@
 {
     "navigationBarTitleText": "",
     "usingComponents": {
-      "myHeader": "../../components/header/header",
-      "van-button": "../../../../dist/button/index",
-      "van-icon": "../../../../dist/icon/index",
-      "van-row": "../../../dist/row/index",
-      "van-col": "../../../dist/col/index"
+      "myHeader": "/components/header/header",
+      "van-button": "/dist/button/index",
+      "van-icon": "/dist/icon/index",
+      "van-row": "/dist/row/index",
+      "van-col": "/dist/col/index"
     }
 }

@@ -1,13 +1,13 @@
 {
   "navigationBarTitleText": "",
   "usingComponents": {
-    "comNoData": "../../../components/comNoData/comNoData",
-    "myHeader": "../../../components/header/header",
-    "van-button": "../../../../dist/button/index",
-    "van-icon": "../../../../dist/icon/index",
-    "van-dialog": "../../../dist/dialog/index",
-    "van-sidebar": "../../../dist/sidebar/index",
-    "van-sidebar-item": "../../../dist/sidebar-item/index",
-    "van-image": "../../../dist/image/index"
+    "comNoData": "/components/comNoData/comNoData",
+    "myHeader": "/components/header/header",
+    "van-button": "/dist/button/index",
+    "van-icon": "/dist/icon/index",
+    "van-dialog": "/dist/dialog/index",
+    "van-sidebar": "/dist/sidebar/index",
+    "van-sidebar-item": "/dist/sidebar-item/index",
+    "van-image": "/dist/image/index"
   }
 }

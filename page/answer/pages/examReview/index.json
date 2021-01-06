@@ -1,12 +1,12 @@
 {
     "navigationBarTitleText": "",
     "usingComponents": {
-      "myHeader": "../../components/header/header",
-      "comNoData": "../../components/comNoData/comNoData",
-      "comAnswer": "../../components/comAnswer/index",
-      "comResult": "../../components/comResult/index",
-      "van-button": "../../../../dist/button/index",
-      "van-icon": "../../../../dist/icon/index",
-      "van-dialog": "../../../dist/dialog/index"
+      "myHeader": "/components/header/header",
+      "comNoData": "/components/comNoData/comNoData",
+      "comAnswer": "/components/comAnswer/index",
+      "comResult": "/components/comResult/index",
+      "van-button": "/dist/button/index",
+      "van-icon": "/dist/icon/index",
+      "van-dialog": "/dist/dialog/index"
     }
 }

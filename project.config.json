@@ -1,168 +1,169 @@
 {
-	"description": "项目配置文件",
-	"packOptions": {
-		"ignore": []
-	},
-	"setting": {
-		"urlCheck": true,
-		"es6": true,
-		"enhance": false,
-		"postcss": true,
-		"preloadBackgroundData": false,
-		"minified": true,
-		"newFeature": true,
-		"coverView": true,
-		"nodeModules": false,
-		"autoAudits": false,
-		"showShadowRootInWxmlPanel": true,
-		"scopeDataCheck": false,
-		"uglifyFileName": false,
-		"checkInvalidKey": true,
-		"checkSiteMap": true,
-		"uploadWithSourceMap": true,
-		"compileHotReLoad": false,
-		"babelSetting": {
-			"ignore": [],
-			"disablePlugins": [],
-			"outputPath": ""
-		},
-		"bundle": false,
-		"useIsolateContext": true,
-		"useCompilerModule": false,
-		"userConfirmedUseCompilerModuleSwitch": false
-	},
-	"compileType": "miniprogram",
-	"libVersion": "2.11.1",
-	"appid": "wx4acb137cced6eabe",
-	"projectname": "ycgh-miniprogram",
-	"cloudfunctionTemplateRoot": "",
-	"watchOptions": {
-		"ignore": []
-	},
-	"debugOptions": {
-		"hidedInDevtools": []
-	},
-	"scripts": {
-		"beforeCompile": "npm run tsc",
-		"beforePreview": "npm run tsc",
-		"beforeUpload": "npm run tsc"
-	},
-	"simulatorType": "wechat",
-	"simulatorPluginLibVersion": {},
-	"condition": {
-		"search": {
-			"current": -1,
-			"list": []
-		},
-		"conversation": {
-			"current": -1,
-			"list": []
-		},
-		"plugin": {
-			"current": -1,
-			"list": []
-		},
-		"game": {
-			"list": []
-		},
-		"gamePlugin": {
-			"current": -1,
-			"list": []
-		},
-		"miniprogram": {
-			"current": -1,
-			"list": [
-				{
-					"id": -1,
-					"name": "page/tabBar/home/index",
-					"pathName": "page/tabBar/home/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "page/login/index/index",
-					"pathName": "page/login/index/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "page/tabBar/my/index",
-					"pathName": "page/tabBar/my/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "page/answer/pages/everyDay/index",
-					"pathName": "page/answer/pages/everyDay/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "page/answer/pages/myAchievement/index",
-					"pathName": "page/answer/pages/myAchievement/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "page/answer/pages/examList/index",
-					"pathName": "page/answer/pages/examList/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "page/homeModule/loveHelp/index",
-					"pathName": "page/homeModule/loveHelp/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "page/love/pages/apply/index",
-					"pathName": "page/love/pages/apply/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "page/love/pages/applyRecord/index",
-					"pathName": "page/love/pages/applyRecord/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "page/tabBar/my/index",
-					"pathName": "page/tabBar/my/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "page/my/pages/msg/index",
-					"pathName": "page/my/pages/msg/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "page/homeModule/staffLecture/index",
-					"pathName": "page/homeModule/staffLecture/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "page/homeModule/staffStyle/index",
-					"pathName": "page/homeModule/staffStyle/index",
-					"scene": null
-				}
-			]
-		}
-	}
+  "description": "项目配置文件",
+  "packOptions": {
+    "ignore": []
+  },
+  "setting": {
+    "urlCheck": true,
+    "es6": true,
+    "enhance": false,
+    "postcss": true,
+    "preloadBackgroundData": false,
+    "minified": true,
+    "newFeature": true,
+    "coverView": true,
+    "nodeModules": false,
+    "autoAudits": false,
+    "showShadowRootInWxmlPanel": true,
+    "scopeDataCheck": false,
+    "uglifyFileName": false,
+    "checkInvalidKey": true,
+    "checkSiteMap": true,
+    "uploadWithSourceMap": true,
+    "compileHotReLoad": false,
+    "babelSetting": {
+      "ignore": [],
+      "disablePlugins": [],
+      "outputPath": ""
+    },
+    "bundle": false,
+    "useIsolateContext": true,
+    "useCompilerModule": false,
+    "userConfirmedUseCompilerModuleSwitch": false
+  },
+  "compileType": "miniprogram",
+  "libVersion": "2.11.1",
+  "appid": "wx4acb137cced6eabe",
+  "projectname": "ycgh-miniprogram",
+  "cloudfunctionTemplateRoot": "",
+  "watchOptions": {
+    "ignore": []
+  },
+  "debugOptions": {
+    "hidedInDevtools": []
+  },
+  "scripts": {
+    "beforeCompile": "npm run tsc",
+    "beforePreview": "npm run tsc",
+    "beforeUpload": "npm run tsc"
+  },
+  "simulatorType": "wechat",
+  "simulatorPluginLibVersion": {},
+  "condition": {
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "id": -1,
+          "name": "page/tabBar/home/index",
+          "pathName": "page/tabBar/home/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "page/login/index/index",
+          "pathName": "page/login/index/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "page/tabBar/my/index",
+          "pathName": "page/tabBar/my/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "page/answer/pages/everyDay/index",
+          "pathName": "page/answer/pages/everyDay/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "page/answer/pages/myAchievement/index",
+          "pathName": "page/answer/pages/myAchievement/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "page/answer/pages/examList/index",
+          "pathName": "page/answer/pages/examList/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "page/homeModule/loveHelp/index",
+          "pathName": "page/homeModule/loveHelp/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "page/love/pages/apply/index",
+          "pathName": "page/love/pages/apply/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "page/love/pages/applyRecord/index",
+          "pathName": "page/love/pages/applyRecord/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "page/tabBar/my/index",
+          "pathName": "page/tabBar/my/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "page/my/pages/msg/index",
+          "pathName": "page/my/pages/msg/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "page/homeModule/staffLecture/index",
+          "pathName": "page/homeModule/staffLecture/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "page/homeModule/staffStyle/index",
+          "pathName": "page/homeModule/staffStyle/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "page/homeModule/bodyInfo/index",
+          "pathName": "page/homeModule/bodyInfo/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "page/homeModule/fitness/index",
+          "pathName": "page/homeModule/fitness/index",
+          "scene": null
+        }
+      ]
+    }
+  }
 }

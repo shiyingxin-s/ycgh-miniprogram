@@ -1,0 +1,63 @@
+<!--page/homeModule/bodyInfo/index.wxml-->
+<!-- 录入身体基本信息 -->
+
+<myHeader id="myHeader" navbar-data='{{nvabarData}}'></myHeader>
+
+<view class="fitness-bodyInfo" style='margin-top:{{height}}px'>
+    <view class="header">
+        <view class="title">完善资料</view>
+        <text class="desc">请选择您的性别</text> 
+    </view>
+    <van-row class="items" gutter="20">
+        <van-col span="12" class="item">
+            <view class="item" bindtap="itemClick" 
+                    data-sex="M">
+                <image  src="/image/{{sex === 'M' ? 'M-2':'M-1' }}.png" />
+                <view  class="name">男</view>
+            </view>
+        </van-col>
+        <van-col span="12" class="item">
+            <view class="item" bindtap="itemClick" 
+                    data-sex="F">
+                <image  src="/image/{{sex === 'F' ? 'F-2':'F-1' }}.png" />
+                <view  class="name">女</view>
+            </view>
+        </van-col>
+    </van-row> 
+    <view class="input-title">身高</view>
+    <view class="input-box">
+        <van-field
+            class="input-style"
+            value="{{ heightParm }}"
+            type= "digit"
+            bind:input="inputHeight"
+            placeholder="请输入身高"
+        />
+        <text class="unit">cm</text>
+    </view>
+    <view class="input-title">体重</view>
+    <view class="input-box">
+        <van-field
+            class="input-style"
+            value="{{ weightParm }}"
+            type= "digit"
+            bind:input="inputWeight"
+            placeholder="请输入体重"
+        />
+        <text class="unit">kg</text>
+    </view>
+    <van-button
+        class="btnStyle"
+        type="primary"
+        block  
+        round
+        disabled="{{professionId === '' || isShow}}"
+        loading="{{isShow}}"
+        loading-type="spinner"
+        loading-text="进入全民健身..." 
+        size="large"
+        color="#f4424a"
+        bindtap="btnClick">
+        {{fromName?'确定':'进入全民健身'}}
+    </van-button>
+</view>

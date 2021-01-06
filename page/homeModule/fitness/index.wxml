@@ -1,0 +1,84 @@
+<!--page/homeModule/fitness/index.wxml-->
+<myHeader id="myHeader" navbar-data='{{nvabarData}}'></myHeader>
+
+<view class="fitness" style='margin-top:{{height}}px'>
+    <view class="header">
+        <view class="title">健身视频</view>
+    </view>
+    <view class="section-box">
+        <van-tabs active="{{ active }}" bind:change="onChange">
+            <van-tab title="增肌" name="1"/>
+            <van-tab title="耐力" name="2"/>
+            <van-tab title="瑜伽" name="3"/>
+        </van-tabs>
+        <view class="list-box" wx:if="{{active === '1'}}">
+            <van-row class="items" gutter="20">
+                <van-col span="12" class="item">
+                    <view class="item-box" >
+                        <image  src="/image/jb.jpg" />
+                        <view  class="name">腹部肌肉训练</view>
+                    </view>
+                </van-col>
+                <van-col span="12" class="item">
+                    <view class="item-box" >
+                        <image  src="/image/jb.jpg" />
+                        <view  class="name">腹部肌肉训练</view>
+                    </view>
+                </van-col>
+                <van-col span="12" class="item">
+                    <view class="item-box" >
+                        <image  src="/image/jb.jpg" />
+                        <view  class="name">腹部肌肉训练</view>
+                    </view>
+                </van-col>
+                <van-col span="12" class="item">
+                    <view class="item-box" >
+                        <image  src="/image/jb.jpg" />
+                        <view  class="name">腹部肌肉训练</view>
+                    </view>
+                </van-col>
+                <van-col span="12" class="item">
+                    <view class="item-box" >
+                        <image  src="/image/jb.jpg" />
+                        <view  class="name">腹部肌肉训练</view>
+                    </view>
+                </van-col>
+                <van-col span="12" class="item">
+                    <view class="item-box" >
+                        <image  src="/image/jb.jpg" />
+                        <view  class="name">腹部肌肉训练</view>
+                    </view>
+                </van-col>
+                <van-col span="12" class="item">
+                    <view class="item-box" >
+                        <image  src="/image/jb.jpg" />
+                        <view  class="name">腹部肌肉训练</view>
+                    </view>
+                </van-col>
+                <van-col span="12" class="item">
+                    <view class="item-box" >
+                        <image  src="/image/jb.jpg" />
+                        <view  class="name">腹部肌肉训练</view>
+                    </view>
+                </van-col>
+            </van-row>
+        </view>
+    </view>
+    <view class="bottom-box">
+        <van-button
+            class="btnStyle"
+            type="primary"
+            block  
+            round
+            icon="/image/location-1.png"
+            disabled="{{true}}"
+            loading="{{isShow}}"
+            loading-type="spinner"
+            loading-text="进入全民健身..." 
+            size="large"
+            color="#f4424a"
+            bindtap="btnClick">
+            {{fromName?'确定':'运动打卡'}}
+        </van-button>
+    </view>
+</view>

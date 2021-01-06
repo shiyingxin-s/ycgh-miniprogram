@@ -1,11 +1,11 @@
 {
     "navigationBarTitleText": "",
     "usingComponents": {
-      "myHeader": "../../components/header/header",
-      "comAnswer": "../../components/comAnswer/index",
-      "comResult": "../../components/comResult/index",
-      "van-button": "../../../../dist/button/index",
-      "van-icon": "../../../../dist/icon/index",
-      "van-dialog": "../../../dist/dialog/index"
+      "myHeader": "/components/header/header",
+      "comAnswer": "/components/comAnswer/index",
+      "comResult": "/components/comResult/index",
+      "van-button": "/dist/button/index",
+      "van-icon": "/dist/icon/index",
+      "van-dialog": "/dist/dialog/index"
     }
 }

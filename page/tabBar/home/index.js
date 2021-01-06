@@ -34,7 +34,15 @@ Page({
         url: '../../homeModule/answer/index'
       })
     }
-   
+  },
+  // 首页 全民健身 事件
+  toFitness(){
+    wx.navigateTo({
+      url: '../../homeModule/bodyInfo/index'
+    })
+    // wx.navigateTo({
+    //   url: '../../homeModule/answer/index'
+    // })
   },
   toLibrary(){
     wx.navigateTo({

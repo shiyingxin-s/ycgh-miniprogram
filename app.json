@@ -11,7 +11,9 @@
     "page/homeModule/library/index",
     "page/homeModule/loveHelp/index",
     "page/homeModule/staffStyle/index",
-    "page/homeModule/staffLecture/index"
+    "page/homeModule/staffLecture/index",
+    "page/homeModule/bodyInfo/index",
+    "page/homeModule/fitness/index"
   ],
   "window": {
     "navigationBarTextStyle": "white",

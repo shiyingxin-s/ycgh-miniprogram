@@ -1,0 +1,63 @@
+/* page/homeModule/bodyInfo/index.wxss */
+
+.fitness-bodyInfo{
+    min-height: 96vh;
+    background-color: #ffffff;
+    padding: 60rpx 60rpx 60rpx;
+}
+.header {
+    margin-bottom: 30rpx;
+}
+.header .title{
+    font-size: 38rpx;
+    color: #2e2e2e;
+}
+.header .desc{
+    font-size: 26rpx;
+    color: #999999;
+}
+
+.items{
+    display: block;
+    text-align: center;
+}
+.items .item{
+    margin-top: 30rpx;
+    height: 460rpx;
+    font-size:30rpx;
+}
+.items .item image{
+    width: 262rpx;
+    height: 262rpx;
+}
+.input-title{
+    font-size: 24rpx;
+    color: #707070;
+    margin-top: 20px;
+}
+.input-box {
+   position: relative;
+}
+.input-style .van-cell .van-field__input {
+    width: 90%;
+    color: #354059;
+    font-weight: 400;
+    font-size: 36rpx;
+}
+.input-style .van-cell  {
+    width: 90%;
+    padding: 16px 16px 16px 0;
+}
+.input-style .van-cell:after{
+    left:0
+}
+.unit{
+    position: absolute;
+    right: 0;
+    top: 14px;
+    font-size: 30rpx;
+    color: #354059;
+}
+.btnStyle .van-button{
+    margin-top: 80rpx;
+}
