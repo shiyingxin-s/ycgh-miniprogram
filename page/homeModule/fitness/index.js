@@ -21,7 +21,7 @@ Page({
       isBackPer: true, //不显示返回按钮,
       bgColor:'#f4424a' //导航背景色
     },
-    reportPhone: UserData.get().ReportPhone,
+    reportPhone: UserData.get()?UserData.get().ReportPhone:'',
     active: '1',
   },
 
