@@ -3,8 +3,10 @@
  */
 
 // 
+var devName = 'http://api.321jianyi.cn',
+var onlineName = 'https://api.yqktgh.com'
 
-var host = "https://api.yqktgh.com"
+var host = devName
 
 var config = {
 
