@@ -51,10 +51,10 @@
         type="primary"
         block  
         round
-        disabled="{{professionId === '' || isShow}}"
+        disabled="{{!heightParm || !weightParm || isShow}}"
         loading="{{isShow}}"
         loading-type="spinner"
-        loading-text="进入全民健身..." 
+        loading-text="{{fromName?'保存中...':'进入全民健身...'}}" 
         size="large"
         color="#f4424a"
         bindtap="btnClick">

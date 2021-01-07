@@ -22,7 +22,7 @@ Page({
       isBackPer: true, //不显示返回按钮,
       bgColor:'#f4424a' //导航背景色
     },
-    sex: UserData.get()?UserData.get().sex:'', // 'M' 男，'F' 女
+    sex: '', // 'M' 男，'F' 女
     heightParm: '',
     weightParm:'',
     professionId: '123',
@@ -36,7 +36,10 @@ Page({
    */
   onLoad: function (options) {
     this.setData({
-      fromName: options.name
+      fromName: options.name,
+      sex: UserData.get()?UserData.get().sex:'',
+      heightParm:UserData.get().height?  UserData.get().height: 0,
+      weightParm:UserData.get().weight?  UserData.get().weight: 0
     })
   },
 

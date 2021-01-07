@@ -21,7 +21,7 @@ Page({
       isBackPer: true, //不显示返回按钮,
       bgColor:'#f4424a' //导航背景色
     },
-    reportPhone: UserData.get()?UserData.get().ReportPhone:'',
+    reportPhone: '',
     active: '1',
   },
 
@@ -29,7 +29,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.setData({
+      reportPhone: UserData.get()?UserData.get().reportPhone:''
+    })
   },
 
   /**

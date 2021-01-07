@@ -37,12 +37,15 @@ Page({
   },
   // 首页 全民健身 事件
   toFitness(){
-    wx.navigateTo({
-      url: '../../homeModule/bodyInfo/index'
-    })
-    // wx.navigateTo({
-    //   url: '../../homeModule/answer/index'
-    // })
+    if(!UserData.get().height || !UserData.get().weight){
+      wx.navigateTo({
+        url: '../../homeModule/bodyInfo/index'
+      })
+    } else {
+      wx.navigateTo({
+        url: '../../homeModule/fitness/index'
+      })
+    }
   },
   toLibrary(){
     wx.navigateTo({
