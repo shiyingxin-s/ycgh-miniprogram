@@ -114,9 +114,10 @@ Page({
       const resData = res.data
       if(resData && resData.code === 0){
         if(resData.data){
-          // let userData = UserData.get()
-          // userData.professionId = wxs.data.professionId
-          // UserData.set(userData)
+          let userData = UserData.get()
+          userData.height = wxs.data.heightParm
+          userData.weight = wxs.data.weightParm
+          UserData.set(userData)
           if(wxs.data.fromName){
             common.showToast('设置成功', 3000)
             setTimeout(()=>{
