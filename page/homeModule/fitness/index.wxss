@@ -42,6 +42,9 @@
     font-size:30rpx;
     margin-bottom: 20rpx;
 }
+.item-box{
+    margin-bottom: 20rpx;
+}
 .item-box image{
     width: calc(100%);
     max-height: 210rpx;

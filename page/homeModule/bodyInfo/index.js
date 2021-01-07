@@ -31,7 +31,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.setData({
+      fromName: options.name
+    })
   },
 
 
@@ -77,9 +79,16 @@ Page({
   // 
   btnClick() {
     if(!this.verify()){ return }
-    wx.redirectTo({
-      url:'../fitness/index'
-    })
+    if(this.data.fromName){
+      common.showToast('设置成功', 3000)
+      setTimeout(()=>{
+        wx.navigateBack()
+      },1000)
+    } else {
+      wx.redirectTo({
+        url:'../fitness/index'
+      })
+    }
   }
 
 })

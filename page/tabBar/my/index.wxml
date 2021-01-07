@@ -46,5 +46,10 @@
             bindtap="toPath">
             <text slot="icon" class="iconfont iconshezhi"></text>
         </van-cell>
+        <van-cell  class="cell" title="健康指数设置" is-link
+            data-path="../../homeModule/bodyInfo/index"
+            bindtap="toPath">
+            <text slot="icon" class="iconfont iconxin1"></text>
+        </van-cell>
     </view>
 </view>
