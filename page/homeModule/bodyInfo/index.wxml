@@ -6,23 +6,23 @@
 <view class="fitness-bodyInfo" style='margin-top:{{height}}px'>
     <view class="header">
         <view class="title">完善资料</view>
-        <text class="desc">请选择您的性别</text> 
+        <text class="desc">您的性别</text> 
     </view>
-    <van-row class="items" gutter="20">
-        <van-col span="12" class="item">
-            <view class="item" bindtap="itemClick" 
+    <van-row class="items" gutter="20" wx:if="{{sex}}">
+        <van-col span="24" class="item">
+            <view class="item"  
                     data-sex="M">
-                <image  src="/image/{{sex === 'M' ? 'M-2':'M-1' }}.png" />
-                <view  class="name">男</view>
+                <image  src="/image/{{sex === '男' ? 'M-2':'F-2' }}.png" />
+                <view  class="name">{{sex}}</view>
             </view>
         </van-col>
-        <van-col span="12" class="item">
-            <view class="item" bindtap="itemClick" 
+        <!-- <van-col span="12" class="item">
+            <view class="item" 
                     data-sex="F">
                 <image  src="/image/{{sex === 'F' ? 'F-2':'F-1' }}.png" />
                 <view  class="name">女</view>
             </view>
-        </van-col>
+        </van-col> -->
     </van-row> 
     <view class="input-title">身高</view>
     <view class="input-box">

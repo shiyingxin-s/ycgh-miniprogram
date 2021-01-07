@@ -22,7 +22,7 @@ Page({
       isBackPer: true, //不显示返回按钮,
       bgColor:'#f4424a' //导航背景色
     },
-    sex: '', // 'M' 男，'F' 女
+    sex: UserData.get().sex, // 'M' 男，'F' 女
     heightParm: '',
     weightParm:'',
     professionId: '123',
@@ -52,12 +52,12 @@ Page({
     }
   },
   // 选择男女事件
-  itemClick(e){
-    var sexData = e.currentTarget.dataset.sex
-    this.setData({
-      sex: sexData
-    })
-  },
+  // itemClick(e){
+  //   var sexData = e.currentTarget.dataset.sex
+  //   this.setData({
+  //     sex: sexData
+  //   })
+  // },
   inputHeight(e) {
     this.setData({
       heightParm: e.detail
@@ -71,10 +71,7 @@ Page({
   // 表单验证
   verify(){
     let wxs = this
-    if(!wxs.data.sex){
-        common.showToast('请选择性别')
-        return false
-    } else if(!wxs.data.heightParm){
+    if(!wxs.data.heightParm){
         common.showToast('请输入身高')
         return false
     } else if(!wxs.data.weightParm){
@@ -101,8 +98,7 @@ Page({
     let data = {
       employeeId: UserData.get().id,
       height: this.data.heightParm,
-      weight: this.data.weightParm,
-      sex: this.data.sex
+      weight: this.data.weightParm
     }
     requestLib.request({
       url:  httpUrl.setBodyConfig,

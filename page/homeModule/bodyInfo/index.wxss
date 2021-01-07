@@ -23,7 +23,7 @@
 }
 .items .item{
     margin-top: 30rpx;
-    height: 460rpx;
+    height: 348rpx;
     font-size:30rpx;
 }
 .items .item image{

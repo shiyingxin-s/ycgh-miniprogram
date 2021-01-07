@@ -1,6 +1,11 @@
 // page/homeModule/fitness/index.js
 
+const requestLib = require('../../../api/request')
+var UserData = require('../../../api/userData')
+const httpUrl = require('../../../config')
+const common = require('../../../util/common.js')
 const app = getApp()
+
 Page({
 
   /**
@@ -16,6 +21,7 @@ Page({
       isBackPer: true, //不显示返回按钮,
       bgColor:'#f4424a' //导航背景色
     },
+    reportPhone: UserData.get().ReportPhone,
     active: '1',
   },
 
