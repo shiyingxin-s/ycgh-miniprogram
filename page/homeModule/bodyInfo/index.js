@@ -1,6 +1,10 @@
 // page/homeModule/bodyInfo/index.js
 
+const requestLib = require('../../../api/request')
+var UserData = require('../../../api/userData')
+const httpUrl = require('../../../config')
 const common = require('../../../util/common.js')
+
 const app = getApp()
 
 Page({
@@ -41,7 +45,11 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    if(!UserData || !UserData.get().token ){
+      wx.redirectTo({
+        url: '../../../page/login/index'
+      })
+    }
   },
   // 选择男女事件
   itemClick(e){
@@ -79,16 +87,59 @@ Page({
   // 
   btnClick() {
     if(!this.verify()){ return }
-    if(this.data.fromName){
-      common.showToast('设置成功', 3000)
-      setTimeout(()=>{
-        wx.navigateBack()
-      },1000)
-    } else {
-      wx.redirectTo({
-        url:'../fitness/index'
-      })
+    this.saveFun()
+  },
+  loaddingFun(data) {
+    const wxs = this
+    wxs.setData({
+      isShow: data? true: false
+    })
+  },
+  saveFun() {
+    const wxs = this
+    wxs.loaddingFun(true)
+    let data = {
+      employeeId: UserData.get().id,
+      height: this.data.heightParm,
+      weight: this.data.weightParm,
+      sex: this.data.sex
+    }
+    requestLib.request({
+      url:  httpUrl.setBodyConfig,
+      method: 'post',
+      data: data,
+      success: successFun,
+      fail: (error)=>{
+        wxs.loaddingFun()
+        common.showToast(error.errMessage, 3000)
+      }
+    })
+    function successFun(res){
+      const resData = res.data
+      if(resData && resData.code === 0){
+        if(resData.data){
+          // let userData = UserData.get()
+          // userData.professionId = wxs.data.professionId
+          // UserData.set(userData)
+          if(wxs.data.fromName){
+            common.showToast('设置成功', 3000)
+            setTimeout(()=>{
+              wx.navigateBack()
+            },1000)
+          } else {
+            wx.redirectTo({
+              url:'../fitness/index'
+            })
+          }
+        } else {
+          common.showToast('设置失败', 3000)
+        }
+      } else {
+        common.showToast(error.errMessage, 3000)
+      }
+      wxs.loaddingFun()
     }
   }
 
+  
 })

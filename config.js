@@ -102,6 +102,10 @@ var config = {
 
 
     staffstyleDetail: `${host}/staffStyle/getStaffStyleById`,
+
+
+    // 保存身高 体重
+    setBodyConfig: `${host}/employee/setBodyConfig`,
     
 };
 
