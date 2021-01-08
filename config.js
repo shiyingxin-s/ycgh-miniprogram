@@ -108,6 +108,17 @@ var config = {
 
     // 保存身高 体重
     setBodyConfig: `${host}/employee/setBodyConfig`,
+
+    // 获取健身视频
+    getFitnessVideo: `${host}/fitnessTeching/getFitnessTeching`,
+
+    // 打卡签到
+    signIn:`${host}/fitnessHistory/signInFitness`,
+
+    // 打卡签退
+    signBack: `${host}/itnessHistory/signOutFitness`,
+
+
     
 };
 

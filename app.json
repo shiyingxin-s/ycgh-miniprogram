@@ -15,6 +15,11 @@
     "page/homeModule/bodyInfo/index",
     "page/homeModule/fitness/index"
   ],
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于全民健身打卡功能"
+    }
+  },
   "window": {
     "navigationBarTextStyle": "white",
     "navigationBarTitleText": "智慧工会",

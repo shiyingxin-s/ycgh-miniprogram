@@ -7,6 +7,7 @@
     "van-row": "/dist/row/index",
     "van-col": "/dist/col/index",
     "van-tab": "/dist/tab/index",
-    "van-tabs": "/dist/tabs/index"
+    "van-tabs": "/dist/tabs/index",
+    "comNoData": "/components/comNoData/comNoData"
   }
 }

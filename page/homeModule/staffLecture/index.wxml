@@ -54,17 +54,8 @@
         <view class="tips" hidden="{{loadMore}}">没有更多了...</view>
       </block>
       <block wx:else >
-        <comNoData    class="comNoData"/>
+        <comNoData  class="comNoData"/>
       </block>
-      <!-- <view class="item">
-        <van-image width="100%" height="300rpx" src="/image/banner.png" />
-        <view class="text">
-          <view class="txt"> 这里放劳模风采标题   长了的话就换行  限28个字 </view>
-          <view class="icon">
-            <van-icon name="like" class="like like-o" />
-           16</view>
-        </view>
-      </view> -->
   </view>
 </view>
 <comNoData   wx:else class="comNoData"/>

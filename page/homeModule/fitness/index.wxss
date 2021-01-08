@@ -61,8 +61,27 @@
     bottom: 0;
     left:0;
     right: 0;
+    padding: 0 20rpx 0 66rpx;
+    display: flex;
+}
+.btnStyle{
+    flex: 1;
+}
+.btnStyle:last-child{
+    flex: 2;
 }
 .btnStyle button{
     margin-top: 30rpx;
     width: 360rpx;
+}
+.btnStyle:first-child button{
+    width: 220rpx;
+}
+.tips{
+    text-align: center;
+    color: #999999;
+}
+
+.van-icon--image{
+    font-size: 1.8rem !important;
 }

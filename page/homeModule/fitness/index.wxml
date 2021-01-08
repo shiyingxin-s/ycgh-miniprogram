@@ -6,14 +6,27 @@
         <view class="title">健身视频</view>
     </view>
     <view class="section-box">
-        <van-tabs active="{{ active }}" bind:change="onChange">
-            <van-tab title="增肌" name="1"/>
-            <van-tab title="耐力" name="2"/>
-            <van-tab title="瑜伽" name="3"/>
+        <van-tabs active="{{ activeIndex }}" bind:change="onChange">
+            <van-tab wx:for="{{classList}}"  wx:key="*this" title="{{item}}" />
         </van-tabs>
-        <view class="list-box" wx:if="{{active === '1'}}">
+        <view class="list-box" >
             <van-row class="items" gutter="20">
-                <van-col span="12" class="item">
+                <block wx:if="{{dataList.length>0}}">
+                  <van-col span="12" class="item" wx:for="{{dataList}}" wx:key="index">
+                        <view class="item-box" >
+                            <image  src="/image/jb.jpg" />
+                            <view  class="name">腹部肌肉训练</view>
+                        </view>
+                    </van-col>
+                    <view class="tips" hidden="{{!loadMore}}">加载中...</view>
+                    <view class="tips" hidden="{{loadMore}}">没有更多了...</view>
+                </block>
+                <block wx:else>
+                    <van-col span="24" class="comNoData">
+                      <comNoData  class="comNoData"/>
+                    </van-col>
+                </block>
+                <!-- <van-col span="12" class="item">
                     <view class="item-box" >
                         <image  src="/image/jb.jpg" />
                         <view  class="name">腹部肌肉训练</view>
@@ -54,14 +67,10 @@
                         <image  src="/image/jb.jpg" />
                         <view  class="name">腹部肌肉训练</view>
                     </view>
-                </van-col>
-                <van-col span="12" class="item">
-                    <view class="item-box" >
-                        <image  src="/image/jb.jpg" />
-                        <view  class="name">腹部肌肉训练</view>
-                    </view>
-                </van-col>
+                </van-col> -->
+                
             </van-row>
+          
         </view>
     </view>
     <view class="bottom-box" wx:if="{{reportPhone}}">
@@ -70,15 +79,26 @@
             type="primary"
             block  
             round
-            icon="/image/location-1.png"
-            disabled="{{true}}"
+            size="large"
+            color="#238BF5"
+            bindtap="mySport">
+            我的运动
+        </van-button>
+        <van-button
+            class="btnStyle"
+            type="primary"
+            block  
+            round
+            icon="{{buttonStatus === 1?'/image/location-1.png':buttonStatus === 2?'/image/location-2.png':'/image/end.png'}}"
+            disabled="{{buttonStatus === 1}}"
             loading="{{isShow}}"
             loading-type="spinner"
             loading-text="进入全民健身..." 
             size="large"
-            color="#f4424a"
+            color="{{buttonStatus === 1?'#BDBFC6':buttonStatus === 2?'#1AD57B':'#FC414A'}}" 
             bindtap="btnClick">
-            {{fromName?'确定':'运动打卡'}}
+            {{buttonStatus === 1?'不在打卡区域':buttonStatus === 2?'运动打卡':'结束打卡'}}
         </van-button>
+        <!-- '#BDBFC6' -->
     </view>
 </view>
