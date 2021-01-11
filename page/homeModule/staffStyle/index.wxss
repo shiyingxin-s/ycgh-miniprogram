@@ -29,11 +29,6 @@
   padding: 2px 2px;
   line-height: 26px;
 } 
-.right{
-  float: left;
-  padding: 21rpx;
-  width: calc(100% - 260rpx);
-}
 .leftList .add {
   padding-bottom: 60px;
 } 
@@ -52,9 +47,11 @@
 .leftList .item.my .van-sidebar-item--selected .van-sidebar-item__text{
   width: 65px;
 }
-
-
-
+.right{
+  float: left;
+  padding: 21rpx;
+  width: calc(100% - 260rpx);
+}
 .right .item{
   position: relative;
   height: 210rpx;

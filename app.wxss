@@ -29,6 +29,9 @@ form{
   font-size: 50rpx;
 } */
 /* lib */
+.tips{
+  padding-bottom: 10vh;
+}
 .strong{
   font-weight: bold;
 }

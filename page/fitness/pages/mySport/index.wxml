@@ -1,0 +1,17 @@
+<!--page/fitness/pages/mySport.wxml-->
+
+
+<myHeader id="myHeader" navbar-data='{{nvabarData}}'></myHeader>
+<view class="mySport"  style='margin-top:{{height}}px'>
+    <block wx:if="{{myData}}">
+        <view class="header">
+            <view class="title">我的运动</view>
+        </view>
+    </block>
+   <block wx:else>
+       <view class="comNoData">
+            <comNoData  class="comNoData" text="暂无运动记录"/>
+        </view>
+   </block>
+
+</view>

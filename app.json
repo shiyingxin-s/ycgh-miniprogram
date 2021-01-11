@@ -70,6 +70,12 @@
       ]
     },
     {
+      "root": "page/fitness/",
+      "pages": [
+        "pages/mySport/index"
+      ]
+    },
+    {
       "root": "page/love/",
       "pages": [
         "pages/apply/index",

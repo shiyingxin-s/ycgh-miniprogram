@@ -200,7 +200,7 @@ function getDistance(lat1, lng1, lat2, lng2) {
       distance_str = distance * 1000;
   // }
 
-  //s=s.toFixed(4);
+  // s=s.toFixed(4);
 
   // console.info('lyj 距离是', s);
   // console.info('lyj 距离是', distance_str);

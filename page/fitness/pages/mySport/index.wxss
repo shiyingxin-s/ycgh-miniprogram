@@ -1,0 +1,13 @@
+/* page/fitness/pages/mySport.wxss */
+.mySport{
+    /* padding: 40rpx 30rpx 60rpx 40rpx; */
+}
+.header {
+    padding: 40rpx 30rpx 30rpx 40rpx;
+    background-color: #ffffff;
+}
+.header .title{
+    font-size: 34rpx;
+    color: #666666;
+    font-weight: bold;
+}

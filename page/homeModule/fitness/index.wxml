@@ -4,6 +4,8 @@
 <view class="fitness" style='margin-top:{{height}}px'>
     <view class="header">
         <view class="title">健身视频</view>
+        <!-- <view >current_lat: {{current_lat}}</view>
+        <view >current_long: {{current_long}}</view> -->
     </view>
     <view class="section-box">
         <van-tabs active="{{ activeIndex }}" bind:change="onChange">
@@ -14,16 +16,27 @@
                 <block wx:if="{{dataList.length>0}}">
                   <van-col span="12" class="item" wx:for="{{dataList}}" wx:key="index">
                         <view class="item-box" >
-                            <image  src="/image/jb.jpg" />
-                            <view  class="name">腹部肌肉训练</view>
+                            <!-- <image  src="/image/jb.jpg" /> -->
+                             <video  
+                                id="myVideo" 
+                                src="{{item.AttachmentUrl}}" 
+                                binderror="videoErrorCallback" 
+                                show-center-play-btn='{{false}}' 
+                                show-play-btn="{{true}}" 
+                                controls
+                                picture-in-picture-mode="{{['push', 'pop']}}"
+                                bindenterpictureinpicture='bindVideoEnterPictureInPicture'
+                                bindleavepictureinpicture='bindVideoLeavePictureInPicture'
+                            ></video>
+                            <view  class="name">{{item.Title}}</view>
                         </view>
                     </van-col>
-                    <view class="tips" hidden="{{!loadMore}}">加载中...</view>
-                    <view class="tips" hidden="{{loadMore}}">没有更多了...</view>
+                    <view class="tips" wx:if="{{loading}}"><van-loading type="spinner" />加载中...</view>
+                    <view class="tips" hidden="{{!noMore}}">没有更多了...</view>
                 </block>
                 <block wx:else>
                     <van-col span="24" class="comNoData">
-                      <comNoData  class="comNoData"/>
+                      <comNoData  class="comNoData" text="暂无数据"/>
                     </van-col>
                 </block>
                 <!-- <van-col span="12" class="item">
@@ -85,6 +98,7 @@
             我的运动
         </van-button>
         <van-button
+            wx:if="{{buttonStatus}}"
             class="btnStyle"
             type="primary"
             block  
@@ -93,7 +107,7 @@
             disabled="{{buttonStatus === 1}}"
             loading="{{isShow}}"
             loading-type="spinner"
-            loading-text="进入全民健身..." 
+            loading-text="{{buttonStatus === 2? '运动打卡...':buttonStatus === 3?'结束打卡...':''}}" 
             size="large"
             color="{{buttonStatus === 1?'#BDBFC6':buttonStatus === 2?'#1AD57B':'#FC414A'}}" 
             bindtap="btnClick">

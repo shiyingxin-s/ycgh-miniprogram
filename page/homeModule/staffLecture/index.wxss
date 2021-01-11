@@ -72,6 +72,9 @@
   color: #FC414A;
   font-size: 60px;
 }
+.right{
+  padding-bottom: 10vh;
+}
 .right .item{
   position: relative;
   height: 415rpx;
@@ -137,6 +140,7 @@
   line-height: 40rpx;
 }
 .tips{
+  padding-bottom: 10vh;
   text-align: center;
   color: #999999;
 }

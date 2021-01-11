@@ -11,10 +11,12 @@
       </block>
     </van-sidebar>  
   </view>
-  <view class="right" style='height:{{conHeight}}rpx'>
-      <block wx:if="{{dataList.length>0}}">
-        <block wx:for="{{dataList}}" wx:key="index">
-          <view class="item" data-id="{{item.Id}}" catchtap="goDetail">  
+ 
+  <view class="right"  style='height:{{conHeight - 200}}rpx'>
+    <block wx:if="{{dataList.length>0}}">
+      <com-scroll class="scroll-box" scrollOption="{{scroll}}"  bindrefreshPulling="refreshPulling"  bindrefresh="refresh" bindloadMore="loadMore" background="#fff">
+        <view class="list-inner" slot="inner" >
+          <view class="item" wx:for="{{dataList}}" wx:key="index" data-id="{{item.Id}}" catchtap="goDetail">  
               <view class="my-view">
                 <view class="left-del" data-id="{{item.Id}}" wx:if="{{typeCode === 'my'}}" catchtap="del"><van-icon name="delete" class="del" /></view>
               </view> 
@@ -23,7 +25,7 @@
                   {{item.imageList.length}}图
                 </view>
               </view>        
-             <view class="item-left"  >
+            <view class="item-left"  >
               <van-image
                 wx:if="{{item.Pictures && item.imageList.length>0}}"
                 width="170rpx"
@@ -60,23 +62,14 @@
               </view>           
             </view>            
           </view>
-        </block>
-        <view class="tips" hidden="{{!loadMore}}">加载中...</view>
-        <view class="tips" hidden="{{loadMore}}">没有更多了...</view>
-      </block>
-      <block wx:else >
-        <comNoData    class="comNoData"/>
-      </block>
-      <!-- <view class="item">
-        <van-image width="100%" height="300rpx" src="/image/banner.png" />
-        <view class="text">
-          <view class="txt"> 这里放劳模风采标题   长了的话就换行  限28个字 </view>
-          <view class="icon">
-            <van-icon name="like" class="like like-o" />
-           16</view>
         </view>
-      </view> -->
+      </com-scroll>
+    </block>
+    <block wx:else >
+      <comNoData  class="comNoData"/>
+    </block>
   </view>
 </view>
 <comNoData   wx:else class="comNoData"/>
+
 

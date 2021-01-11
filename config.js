@@ -6,7 +6,7 @@
 var devName = 'https://api.321jianyi.cn'
 var onlineName = 'https://api.yqktgh.com'
 
-var host = devName
+var host = onlineName
 
 var config = {
 
@@ -116,7 +116,7 @@ var config = {
     signIn:`${host}/fitnessHistory/signInFitness`,
 
     // 打卡签退
-    signBack: `${host}/itnessHistory/signOutFitness`,
+    signBack: `${host}/fitnessHistory/signOutFitness`,
 
 
     

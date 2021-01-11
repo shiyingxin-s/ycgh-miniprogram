@@ -8,6 +8,8 @@
     "van-dialog": "/dist/dialog/index",
     "van-sidebar": "/dist/sidebar/index",
     "van-sidebar-item": "/dist/sidebar-item/index",
-    "van-image": "/dist/image/index"
+    "van-image": "/dist/image/index",
+    "van-loading": "/dist/loading/index",
+    "com-scroll": "/components/com-scroller/index"
   }
 }
