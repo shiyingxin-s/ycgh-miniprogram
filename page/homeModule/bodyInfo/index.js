@@ -38,8 +38,8 @@ Page({
     this.setData({
       fromName: options.name,
       sex: UserData.get()?UserData.get().sex:'',
-      heightParm:UserData.get().height?  UserData.get().height: 0,
-      weightParm:UserData.get().weight?  UserData.get().weight: 0
+      heightParm:UserData.get().height?  UserData.get().height: '',
+      weightParm:UserData.get().weight?  UserData.get().weight: ''
     })
   },
 
@@ -100,8 +100,8 @@ Page({
     wxs.loaddingFun(true)
     let data = {
       employeeId: UserData.get().id,
-      height: this.data.heightParm,
-      weight: this.data.weightParm
+      height: parseInt(this.data.heightParm),
+      weight: parseInt(this.data.weightParm)
     }
     requestLib.request({
       url:  httpUrl.setBodyConfig,
