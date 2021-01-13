@@ -47,8 +47,8 @@ Page({
     h_longitude: 108.94878,
 
     // 我家 坐标(华洲城天峰)
-    m_latitude: 34.22259,
-    m_longitude: 108.94878,
+    m_latitude: 34.2456016540, 
+    m_longitude: 108.84353637,
 
     // 鱼化寨地铁口
     yu_latitude: 34.237931,
@@ -73,7 +73,9 @@ Page({
     placeName:'', // 打卡地点
 
     current_lat: 0,
-    current_long: 0
+    current_long: 0,
+    f_distance: 0,
+    s_distance: 0,
   },
 
   /**
@@ -124,7 +126,8 @@ Page({
         console.log(fitness_m)
         console.log(swim_m)
         var status = 0
-        if(fitness_m <= 100 || swim_m <= 100 ){
+        var scopeLimit = 150
+        if(fitness_m <= scopeLimit || swim_m <= scopeLimit ){
           if(wxs.data.unsignId && !wxs.data.endTime){
             status = 3
           } else {
@@ -134,10 +137,12 @@ Page({
           status = 1
         }
         wxs.setData({
-          placeName: fitness_m <= 100 ? '康乐中心':swim_m <= 100?'阳光健身':'',
+          placeName: fitness_m <= scopeLimit ? '康乐中心':swim_m <= scopeLimit?'阳光健身':'',
           buttonStatus: status,
-          current_lat: res.latitude,
-          current_long: res.longitude
+          // current_lat: res.latitude,
+          // current_long: res.longitude,
+          // f_distance: fitness_m,
+          // s_distance: swim_m,
         })
       }
      })
@@ -233,7 +238,9 @@ Page({
 
   btnClick() {
     if(this.data.isShow ){ return }
-    if(this.data.buttonStatus === 2){
+    if(this.data.buttonStatus === 1){
+      this.getLocationFun()
+    } else if(this.data.buttonStatus === 2){
       this.clockIn()
     } else if(UserData.get().unsignId && this.data.buttonStatus === 3){
       this.endClockIn()

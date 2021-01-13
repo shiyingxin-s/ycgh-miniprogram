@@ -193,18 +193,17 @@ function getDistance(lat1, lng1, lat2, lng2) {
   var distance = s;
   var distance_str = "";
 
-  // if (parseInt(distance) >= 1) {
-  //     distance_str = distance.toFixed(1) + "km";
-  // } else {
-      // distance_str = distance * 1000 + "m";
-      distance_str = distance * 1000;
-  // }
+  if (parseInt(distance) >= 1) {
+      distance_str = (distance.toFixed(1)) * 1000;
+  } else {
+      distance_str = distance * 1000
+  }
 
   // s=s.toFixed(4);
 
   // console.info('lyj 距离是', s);
   // console.info('lyj 距离是', distance_str);
-  return distance_str;
+  return parseInt(distance_str);
 } 
 
 module.exports = {

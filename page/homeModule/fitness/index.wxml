@@ -5,7 +5,12 @@
     <view class="header">
         <view class="title">健身视频</view>
         <!-- <view >current_lat: {{current_lat}}</view>
-        <view >current_long: {{current_long}}</view> -->
+        <view >current_long: {{current_long}}</view>
+        <view >m_latitude 我家: {{m_latitude}}</view>
+        <view >m_longitude 我家: {{m_longitude}}</view>-->
+        <!-- <view >f_distance: {{f_distance}} 米</view>
+        <view >s_distance: {{s_distance}} 米</view>  -->
+          
     </view>
     <view class="section-box">
         <van-tabs active="{{ activeIndex }}" bind:change="onChange">
@@ -103,15 +108,14 @@
             type="primary"
             block  
             round
-            icon="{{buttonStatus === 1?'/image/location-1.png':buttonStatus === 2?'/image/location-2.png':'/image/end.png'}}"
-            disabled="{{buttonStatus === 1}}"
+            icon="{{buttonStatus === 1?'location-o':buttonStatus === 2?'/image/location-2.png':'/image/end.png'}}"
             loading="{{isShow}}"
             loading-type="spinner"
             loading-text="{{buttonStatus === 2? '运动打卡...':buttonStatus === 3?'结束打卡...':''}}" 
             size="large"
-            color="{{buttonStatus === 1?'#BDBFC6':buttonStatus === 2?'#1AD57B':'#FC414A'}}" 
+            color="{{buttonStatus === 1?'#ffb53c':buttonStatus === 2?'#1AD57B':'#FC414A'}}" 
             bindtap="btnClick">
-            {{buttonStatus === 1?'不在打卡区域':buttonStatus === 2?'运动打卡':'结束打卡'}}
+            {{buttonStatus === 1?'重新定位':buttonStatus === 2?'运动打卡':'结束打卡'}}
         </van-button>
         <!-- '#BDBFC6' -->
     </view>
