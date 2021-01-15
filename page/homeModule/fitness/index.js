@@ -96,10 +96,10 @@ Page({
       reportPhone: UserData.get()?UserData.get().reportPhone:'',
       unsignId: UserData.get()? UserData.get().unsignId:'',
       endTime: UserData.get()?UserData.get().endTime: '',
-      fitness_lat: this.data.j_latitude,
-      fitness_long:this.data.j_longitude,
-      swim_lat: this.data.y_latitude,
-      swim_long: this.data.y_longitude
+      fitness_lat: UserData.get()?UserData.get().j_latitude:this.data.j_latitude,
+      fitness_long:UserData.get()?UserData.get().j_longitude:this.data.j_longitude,
+      swim_lat: UserData.get()?UserData.get().y_latitude:this.data.y_latitude,
+      swim_long: UserData.get()?UserData.get().y_longitude:this.data.y_longitude
     })
     this.getLocationFun()
   },
@@ -114,19 +114,19 @@ Page({
         const fitness_m = util.getDistance(
           res.latitude,
           res.longitude,
-          wxs.data.fitness_lat,
-          wxs.data.fitness_long
+          parseFloat(wxs.data.fitness_lat),
+          parseFloat(wxs.data.fitness_long)
         )
         const swim_m = util.getDistance(
           res.latitude,
           res.longitude,
-          wxs.data.swim_lat,
-          wxs.data.swim_long
+          parseFloat(wxs.data.swim_lat),
+          parseFloat(wxs.data.swim_long)
         )
         console.log(fitness_m)
         console.log(swim_m)
         var status = 0
-        var scopeLimit = 150
+        var scopeLimit = 100
         if(fitness_m <= scopeLimit || swim_m <= scopeLimit ){
           if(wxs.data.unsignId && !wxs.data.endTime){
             status = 3
@@ -139,10 +139,10 @@ Page({
         wxs.setData({
           placeName: fitness_m <= scopeLimit ? '康乐中心':swim_m <= scopeLimit?'阳光健身':'',
           buttonStatus: status,
-          // current_lat: res.latitude,
-          // current_long: res.longitude,
-          // f_distance: fitness_m,
-          // s_distance: swim_m,
+          current_lat: res.latitude,
+          current_long: res.longitude,
+          f_distance: fitness_m,
+          s_distance: swim_m,
         })
       }
      })
@@ -336,6 +336,16 @@ Page({
     wx.navigateTo({
       url:'../../fitness/pages/mySport/index'
     }) 
+  },
+  // 保存观看记录
+  play() {
+    requestLib.request({
+      url:  httpUrl.saveFitnessVedio,
+      method: 'post',
+      data: {employeeId: UserData.get().id},
+      success: (res)=>{ },
+      fail: (error)=>{ }
+    })
   }
   
 })

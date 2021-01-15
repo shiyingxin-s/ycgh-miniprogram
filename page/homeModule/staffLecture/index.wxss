@@ -123,6 +123,10 @@
   height: 50rpx;
   text-align: center;
 }
+.shipin {
+  height: 300rpx;
+  width: calc(100%);
+}
 .my-view .left-del .del{
   font-size: 40rpx;
   color: #ffffff;

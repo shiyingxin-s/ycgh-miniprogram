@@ -20,7 +20,7 @@
               <view class="left-del" data-id="{{item.Id}}" wx:if="{{typeCode === 'my'}}" bind:tap="del"><van-icon name="delete" class="del" /></view>
               <view class="status {{item.StateText === '待审核'?'bg-fec83d': item.StateText === '已审核'?'bg-2be3b9':'bg-red'}}">{{item.StateText}}</view>
             </view>
-              <view class="ppt"  wx:if="{{item.fileType === 'ppt' || item.fileType === 'pptx'}}"
+            <view class="ppt"  wx:if="{{item.fileType === 'ppt' || item.fileType === 'pptx'}}"
               data-file="{{item.AttachementUrl}}"
               bindtap="downFile">
               <text class="iconfont iconppt1"/> 
@@ -30,7 +30,10 @@
               bindtap="downFile">
               <text class="iconfont iconword1"/> 
             </view>
-            <video  
+            <view wx:else  data-url="{{item.AttachementUrl}}" bindtap="toDetail"  >
+              <image src="/image/shipin.png" data-url="{{item.AttachementUrl}}" class="shipin"  />
+            </view>
+            <!-- <video  
                 wx:else
                 id="myVideo" 
                 src="{{item.AttachementUrl}}" 
@@ -41,7 +44,7 @@
                 picture-in-picture-mode="{{['push', 'pop']}}"
                 bindenterpictureinpicture='bindVideoEnterPictureInPicture'
                 bindleavepictureinpicture='bindVideoLeavePictureInPicture'
-            ></video>
+            ></video> -->
             <view class="text">
               <view class="txt"> {{item.Title}} </view>
               <view class="icon">

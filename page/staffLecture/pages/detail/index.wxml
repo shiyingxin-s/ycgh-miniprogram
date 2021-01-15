@@ -1,0 +1,21 @@
+<!--page/staffLecture/pages/detail/index.wxml-->
+<myHeader id="myHeader" navbar-data='{{nvabarData}}'></myHeader>
+<view class="detail" style='margin-top:{{height}}px'>
+    <block wx:if="{{urlVideo}}">
+        <video  
+            id="myVideo" 
+            src="{{urlVideo}}" 
+            binderror="videoErrorCallback" 
+            show-center-play-btn='{{false}}' 
+            show-play-btn="{{true}}" 
+            controls
+            picture-in-picture-mode="{{['push', 'pop']}}"
+            bindenterpictureinpicture='bindVideoEnterPictureInPicture'
+            bindleavepictureinpicture='bindVideoLeavePictureInPicture'
+        />
+    </block>
+     
+    <block wx:else>
+         <comNoData  class="comNoData"/>
+    </block>
+</view>

@@ -4,12 +4,10 @@
 <view class="fitness" style='margin-top:{{height}}px'>
     <view class="header">
         <view class="title">健身视频</view>
-        <!-- <view >current_lat: {{current_lat}}</view>
+        <view >current_lat: {{current_lat}}</view>
         <view >current_long: {{current_long}}</view>
-        <view >m_latitude 我家: {{m_latitude}}</view>
-        <view >m_longitude 我家: {{m_longitude}}</view>-->
-        <!-- <view >f_distance: {{f_distance}} 米</view>
-        <view >s_distance: {{s_distance}} 米</view>  -->
+        <view >f_distance: {{f_distance}} 米</view>
+        <view >s_distance: {{s_distance}} 米</view> 
           
     </view>
     <view class="section-box">
@@ -32,6 +30,7 @@
                                 picture-in-picture-mode="{{['push', 'pop']}}"
                                 bindenterpictureinpicture='bindVideoEnterPictureInPicture'
                                 bindleavepictureinpicture='bindVideoLeavePictureInPicture'
+                                bindplay="play"
                             ></video>
                             <view  class="name">{{item.Title}}</view>
                         </view>

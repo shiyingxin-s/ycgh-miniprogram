@@ -76,6 +76,13 @@
       ]
     },
     {
+      "root": "page/staffLecture/",
+      "pages": [
+        "pages/add/index",
+        "pages/detail/index"
+      ]
+    },
+    {
       "root": "page/love/",
       "pages": [
         "pages/apply/index",

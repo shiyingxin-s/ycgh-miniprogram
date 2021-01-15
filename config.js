@@ -118,8 +118,8 @@ var config = {
     // 打卡签退
     signBack: `${host}/fitnessHistory/signOutFitness`,
 
-
-    
+    // 保存看视频
+    saveFitnessVedio:`${host}/fitnessVedio/saveFitnessVedio`,
 };
 
 module.exports = config

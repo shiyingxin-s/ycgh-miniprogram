@@ -35,7 +35,7 @@ Page({
       pagination: {
         page: 1,
         totalPage: 0,
-        limit: 10,
+        limit: 4,
         length: 0
       },
       // 设置数据为空时的图片
@@ -173,7 +173,7 @@ Page({
         
         resData.data.list.map(item=>{
           item.fileType = item.AttachementUrl? (item.AttachementUrl.split('.'))[1] : ''
-          item.AttachementUrl = httpUrl.host + item.AttachementUrl
+          // item.AttachementUrl = httpUrl.host + item.AttachementUrl
         })
      
         let list = wxs.data.dataList
@@ -294,6 +294,16 @@ Page({
         common.showToast(error.errMessage, 3000)
       }
     }
+  },
+  videoErrorCallback(){
+    common.showToast('视频出错了，请联系管理员', 3000)
+  },
+
+  toDetail(e){
+    let url = e.currentTarget.dataset.url
+    wx.navigateTo({
+      url:'../../staffLecture/pages/detail/index?url=' + url 
+    })
   }
   
 })
