@@ -72,7 +72,9 @@
     {
       "root": "page/fitness/",
       "pages": [
-        "pages/mySport/index"
+        "pages/mySport/index",
+        "pages/detail/index",
+        "pages/ranking/index"
       ]
     },
     {

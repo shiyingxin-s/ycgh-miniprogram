@@ -6,19 +6,18 @@ const common = require('../../../../util/common.js')
 
 Page({
   data: {
-    // listH: app.globalData.whHeight - 800,
+    listH: app.globalData.whHeight - 840,
     // 此页面 页面内容距最顶部的距离
     height: app.globalData.navHeight * 2 + 19 ,
     // 组件所需的参数
     nvabarData: {
       showCapsule: 1, //是否显示左上角图标   1表示显示    0表示不显示
-      title: '我的运动', //导航栏 中间的标题,
+      title: '排行榜', //导航栏 中间的标题,
       isBackPer: true, //不显示返回按钮,
-      bgColor:'#f4424a' //导航背景色
+      bgColor:'#FC414A' //导航背景色
     },
     loadMore:false,
-    totalScore: 0,
-    data:''
+    data:'',
    
   },
   onShow: function () {
@@ -42,7 +41,7 @@ Page({
       employeeId: UserData.get().id,
     }
     requestLib.request({
-      url:  httpUrl.getFitnessHistory,
+      url:  httpUrl.getFitnessRecords,
       method: 'post',
       data: data,
       success: successFun,
@@ -53,28 +52,17 @@ Page({
     })
     function successFun(res){
       const resData = res.data
-      common.hideLoading()
       if(resData && resData.code === 0){
-        let count = 0
-        if(!resData.data){return}
-        resData.data.map(item=>{
-          count = count + parseInt(item.score)
-        })
         wxs.setData({
-          data: resData.data,
-          totalScore: count
+          data: {...resData.data}
         })
       } else {
         common.showToast(error.errMessage, 3000)
       }
+      common.hideLoading()
     }
   },
-  // 去排行页面
-  toRanking() {
-    wx.navigateTo({
-      url:'../ranking/index'
-    })
-  }
+  
   
 })
 

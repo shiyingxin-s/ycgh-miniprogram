@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "comNoData": "/components/comNoData/comNoData",
+    "myHeader": "/components/header/header"
+  }
+
+}

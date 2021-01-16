@@ -5,6 +5,7 @@ var UserData = require('../../../api/userData')
 const httpUrl = require('../../../config')
 const common = require('../../../util/common.js')
 const util = require('../../../util/util.js')
+import Dialog from '../../../dist/dialog/dialog'
 const app = getApp()
 
 Page({
@@ -139,10 +140,10 @@ Page({
         wxs.setData({
           placeName: fitness_m <= scopeLimit ? '康乐中心':swim_m <= scopeLimit?'阳光健身':'',
           buttonStatus: status,
-          current_lat: res.latitude,
-          current_long: res.longitude,
-          f_distance: fitness_m,
-          s_distance: swim_m,
+          // current_lat: res.latitude,
+          // current_long: res.longitude,
+          // f_distance: fitness_m,
+          // s_distance: swim_m,
         })
       }
      })
@@ -186,9 +187,9 @@ Page({
         wxs.setData({
           noMore: resData.data.list.length === 0 ? true: false
         })
-        resData.data.list.map(item=>{
-          item.AttachmentUrl = httpUrl.host + item.AttachmentUrl
-        })
+        // resData.data.list.map(item=>{
+        //   item.AttachmentUrl = httpUrl.host + item.AttachmentUrl
+        // })
         if(wxs.data.loadMore){
           let list = wxs.data.dataList
           if(resData.data.list.length>0){
@@ -215,6 +216,7 @@ Page({
     var wxs = this
     common.showLoading()
     wxs.setData({
+      dataList:[],
       activeName: e.detail.title,
       activeIndex: e.detail.index,
       loadMore:false,
@@ -241,9 +243,25 @@ Page({
     if(this.data.buttonStatus === 1){
       this.getLocationFun()
     } else if(this.data.buttonStatus === 2){
-      this.clockIn()
+      Dialog.confirm({
+        title: '是否确定开始打卡？',
+        message: '每天只能签退签到一次',
+      }).then(() => {
+          // on confirm
+          this.clockIn()
+      }).catch(() => {
+        // on cancel
+      });
     } else if(UserData.get().unsignId && this.data.buttonStatus === 3){
-      this.endClockIn()
+      Dialog.confirm({
+        title: '是否确定结束打卡？',
+        message: '每天只能签退签到一次',
+      }).then(() => {
+          // on confirm
+          this.endClockIn()
+      }).catch(() => {
+        // on cancel
+      });
     } else if(this.data.buttonStatus !== 1){
       common.showToast('运动记录异常，请联系管理员')
     } 
@@ -345,6 +363,12 @@ Page({
       data: {employeeId: UserData.get().id},
       success: (res)=>{ },
       fail: (error)=>{ }
+    })
+  },
+  toDetail(e){
+    let url = e.currentTarget.dataset.url
+    wx.navigateTo({
+      url:'../../fitness/pages/detail/index?url=' + url 
     })
   }
   

@@ -1,13 +1,91 @@
-/* page/fitness/pages/mySport.wxss */
+/* .comNoData{
+    line-height: 500rpx;
+    font-size: 50rpx;
+} */
 .mySport{
-    /* padding: 40rpx 30rpx 60rpx 40rpx; */
+    height: 100%;
 }
-.header {
-    padding: 40rpx 30rpx 30rpx 40rpx;
-    background-color: #ffffff;
+.totalScore{
+    font-size: 28rpx;
+    color: #999999;
+    padding: 30rpx 60rpx 0;
 }
-.header .title{
-    font-size: 34rpx;
+.totalScore .score{
+    color: #FF8D13;
+    font-size: 36rpx;
+    font-weight: 500;
+}
+.list-head{
+    margin-left: 40rpx;
+    margin-right: 40rpx;
+    line-height: 40px;
+    padding:0 40rpx;
+    font-size: 24rpx;
+    color: #333333;
+}
+.list-head .right{
+    float: right;
+}
+.list{
+    height: 74vh;
+    background: #ffffff;
+    overflow-y: auto;
+}
+.list-l{
+    margin-left: 40rpx;
+    margin-right: 40rpx;
+    border-bottom: 1px solid #CDC8C8;
+    line-height: 50px;
+    padding:0 40rpx;
+    font-size: 24rpx;
+    color: #999999;
+}
+.list-l:first-child{
+    color: #999999;
+}
+.list-l .date{
+    color: #999999;
+}
+.list-l .num{
+    padding-right: 10px;
+}
+.list-l .image-text{
+    display: inline-block;
+    height: 37px;
+    width: 37px;
+    color: #ffffff;
+    background: #999999;
+    text-align: center;
+    vertical-align: -11px;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+.list-l .image-text van-icon{
+    font-size: 40rpx;
+    line-height: 50px;
+    vertical-align: 8px;
+}
+.list-l .score{
+    float: right;
     color: #666666;
     font-weight: bold;
+    font-size: 36rpx;
+}
+.bottom-btn{
+    position: absolute;
+    bottom: 0;
+    padding: 30rpx 90rpx 50rpx;
+    left:0;
+    right:0;
+    background: #3FD678;
+    color: #ffffff;
+    text-align: center;
+    font-size: 36rpx;
+}
+.bottom-btn van-icon{
+    font-size: 46rpx !important;
+    vertical-align: sub;
+}
+.bottom-btn text{
+    margin-left: 3px;
 }

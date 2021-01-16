@@ -1,17 +1,22 @@
-<!--page/fitness/pages/mySport.wxml-->
-
-
+<wxs module="filter" src="../../../../util/filter.wxs"></wxs>
 <myHeader id="myHeader" navbar-data='{{nvabarData}}'></myHeader>
-<view class="mySport"  style='margin-top:{{height}}px'>
-    <block wx:if="{{myData}}">
-        <view class="header">
-            <view class="title">我的运动</view>
+<view class="mySport" style='margin-top:{{height}}px'>
+  <comNoData text="暂无运动记录" wx:if="{{!data}}" class="comNoData"/>
+  
+  <block  wx:else>
+    <view class="list-head">
+          <text class="name">开始时间</text>
+          <text class="right">运动时长</text>
+    </view>
+    <view class="list" >
+        <view class="list-l" wx:for="{{data}}" wx:key="index">
+          <text class="date">{{item.fitNessTime}}</text>
+          <text class="score">{{item.Duration}}</text>
         </view>
-    </block>
-   <block wx:else>
-       <view class="comNoData">
-            <comNoData  class="comNoData" text="暂无运动记录"/>
-        </view>
-   </block>
-
+      </view>
+  </block>
+  <view class="bottom-btn" bindtap="toRanking">
+    <van-icon name="bar-chart-o" />
+    <text>排行榜</text>
+  </view>
 </view>

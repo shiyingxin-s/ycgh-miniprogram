@@ -1,0 +1,203 @@
+/* .comNoData{
+    line-height: 500rpx;
+    font-size: 50rpx;
+} */
+.top .img {
+    width: 100%;
+    height: 252px;
+}
+.ranking{
+    height: 100%;
+}
+.rankindBg{
+    background: #FF4536;   
+}
+.section , .list{
+    margin: 0 30rpx;
+}
+.section{
+    position: relative;
+    top: -252rpx;
+    /* background: #ffffff; */
+    height: 152px;
+}
+.box {
+    border-radius:5px;
+    float: left;
+    top: -40px;
+    text-align: center;
+    /* background: #ffffff; */
+    position: relative;
+    width: calc(100% / 3);
+}
+.box:first-child{
+    top: -15px;
+    border-top-left-radius:5px;
+    border-top-right-radius:0;
+}
+.box:last-child{
+    top: 0;
+    border-top-right-radius:5px;
+    border-top-left-radius:0;
+}
+.box .image{
+    width: 100%;
+    position: relative;
+    z-index: 1;
+}
+.box .img{
+    position: absolute;
+    top: -45px;
+    height: 80px;
+    width: 77px;
+    left: calc(100% / 3 - 24px);
+}
+.box .name{
+    margin-top: 2px;
+}
+.time{
+    margin-top: 2px;
+    color: #ffffff;
+    font-size: 28rpx;
+}
+.score{
+    color: #FD464E;
+    font-size: 36rpx;
+}
+.top-name{
+    background: #B92428;
+    color: #ffffff;
+    width: 152rpx;
+    height: 40rpx;
+    font-size: 28rpx;
+    margin: 0 auto;
+    border-radius: 5px;
+}
+.name{
+    color: #666666;
+    width: 152rpx;
+    height: 40rpx;
+    font-size: 28rpx;
+    margin: 0 auto;
+}
+.avatar{
+    position: relative;
+    z-index: 2;
+    border-radius: 50%;
+    height: 61px;
+    width: 61px;
+    color: #ffffff;
+    background: #999999;
+    margin: 0 auto;
+    top: -28px;
+}
+.avatar image{
+    border-radius:50%;
+    height: 50px;
+    width: 50px;
+    color: #ffffff;
+    background: #999999;
+    margin: 0 auto;
+}
+.avatar .van-icon{
+    font-size: 40rpx;
+    line-height: 50px;
+}
+.list{
+    border-bottom-left-radius:8px;
+    border-bottom-right-radius:8px;
+    background: #ffffff;
+    margin-bottom: 40rpx;
+    position: relative;
+    top: -140px;
+    overflow-y: auto;
+    margin-bottom: 60rpx;
+    padding-bottom: 40rpx;
+}
+.list-l{
+    margin-left: 40rpx;
+    margin-right: 40rpx;
+    border-top: 1px solid #CDC8C8;
+    line-height: 60px;
+    padding:0 40rpx;
+}
+.list-l .num{
+    padding-right: 10px;
+}
+.list-l .image-text{
+    display: inline-block;
+    height: 37px;
+    width: 37px;
+    color: #ffffff;
+    background: #999999;
+    text-align: center;
+    vertical-align: -11px;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+.list-l .image-text image{
+    display: inline-block;
+    height: 37px;
+    width: 37px;
+    color: #ffffff;
+    text-align: center;
+    vertical-align: 0;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+.list-l .image-text van-icon{
+    font-size: 40rpx;
+    line-height: 50px;
+    vertical-align: 8px;
+}
+.list-l .score{
+    float: right;
+}
+.bottom{
+    position: absolute;
+    bottom: 0;
+    padding: 30rpx 90rpx 50rpx;
+    left:0;
+    right:0;
+    background: #ffffff;
+}
+.bottom .image-text{
+    display: inline-block;
+    height: 37px;
+    width: 37px;
+    color: #ffffff;
+    background: #999999;
+    text-align: center;
+    vertical-align: -11px;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+.bottom .image-text image{
+    display: inline-block;
+    height: 37px;
+    width: 37px;
+    color: #ffffff;
+    background: #999999;
+    text-align: center;
+    vertical-align: 0;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+.bottom .image-text van-icon{
+    font-size: 40rpx;
+    line-height: 50px;
+    vertical-align: 14px;
+}
+.bottom .score{
+    float: right;
+}
+.bottom .image-text .van-icon:before {
+    vertical-align: -5px;
+}
+.bottom .txt{
+    color:#C3C3C3;
+    font-size: 24rpx;
+    padding-left:10px
+}
+    
+

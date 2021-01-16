@@ -9,6 +9,7 @@
     "van-tab": "/dist/tab/index",
     "van-tabs": "/dist/tabs/index",
     "comNoData": "/components/comNoData/comNoData",
-    "van-loading": "/dist/loading/index"
+    "van-loading": "/dist/loading/index",
+    "van-dialog": "/dist/dialog/index"
   }
 }

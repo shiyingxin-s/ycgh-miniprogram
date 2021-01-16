@@ -4,10 +4,10 @@
 <view class="fitness" style='margin-top:{{height}}px'>
     <view class="header">
         <view class="title">健身视频</view>
-        <view >current_lat: {{current_lat}}</view>
+        <!-- <view >current_lat: {{current_lat}}</view>
         <view >current_long: {{current_long}}</view>
         <view >f_distance: {{f_distance}} 米</view>
-        <view >s_distance: {{s_distance}} 米</view> 
+        <view >s_distance: {{s_distance}} 米</view>  -->
           
     </view>
     <view class="section-box">
@@ -18,9 +18,11 @@
             <van-row class="items" gutter="20">
                 <block wx:if="{{dataList.length>0}}">
                   <van-col span="12" class="item" wx:for="{{dataList}}" wx:key="index">
-                        <view class="item-box" >
-                            <!-- <image  src="/image/jb.jpg" /> -->
-                             <video  
+                        <view class="item-box"  data-url="{{item.AttachmentUrl}}" bindtap="toDetail" >
+                            <image wx:if="{{activeIndex == 0}}" src="/image/q2.png" />
+                            <image wx:if="{{activeIndex == 1}}" src="/image/q3.png" />
+                            <image wx:if="{{activeIndex == 2}}" src="/image/q1.png" />
+                             <!-- <video  
                                 id="myVideo" 
                                 src="{{item.AttachmentUrl}}" 
                                 binderror="videoErrorCallback" 
@@ -31,7 +33,7 @@
                                 bindenterpictureinpicture='bindVideoEnterPictureInPicture'
                                 bindleavepictureinpicture='bindVideoLeavePictureInPicture'
                                 bindplay="play"
-                            ></video>
+                            ></video> -->
                             <view  class="name">{{item.Title}}</view>
                         </view>
                     </van-col>
@@ -118,4 +120,5 @@
         </van-button>
         <!-- '#BDBFC6' -->
     </view>
+    <van-dialog id="van-dialog" />
 </view>

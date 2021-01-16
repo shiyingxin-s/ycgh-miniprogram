@@ -120,6 +120,12 @@ var config = {
 
     // 保存看视频
     saveFitnessVedio:`${host}/fitnessVedio/saveFitnessVedio`,
+
+    // 我的运动
+    getFitnessHistory: `${host}/fitnessHistory/getFitnessHistory`,
+
+    // 获取健身排行
+    getFitnessRecords:`${host}/fitnessHistory/getFitnessRecords`
 };
 
 module.exports = config
