@@ -40,7 +40,7 @@
     <view class="list" style="height:{{listH}}rpx">
       <!-- wx:if="{{index > 3}}" -->
         <view class="list-l" wx:for="{{data}}" wx:key="index" wx:if="{{index > 3}}" >
-          <text class="num">{{item.Times}}</text>
+          <text class="num">{{index}}</text>
           <view class="image-text">
             <van-icon name="manager" wx:if="{{!item.Photo}}"/>
             <image wx:else src="{{item.Photo}}"></image>
@@ -50,7 +50,7 @@
         </view>
       </view>
     <view class="bottom">
-       <text class="num" style="margin-right:10px">{{data[0].Times}}</text>
+       <text class="num" style="margin-right:10px">{{index}}</text>
        <view class="image-text">
           <van-icon name="manager" wx:if="{{!data[0].Photo}}"/>
           <image wx:else src="{{data[0].Photo}}"></image>
