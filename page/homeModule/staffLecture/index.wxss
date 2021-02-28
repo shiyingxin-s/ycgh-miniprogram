@@ -1,7 +1,4 @@
-.page-body{
-  /* box-sizing: border-box; */
-  /* padding: 0 30rpx; */
-}
+
 .left{
   position: relative;
   background: #ffffff;
