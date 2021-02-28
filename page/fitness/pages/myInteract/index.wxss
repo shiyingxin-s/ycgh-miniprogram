@@ -66,7 +66,7 @@
 }
 .list-box{
     width: calc(100% - 60rpx);
-    padding: 30rpx 30rpx 300rpx;
+    padding: 10rpx 30rpx 300rpx;
     height: 32vh;
     overflow-y:scroll;
     overflow-x: hidden;
@@ -108,6 +108,25 @@
     max-width:180rpx;
     height: 140rpx;
 }
+.time{
+    padding-top: 31rpx;
+}
+.zan{
+    height: 35rpx;
+    padding-top: 60rpx;
+}
+.num{
+    height: 35rpx;
+    padding-left:10rpx;
+    max-width: 100rpx;
+    min-width: 44rpx;
+    overflow: hidden;
+    display: inline-block;
+}
+.zan .like{
+    color:#FC414A;
+    vertical-align: -3rpx;
+  }
 #myVideo {
     height: 210rpx;
     width: calc(100%);
@@ -118,6 +137,7 @@
     color: #707070;
     height: 68rpx;
     overflow: hidden;
+    margin-right: 15rpx;
 }
 .tips{
     text-align: center;
@@ -139,4 +159,32 @@
 .btnStyle button{
     width: 360rpx;
     margin: 30rpx auto 0;
+}
+.status-box{
+    text-align: right;
+}
+.status{
+    /* margin: 5px 10px 0 0; */
+    font-size: 24rpx;
+    /* text-align: center;
+    color: #ffffff;
+    width:100rpx;
+    height:40rpx;
+    border-radius:20px;
+    float: right; */
+}
+.bg-red{
+    color: #f4424a;
+}
+.bg-2be3b9{
+    color: #2be3b9;
+}
+.bg-fec83d{
+    color: #fec83d;
+}
+.bg-F89C00{
+    color: #F89C00;
+}
+.bg-3b3b3{
+    color: #b3b3b3;
 }

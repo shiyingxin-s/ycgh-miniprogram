@@ -33,11 +33,16 @@
                 <van-col span="8"  class="item-box">
                     <image src="{{item.ConverImg ?item.ConverImg: '/image/q1.png'}}" />
                 </van-col>
-                <van-col  span="12" >
+                <van-col  span="10" >
                     <view class="name">{{item.Title}}</view>
+                    <view class="time">2020-12-23</view>
                 </van-col>
-                <van-col  span="4" >
-                    <view class="name">{{item.Title}}</view>
+                <van-col  span="6"  class="status-box">
+                    <view class="status {{item.StateText === '待审核'?'bg-fec83d': item.StateText === '已审核'?'bg-2be3b9':'bg-red'}}">{{item.StateText?item.StateText:'未通过'}}</view>
+                    <view class="zan">
+                        <van-icon name="like" data-type="like" data-id="{{item.Id}}" class="like" />
+                        <text class="num">30</text>
+                    </view>
                 </van-col>
             </view>
         </van-row>
