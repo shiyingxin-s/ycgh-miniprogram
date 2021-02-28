@@ -74,7 +74,11 @@
       "pages": [
         "pages/mySport/index",
         "pages/detail/index",
-        "pages/ranking/index"
+        "pages/ranking/index",
+        "pages/interact/index",
+        "pages/myInteract/index",
+        "pages/videoList/index",
+        "pages/uploadFile/index"
       ]
     },
     {

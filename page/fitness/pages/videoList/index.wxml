@@ -1,0 +1,30 @@
+<!--page/fitness/pages/videoList/index.wxml-->
+<myHeader id="myHeader" navbar-data='{{nvabarData}}'></myHeader>
+<view class="videoList" style='margin-top:{{height}}px'>
+    <view class="section-box">
+        <view class="list-box" >
+            <van-row class="items" gutter="20">
+                <block wx:if="{{dataList.length>0}}">
+                  <van-col span="12" class="item" wx:for="{{dataList}}" wx:key="index">
+                        <view class="item-box"  data-url="{{item.AttachmentUrl}}" bindtap="toDetail" >
+                            <image wx:if="{{activeIndex == 0 || activeIndex == 1 }}" src="{{item.ConverImg ?item.ConverImg: '/image/q2.png'}}" />
+                            <image wx:if="{{activeIndex == 2}}" src="{{item.ConverImg ?item.ConverImg: '/image/q3.png'}}" />
+                            <image wx:if="{{activeIndex == 3}}" src="{{item.ConverImg ?item.ConverImg: '/image/q1.png'}}" />
+                            <view  class="name">{{item.Title}}</view>
+                        </view>
+                    </van-col>
+                    <view class="tips" wx:if="{{loading}}"><van-loading type="spinner" />加载中...</view>
+                    <view class="tips" hidden="{{!noMore}}">没有更多了...</view>
+                </block>
+                <block wx:else>
+                    <van-col span="24" class="comNoData">
+                      <comNoData  class="comNoData" text="暂无数据"/>
+                    </van-col>
+                </block>
+                
+            </van-row>
+          
+        </view>
+    </view>
+    <van-dialog id="van-dialog" />
+</view>

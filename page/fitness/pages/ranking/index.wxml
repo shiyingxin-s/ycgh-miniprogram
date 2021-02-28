@@ -7,31 +7,42 @@
     <view class="top"><image class="img" src="/image/pic_ranking.png" /></view>
     <view class="section" >
       <view class="box">
-        <view class="image"><image class="img" src="/image/pic_second.png" /></view>
-        <view class="avatar">
+        <view class="image">
+          <image class="img" src="/image/pic_second.png" />
+          <van-icon name="manager" wx:if="{{!data[2].Photo}}"/>
+          <image class="avatar" wx:else src="{{data[2].Photo}}"></image>
+        </view>
+        <!-- <view class="avatar">
           <van-icon name="manager" wx:if="{{!data[2].Photo}}"/>
           <image wx:else src="{{data[2].Photo}}"></image>
-        </view>
+        </view> -->
         <view class="top-name">{{data[2].Name}}</view>
         <view class="time">{{data[2].Duration}}</view>
         <view class="time">小时</view>
       </view>
       <view class="box">
-        <view class="image"><image class="img" src="/image/pic_first.png" /></view>
-        <view class="avatar">
+        <view class="image ">
+          <image class="img" src="/image/pic_first.png" />
+          <van-icon name="manager" wx:if="{{!data[1].Photo}}"/>
+          <image class="avatar" wx:else src="{{data[1].Photo}}"></image>
+        </view>
+        <!-- <view class="avatar">
           <van-icon name="manager" wx:if="{{!data[1].Photo}}"/>
           <image wx:else src="{{data[1].Photo}}"></image>
-        </view>
+        </view> -->
         <view class="top-name">{{data[1].Name}}</view>
         <view class="time">{{data[1].Duration}}</view>
         <view class="time">小时</view>
       </view>
       <view class="box"  >
-        <view class="image"><image class="img" src="/image/pic_third.png" /></view>
-        <view class="avatar">
-          <van-icon name="manager" wx:if="{{!data[3].Photo}}"/>
-          <image wx:else src="{{data[3].Photo}}"></image>
+        <view class="image">
+          <image class="img" src="/image/pic_third.png" />
+          <van-icon  name="manager" wx:if="{{!data[3].Photo}}"/>
+          <image class="avatar" wx:else src="{{data[3].Photo}}"></image>
         </view>
+        <!-- <view class="avatar">
+          
+        </view> -->
         <view class="top-name">{{data[3].Name}}</view>
         <view class="time">{{data[3].Duration}}</view>
         <view class="time">小时</view>
@@ -39,18 +50,17 @@
     </view>
     <view class="list" style="height:{{listH}}rpx">
       <!-- wx:if="{{index > 3}}" -->
-        <view class="list-l" wx:for="{{data}}" wx:key="index" wx:if="{{index > 3}}" >
-          <text class="num">{{index}}</text>
-          <view class="image-text">
-            <van-icon name="manager" wx:if="{{!item.Photo}}"/>
-            <image wx:else src="{{item.Photo}}"></image>
-          </view>
-          <text class="name">{{item.Name}}</text>
-          <text class="score">{{item.Duration}}</text>
+      <view class="list-l" wx:for="{{data}}" wx:key="index" wx:if="{{index > 3}}" >
+        <text class="num">{{index}}</text>
+        <view class="image-text">
+          <van-icon name="manager" wx:if="{{!item.Photo}}"/>
+          <image wx:else src="{{item.Photo}}"></image>
         </view>
+        <text class="name">{{item.Name}}</text>
+        <text class="score">{{item.Duration}}</text>
       </view>
+    </view>
     <view class="bottom">
-       <text class="num" style="margin-right:10px">{{index}}</text>
        <view class="image-text">
           <van-icon name="manager" wx:if="{{!data[0].Photo}}"/>
           <image wx:else src="{{data[0].Photo}}"></image>

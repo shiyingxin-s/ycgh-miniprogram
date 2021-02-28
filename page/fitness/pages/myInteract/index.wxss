@@ -1,0 +1,142 @@
+/* page/fitness/pages/myInteract/index.wxss */
+.head{
+    position: relative;
+}
+.head-bg{
+    width: 100%;
+    height: 340rpx;
+    background: linear-gradient(-4deg, #FF6E75, #FC414A);
+}
+.avatar{
+    position: absolute;
+    top:30rpx;
+    left:0;
+    right: 0;
+    margin: 0 auto;
+    height: 128rpx;
+    width: 128rpx;
+    background: #E2E2E2;
+    border-radius: 100%;
+    color: #999999;
+    line-height: 128rpx;
+    font-size: 24rpx;
+    text-align: center;
+}
+.avatar view:first-child{
+    height: 128rpx;
+}
+.avatar view:last-child{
+    color: #ffffff;
+    line-height: 66rpx;
+}
+.avatar image{
+    height: 128rpx;
+    width: 128rpx;
+    border-radius: 100%;
+}
+.head-view{
+    margin: 0 30rpx;
+    position: absolute;
+    top:240rpx;
+    left:0;
+    right: 0;
+}
+.head-box {
+    background-color: #ffffff;
+    height: 160rpx;
+    width: 100%;
+    border-radius: 4px;
+    display: flex
+}
+.head-box .item{
+    margin-top: 15px;
+    flex: 1;
+    text-align: center;
+    overflow: hidden;
+}
+.head-box .item view:last-child{
+    font-size: 12px;
+    color: #B3B3B3;
+}
+.content{
+    margin: 100rpx 30rpx 30rpx;
+    background-color: #ffffff;
+    border-radius: 4px;
+    padding: 15rpx;
+}
+.list-box{
+    width: calc(100% - 60rpx);
+    padding: 30rpx 30rpx 300rpx;
+    height: 32vh;
+    overflow-y:scroll;
+    overflow-x: hidden;
+}
+.tilte{
+    height: 40rpx;
+    padding: 10rpx 0 0 10rpx;
+}
+.list-box .van-tab{
+    font-weight: 400 !important;
+    color: #999999 !important;
+}
+.van-ellipsis{
+    font-size: 33rpx
+}
+.van-tab--active {
+    font-weight: 500 !important;
+    color: #FC414A !important;
+}
+.van-col{
+    padding-left: 0 !important;
+}
+.van-hairline--bottom:after, 
+.van-hairline--left:after, 
+.van-hairline--right:after, 
+.van-hairline--surround:after, 
+.van-hairline--top-bottom:after,
+.van-hairline--top:after, 
+.van-hairline:after{
+    border: unset !important;
+}
+.items .item{
+    font-size:30rpx;
+    padding-top: 30rpx;
+    border-top: 1px solid #EBEBEB;
+    margin-top: 15rpx;
+}
+.item-box image{
+    max-width:180rpx;
+    height: 140rpx;
+}
+#myVideo {
+    height: 210rpx;
+    width: calc(100%);
+}
+.item .name{
+    font-size: 24rpx;
+    font-weight: 400;
+    color: #707070;
+    height: 68rpx;
+    overflow: hidden;
+}
+.tips{
+    text-align: center;
+    color: #999999;
+}
+.bottom-box{
+    background-color: #ffffff;
+    height: 220rpx;
+    position: absolute;
+    bottom: 0;
+    left:0;
+    right: 0;
+    padding: 0 20rpx 0 66rpx;
+    display: flex;
+}
+.btnStyle{
+    flex: 1;
+}
+.btnStyle button{
+    width: 360rpx;
+    margin: 30rpx auto 0;
+}

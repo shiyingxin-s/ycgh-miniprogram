@@ -1,0 +1,65 @@
+<!--page/fitness/pages/myInteract/index.wxml-->
+
+<myHeader id="myHeader" navbar-data='{{nvabarData}}'></myHeader>
+<view class="tabPage" style='margin-top:{{height}}px'>
+  <view class="head">
+    <view class="head-bg"></view>
+    <view class="avatar">
+        <view><image src="/image/q1.png" /></view>
+        <view >天天向上</view>
+    </view>
+    <view class="head-view">
+        <view class="head-box">
+            <view class="item">
+                <view >45</view>
+                <view >上传视频</view>
+            </view>
+            <view class="item">
+                <view >100</view>
+                <view >获赞数</view>
+            </view>
+            <view class="item">
+                <view >45</view>
+                <view >总贡献值</view>
+            </view>
+        </view>
+    </view>
+  </view>
+  <view class="content">
+    <view class="tilte">我的上传</view>
+    <view class="list-box" wx:if="{{dataList.length>0}}" >
+        <van-row class="items" gutter="20" wx:for="{{dataList}}" wx:key="index" data-url="{{item.AttachmentUrl}}" bindtap="toDetail">
+            <view class="item">
+                <van-col span="8"  class="item-box">
+                    <image src="{{item.ConverImg ?item.ConverImg: '/image/q1.png'}}" />
+                </van-col>
+                <van-col  span="12" >
+                    <view class="name">{{item.Title}}</view>
+                </van-col>
+                <van-col  span="4" >
+                    <view class="name">{{item.Title}}</view>
+                </van-col>
+            </view>
+        </van-row>
+        <view class="tips" wx:if="{{loading}}"><van-loading type="spinner" />加载中...</view>
+        <view class="tips" hidden="{{!noMore}}">没有更多了...</view>
+    </view>
+    <view wx:else class="comNoData">
+        <comNoData  class="comNoData" text="暂无数据"/>
+    </view>
+  </view>
+  <view class="bottom-box">
+    <van-button
+        class="btnStyle"
+        type="primary"
+        block  
+        round
+        icon="plus"
+        size="large"
+        color="#fb4249"
+        bindtap="uploadBtn">
+        上传视频
+    </van-button>
+  </view>
+</view>
+

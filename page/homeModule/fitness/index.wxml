@@ -4,11 +4,21 @@
 <view class="fitness" style='margin-top:{{height}}px'>
     <view class="header">
         <view class="title">健身视频</view>
-        <!-- <view >current_lat: {{current_lat}}</view>
-        <view >current_long: {{current_long}}</view>
+        <!-- <view>  -------健身馆 坐标 ------- </view>
+        <view>fitness_lat :{{fitness_lat}}</view>
+        <view>fitness_long :{{fitness_long}}</view>
+
+        <view>   -------游泳馆 坐标 ------- </view>
+        <view>swim_lat :{{swim_lat}}</view>
+        <view>swim_long :{{swim_long}}</view>
+
+        <view>  ------- 当前定位 坐标  ------- </view>
+        <view >current_lat: {{current_lat}}</view>
+        <view >current_long: {{current_long}}</view> -->
+        <!-- 
         <view >f_distance: {{f_distance}} 米</view>
         <view >s_distance: {{s_distance}} 米</view>  -->
-          
+           
     </view>
     <view class="section-box">
         <van-tabs active="{{ activeIndex }}" bind:change="onChange">
@@ -19,9 +29,9 @@
                 <block wx:if="{{dataList.length>0}}">
                   <van-col span="12" class="item" wx:for="{{dataList}}" wx:key="index">
                         <view class="item-box"  data-url="{{item.AttachmentUrl}}" bindtap="toDetail" >
-                            <image wx:if="{{activeIndex == 0}}" src="/image/q2.png" />
-                            <image wx:if="{{activeIndex == 1}}" src="/image/q3.png" />
-                            <image wx:if="{{activeIndex == 2}}" src="/image/q1.png" />
+                            <image wx:if="{{activeIndex == 0 || activeIndex == 1 }}" src="{{item.ConverImg ?item.ConverImg: '/image/q2.png'}}" />
+                            <image wx:if="{{activeIndex == 2}}" src="{{item.ConverImg ?item.ConverImg: '/image/q3.png'}}" />
+                            <image wx:if="{{activeIndex == 3}}" src="{{item.ConverImg ?item.ConverImg: '/image/q1.png'}}" />
                              <!-- <video  
                                 id="myVideo" 
                                 src="{{item.AttachmentUrl}}" 
@@ -104,6 +114,16 @@
             我的运动
         </van-button>
         <van-button
+            class="btnStyle"
+            type="primary"
+            block  
+            round
+            size="large"
+            color="#1dd57a" 
+            bindtap="btnClick">
+            健康互动
+        </van-button>
+        <!-- <van-button
             wx:if="{{buttonStatus}}"
             class="btnStyle"
             type="primary"
@@ -117,7 +137,7 @@
             color="{{buttonStatus === 1?'#ffb53c':buttonStatus === 2?'#1AD57B':'#FC414A'}}" 
             bindtap="btnClick">
             {{buttonStatus === 1?'重新定位':buttonStatus === 2?'运动打卡':'结束打卡'}}
-        </van-button>
+        </van-button> -->
         <!-- '#BDBFC6' -->
     </view>
     <van-dialog id="van-dialog" />

@@ -1,0 +1,43 @@
+<!--page/fitness/pages/interact/index.wxml-->
+<myHeader id="myHeader" navbar-data='{{nvabarData}}'></myHeader>
+<view class="interact" style='margin-top:{{height}}px'>
+    <view class="con-header-box">
+        <image src="/image/hudong_bg.jpg" />
+    </view>
+    <view class="button-box">
+        <van-button
+            class="btnStyle"
+            type="primary"
+            block  
+            round
+            size="large"
+            color="linear-gradient(to bottom, #ff7804, #ff3b03)"
+            bindtap="department">
+            部门贡献
+        </van-button>
+        <van-button
+            class="btnStyle"
+            type="primary"
+            block  
+            round
+            size="large"
+            color="linear-gradient(to bottom, #ff7804, #ff3b03)"
+            bindtap="my">
+            我的贡献
+        </van-button>
+    </view>
+    <view class="con-box">
+        <view class="line">
+            <van-divider contentPosition="center" customStyle="color: #B12930; border-color: #B12930; font-size: 14px;" >
+                活跃度排行榜
+            </van-divider>
+        </view>
+        <view class="list">
+            <view class="list-l" wx:for="{{data}}" wx:key="index"  >
+                <text class="num">{{index}}</text>
+                <text class="name">{{item.Name}}</text>
+                <text class="score">{{item.Duration}}</text>
+            </view>
+        </view>
+    </view>
+</view>

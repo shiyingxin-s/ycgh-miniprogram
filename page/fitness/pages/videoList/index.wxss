@@ -1,7 +1,4 @@
-/* page/homeModule/fitness/index.wxss */
-.fitness{
-    /* padding: 40rpx 30rpx 60rpx 40rpx; */
-}
+/* page/fitness/pages/videoList/index.wxss */
 .header {
     padding: 40rpx 30rpx 30rpx 40rpx;
     background-color: #ffffff;
@@ -13,8 +10,8 @@
 }
 .list-box{
     width: calc(100% - 60rpx);
-    padding: 30rpx 30rpx 400rpx;
-    height: 52vh;
+    padding: 30rpx 30rpx 100rpx;
+    /* height: 30vh; */
     overflow-y:scroll;
     overflow-x: hidden;
 }
@@ -90,4 +87,8 @@
 
 .van-icon--image{
     font-size: 1.8rem !important;
+}
+.tips{
+    text-align: center;
+    color: #999999;
 }

@@ -30,8 +30,8 @@ Page({
     endTime:'', // 是否签退了
 
     activeIndex: 0,
-    activeName: '塑形',
-    classList:[ '塑形', '增肌', '瑜伽' ],
+    activeName: '减脂',
+    classList:['减脂', '塑形', '增肌', '瑜伽' ],
 
     buttonStatus: 1, // 1 : 不范围内，2 : 打卡，3 : 签退 , 0 : 不显示
 
@@ -97,12 +97,12 @@ Page({
       reportPhone: UserData.get()?UserData.get().reportPhone:'',
       unsignId: UserData.get()? UserData.get().unsignId:'',
       endTime: UserData.get()?UserData.get().endTime: '',
-      fitness_lat: UserData.get()?UserData.get().j_latitude:this.data.j_latitude,
-      fitness_long:UserData.get()?UserData.get().j_longitude:this.data.j_longitude,
-      swim_lat: UserData.get()?UserData.get().y_latitude:this.data.y_latitude,
-      swim_long: UserData.get()?UserData.get().y_longitude:this.data.y_longitude
+      // fitness_lat: UserData.get()?UserData.get().j_latitude:this.data.j_latitude,
+      // fitness_long:UserData.get()?UserData.get().j_longitude:this.data.j_longitude,
+      // swim_lat: UserData.get()?UserData.get().y_latitude:this.data.y_latitude,
+      // swim_long: UserData.get()?UserData.get().y_longitude:this.data.y_longitude
     })
-    this.getLocationFun()
+    // this.getLocationFun()
   },
 
   // 获取当前位置
@@ -140,8 +140,8 @@ Page({
         wxs.setData({
           placeName: fitness_m <= scopeLimit ? '康乐中心':swim_m <= scopeLimit?'阳光健身':'',
           buttonStatus: status,
-          // current_lat: res.latitude,
-          // current_long: res.longitude,
+          current_lat: res.latitude,
+          current_long: res.longitude,
           // f_distance: fitness_m,
           // s_distance: swim_m,
         })
@@ -239,32 +239,35 @@ Page({
   },
 
   btnClick() {
-    if(this.data.isShow ){ return }
-    if(this.data.buttonStatus === 1){
-      this.getLocationFun()
-    } else if(this.data.buttonStatus === 2){
-      Dialog.confirm({
-        title: '是否确定开始打卡？',
-        message: '每天只能签退签到一次',
-      }).then(() => {
-          // on confirm
-          this.clockIn()
-      }).catch(() => {
-        // on cancel
-      });
-    } else if(UserData.get().unsignId && this.data.buttonStatus === 3){
-      Dialog.confirm({
-        title: '是否确定结束打卡？',
-        message: '每天只能签退签到一次',
-      }).then(() => {
-          // on confirm
-          this.endClockIn()
-      }).catch(() => {
-        // on cancel
-      });
-    } else if(this.data.buttonStatus !== 1){
-      common.showToast('运动记录异常，请联系管理员')
-    } 
+    wx.navigateTo({
+      url:'../../fitness/pages/interact/index' 
+    })
+    // if(this.data.isShow ){ return }
+    // if(this.data.buttonStatus === 1){
+    //   this.getLocationFun()
+    // } else if(this.data.buttonStatus === 2){
+    //   Dialog.confirm({
+    //     title: '是否确定开始打卡？',
+    //     message: '每天只能签退签到一次',
+    //   }).then(() => {
+    //       // on confirm
+    //       this.clockIn()
+    //   }).catch(() => {
+    //     // on cancel
+    //   });
+    // } else if(UserData.get().unsignId && this.data.buttonStatus === 3){
+    //   Dialog.confirm({
+    //     title: '是否确定结束打卡？',
+    //     message: '每天只能签退签到一次',
+    //   }).then(() => {
+    //       // on confirm
+    //       this.endClockIn()
+    //   }).catch(() => {
+    //     // on cancel
+    //   });
+    // } else if(this.data.buttonStatus !== 1){
+    //   common.showToast('运动记录异常，请联系管理员')
+    // } 
     
   },
   // 打卡操作

@@ -180,6 +180,24 @@
         {
           "name": "page/fitness/pages/ranking/index",
           "pathName": "page/fitness/pages/ranking/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "page/homeModule/fitness/index",
+          "pathName": "page/homeModule/fitness/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "page/fitness/pages/interact/index",
+          "pathName": "page/fitness/pages/interact/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "page/fitness/pages/myInteract/index",
+          "pathName": "page/fitness/pages/myInteract/index",
           "scene": null
         }
       ]

@@ -31,7 +31,7 @@
               <text class="iconfont iconword1"/> 
             </view>
             <view wx:else  data-url="{{item.AttachementUrl}}" bindtap="toDetail"  >
-              <image src="/image/shipin.png" data-url="{{item.AttachementUrl}}" class="shipin"  />
+              <image src="{{item.ConverImg ?item.ConverImg: '/image/shipin.png'}}" data-url="{{item.AttachementUrl}}" class="shipin"  />
             </view>
             <!-- <video  
                 wx:else

@@ -24,33 +24,33 @@
 .box {
     border-radius:5px;
     float: left;
-    top: -40px;
+    top: -18px;
     text-align: center;
     /* background: #ffffff; */
     position: relative;
     width: calc(100% / 3);
 }
 .box:first-child{
-    top: -15px;
+    top: -1px;
     border-top-left-radius:5px;
     border-top-right-radius:0;
 }
 .box:last-child{
-    top: 0;
+    top: 6px;
     border-top-right-radius:5px;
     border-top-left-radius:0;
 }
 .box .image{
     width: 100%;
-    position: relative;
+    position: absolute;
     z-index: 1;
 }
 .box .img{
     position: absolute;
-    top: -45px;
     height: 80px;
     width: 77px;
-    left: calc(100% / 3 - 24px);
+    top: -64px;
+    left: calc(100% / 3 - 22px);
 }
 .box .name{
     margin-top: 2px;
@@ -70,8 +70,14 @@
     width: 152rpx;
     height: 40rpx;
     font-size: 28rpx;
-    margin: 0 auto;
+    margin: 50px auto 0;
     border-radius: 5px;
+}
+.box:first-child .top-name{
+    margin-top: 35px;
+}
+.box:last-child .top-name{
+    margin-top: 36px;
 }
 .name{
     color: #666666;
@@ -80,28 +86,25 @@
     font-size: 28rpx;
     margin: 0 auto;
 }
-.avatar{
-    position: relative;
+.box .avatar{
+    top:-46px;
+    left: calc(100% / 3 - 8px);
+    position: absolute;
     z-index: 2;
-    border-radius: 50%;
-    height: 61px;
-    width: 61px;
-    color: #ffffff;
-    background: #999999;
-    margin: 0 auto;
-    top: -28px;
-}
-.avatar image{
     border-radius:50%;
-    height: 50px;
-    width: 50px;
+    height: 60px;
+    width: 60px;
     color: #ffffff;
     background: #999999;
     margin: 0 auto;
 }
-.avatar .van-icon{
+.box  .van-icon{
+    left: calc(100% / 3 + 12px);
+    position: absolute;
     font-size: 40rpx;
     line-height: 50px;
+    color: #999999;
+    top: -45px;
 }
 .list{
     border-bottom-left-radius:8px;
