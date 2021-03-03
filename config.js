@@ -125,7 +125,14 @@ var config = {
     getFitnessHistory: `${host}/fitnessHistory/getFitnessHistory`,
 
     // 获取健身排行
-    getFitnessRecords:`${host}/fitnessHistory/getFitnessRecords`
+    getFitnessRecords:`${host}/fitnessHistory/getFitnessRecords`,
+
+    // 健康互动部门热度
+    getUnitFever:`${host}/fitnessTeching/getUnitFever`,
+
+    // 获取个人贡献
+    getPersonalFerver:`${host}/fitnessTeching/getPersonalFerver`,
+
 };
 
 module.exports = config

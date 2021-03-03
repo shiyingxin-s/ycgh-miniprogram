@@ -79,7 +79,7 @@ Page({
     let data = {
       pageIndex: wxs.data.pageIndex,
       pageSize: wxs.data.pageSize,
-      itemCode: wxs.data.activeName,
+      itemCode: UserData.get().id,
     }
     requestLib.request({
       url:  httpUrl.getFitnessVideo,

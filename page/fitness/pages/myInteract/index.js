@@ -53,15 +53,15 @@ Page({
   },
   getDataList() {
     const wxs = this
-    let data = {
-      pageIndex: wxs.data.pageIndex,
-      pageSize: wxs.data.pageSize,
-      itemCode: wxs.data.activeName,
-    }
+    // let data = {
+    //   pageIndex: wxs.data.pageIndex,
+    //   pageSize: wxs.data.pageSize,
+    //   itemCode: wxs.data.activeName,
+    // }
     requestLib.request({
-      url:  httpUrl.getFitnessVideo,
+      url:  httpUrl.getPersonalFerver,
       method: 'post',
-      data: data,
+      data: {},
       success: successFun,
       fail: (error)=>{
         common.hideLoading()
@@ -72,25 +72,25 @@ Page({
       common.hideLoading()
       const resData = res.data
       if(resData && resData.code === 0){
-        wxs.setData({
-          noMore: resData.data.list.length === 0 ? true: false
-        })
-        if(wxs.data.loadMore){
-          let list = wxs.data.dataList
-          if(resData.data.list.length>0){
-            list = list.concat(resData.data.list)
-          }
-          wxs.setData({
-            dataList: list,
-            loadMore:false,
-            loading:false
-          })
-        } else{
-          wxs.setData({
-            dataList: resData.data.list,
-            loading:false
-          })
-        }
+        // wxs.setData({
+        //   noMore: resData.data.list.length === 0 ? true: false
+        // })
+        // if(wxs.data.loadMore){
+        //   let list = wxs.data.dataList
+        //   if(resData.data.list.length>0){
+        //     list = list.concat(resData.data.list)
+        //   }
+        //   wxs.setData({
+        //     dataList: list,
+        //     loadMore:false,
+        //     loading:false
+        //   })
+        // } else{
+        //   wxs.setData({
+        //     dataList: resData.data.list,
+        //     loading:false
+        //   })
+        // }
       } else {
         common.showToast(error.errMessage, 3000)
       }

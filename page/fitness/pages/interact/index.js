@@ -37,7 +37,7 @@ Page({
       employeeId: UserData.get().id,
     }
     requestLib.request({
-      url:  httpUrl.getFitnessRecords,
+      url:  httpUrl.getUnitFever,
       method: 'post',
       data: data,
       success: successFun,
