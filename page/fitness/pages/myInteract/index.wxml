@@ -5,21 +5,21 @@
   <view class="head">
     <view class="head-bg"></view>
     <view class="avatar">
-        <view><image src="/image/q1.png" /></view>
-        <view >天天向上</view>
+        <view><image src="{{datas.Thumb}}" /></view>
+        <view >{{datas.WxNickName}}</view>
     </view>
     <view class="head-view">
         <view class="head-box">
             <view class="item">
-                <view >45</view>
+                <view >{{datas.VedioCount}}</view>
                 <view >上传视频</view>
             </view>
             <view class="item">
-                <view >100</view>
+                <view >{{datas.LikeCounts}}</view>
                 <view >获赞数</view>
             </view>
             <view class="item">
-                <view >45</view>
+                <view >{{datas.TotalCounts}}</view>
                 <view >总贡献值</view>
             </view>
         </view>
@@ -27,21 +27,24 @@
   </view>
   <view class="content">
     <view class="tilte">我的上传</view>
-    <view class="list-box" wx:if="{{dataList.length>0}}" >
-        <van-row class="items" gutter="20" wx:for="{{dataList}}" wx:key="index" data-url="{{item.AttachmentUrl}}" bindtap="toDetail">
+    <view class="list-box" wx:if="{{datas.VedioList.length>0}}" >
+        <van-row class="items" gutter="20" wx:for="{{datas.VedioList}}" wx:key="index" data-url="{{item.AttachmentUrl}}" bindtap="toDetail">
             <view class="item">
                 <van-col span="8"  class="item-box">
                     <image src="{{item.ConverImg ?item.ConverImg: '/image/q1.png'}}" />
                 </van-col>
                 <van-col  span="10" >
-                    <view class="name">{{item.Title}}</view>
-                    <view class="time">2020-12-23</view>
+                    <view class="name">{{item.VedioName}}</view>
+                    <view class="time">{{item.Date}}</view>
                 </van-col>
                 <van-col  span="6"  class="status-box">
-                    <view class="status {{item.StateText === '待审核'?'bg-fec83d': item.StateText === '已审核'?'bg-2be3b9':'bg-red'}}">{{item.StateText?item.StateText:'未通过'}}</view>
+                    <view class="status {{item.Status === '待审核'?'bg-fec83d': item.Status === '已审核'?'bg-2be3b9':'bg-red'}}">
+                        {{item.Status?item.Status:'未通过'}}
+                        <van-icon  data-id="{{item.Id}}"  catchtap="del" name="delete" class="del" />
+                    </view>
                     <view class="zan">
-                        <van-icon name="like" data-type="like" data-id="{{item.Id}}" class="like" />
-                        <text class="num">30</text>
+                        <van-icon name="like" data-type="like"  class="like" />
+                        <text class="num">{{item.LikesCount}}</text>
                     </view>
                 </van-col>
             </view>

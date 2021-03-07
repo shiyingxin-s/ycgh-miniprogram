@@ -5,16 +5,21 @@
         <view class="list-box" >
             <van-row class="items" gutter="20">
                 <block wx:if="{{dataList.length>0}}">
-                  <van-col span="12" class="item" wx:for="{{dataList}}" wx:key="index">
+                    <van-col span="12" class="item" wx:for="{{dataList}}" wx:key="index">
                         <view class="item-box"  data-url="{{item.AttachmentUrl}}" bindtap="toDetail" >
-                            <image wx:if="{{activeIndex == 0 || activeIndex == 1 }}" src="{{item.ConverImg ?item.ConverImg: '/image/q2.png'}}" />
-                            <image wx:if="{{activeIndex == 2}}" src="{{item.ConverImg ?item.ConverImg: '/image/q3.png'}}" />
-                            <image wx:if="{{activeIndex == 3}}" src="{{item.ConverImg ?item.ConverImg: '/image/q1.png'}}" />
+                            <image src="{{item.ConverImg ?item.ConverImg: '/image/q1.png'}}" />
                             <view  class="name">{{item.Title}}</view>
+                            <view class="icon">
+                                <van-icon name="like" data-type="cancel" data-id="{{item.Id}}" class="like like-o" wx:if="{{item.isLike}}" catchtap="upateLike" />
+                                <van-icon name="like-o" data-type="like" data-id="{{item.Id}}"  class="like"  catchtap="upateLike" wx:else/>
+                                {{item.LikeNumber}} 
+                            </view>
                         </view>
                     </van-col>
-                    <view class="tips" wx:if="{{loading}}"><van-loading type="spinner" />加载中...</view>
-                    <view class="tips" hidden="{{!noMore}}">没有更多了...</view>
+                    <van-col span="24">
+                        <view class="tips" wx:if="{{loading}}"><van-loading type="spinner" />加载中...</view>
+                        <view class="tips" hidden="{{!noMore}}">没有更多了...</view>
+                    </van-col>
                 </block>
                 <block wx:else>
                     <van-col span="24" class="comNoData">

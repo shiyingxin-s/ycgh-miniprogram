@@ -25,10 +25,6 @@ Page({
 
     reportPhone: '', // 机关单位可健身
 
-    activeIndex: 0,
-    activeName: '减脂',
-
-
     noMore:false,
     loadMore:false,
     loading: false,
@@ -143,6 +139,46 @@ Page({
     wx.navigateTo({
       url:'../detail/index?url=' + url 
     })
+  },
+   // 点赞或取消点赞
+   upateLike(e){
+    const wxs = this
+    let id = e.currentTarget.dataset.id
+    let type = e.currentTarget.dataset.type
+    let data = {
+      employeeId: UserData.get().id,
+      id: id,
+      isLike: type === 'like'? true :false
+    }
+    common.showLoading()
+    requestLib.request({
+      url:  httpUrl.fitnessTeching_updateLikeNum,
+      method: 'post',
+      data: data,
+      success: successFun,
+      fail: (error)=>{
+        common.hideLoading()
+        common.showToast(error.errMessage, 3000)
+      }
+    })
+    function successFun(res){
+      common.hideLoading()
+      const resData = res.data
+      if(resData && resData.code === 0){
+        common.showLoading()
+        wxs.setData({
+          noMore:false,
+          loadMore:false,
+          loading: false,
+          pageIndex:1,
+          pageSize:10,
+          dataList:[]
+        })
+        wxs.getDataList()
+      } else {
+        common.showToast(error.errMessage, 3000)
+      }
+    }
   },
   
 })

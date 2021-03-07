@@ -133,6 +133,15 @@ var config = {
     // 获取个人贡献
     getPersonalFerver:`${host}/fitnessTeching/getPersonalFerver`,
 
+    // 健康互动视频 点赞/取消点赞
+    fitnessTeching_updateLikeNum: `${host}/fitnessTeching/updateLikeNum`,
+
+    // 健康互动保存 上传视频
+    savePersonalTeching: `${host}/fitnessTeching/savePersonalTeching`,
+
+    // 删除保存 上传的健康互动视频
+    deletePersonalTeching: `${host}/fitnessTeching/deletePersonalTeching`
+
 };
 
 module.exports = config

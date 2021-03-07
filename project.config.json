@@ -198,6 +198,12 @@
         {
           "name": "page/fitness/pages/myInteract/index",
           "pathName": "page/fitness/pages/myInteract/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "page/fitness/pages/videoList/index",
+          "pathName": "page/fitness/pages/videoList/index",
           "scene": null
         }
       ]

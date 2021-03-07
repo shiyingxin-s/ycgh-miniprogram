@@ -156,6 +156,12 @@
 .btnStyle{
     flex: 1;
 }
+.del{
+    font-size: 39rpx;
+    color: #B3B3B3;
+    vertical-align: bottom;
+    margin-left: 2px;
+}
 .btnStyle button{
     width: 360rpx;
     margin: 30rpx auto 0;

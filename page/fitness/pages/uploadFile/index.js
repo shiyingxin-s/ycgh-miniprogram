@@ -20,13 +20,10 @@ Page({
       selectTypeName: '',
       typeList:[],
       paramData:{
-        Id: '',
         fileType:'',
         EmployeeId: '',
         Title: '',
-        Description: '',
         AttachementUrl: '',
-        TypeCode: '',
         fileUrl:''
       },
       isShow: false
@@ -161,7 +158,6 @@ Page({
   onConfirm(e){
     this.setData({
       showPop:false,
-      'paramData.TypeCode': e.detail.value.id,
       selectTypeName:e.detail.value.text,
     })
   },
@@ -203,7 +199,7 @@ Page({
       isShow: true
     })
     requestLib.request({
-      url:  httpUrl.saveHallStyle,
+      url:  httpUrl.savePersonalTeching,
       method: 'post',
       data: wxs.data.paramData,
       success: successFun,

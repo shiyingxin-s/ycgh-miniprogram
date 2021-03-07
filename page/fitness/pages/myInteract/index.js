@@ -30,38 +30,28 @@ Page({
 
    pageIndex:1,
    pageSize:10,
-   dataList:[],
+   datas:{},
   },
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  // onLoad: function (options) {
+  //   common.showLoading()
+  //   this.getData()
+  // },
+  onShow: function() {
     common.showLoading()
-    this.getDataList()
+    this.getData()
   },
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-    let pageIndex = this.data.pageIndex
-    this.setData({
-      loadMore: true,
-      pageIndex: ++pageIndex,
-      loading:true
-    })
-    this.getDataList()
-  },
-  getDataList() {
+  getData() {
     const wxs = this
-    // let data = {
-    //   pageIndex: wxs.data.pageIndex,
-    //   pageSize: wxs.data.pageSize,
-    //   itemCode: wxs.data.activeName,
-    // }
+    let data = {
+      employeeId: UserData.get().id
+    }
     requestLib.request({
       url:  httpUrl.getPersonalFerver,
       method: 'post',
-      data: {},
+      data: data,
       success: successFun,
       fail: (error)=>{
         common.hideLoading()
@@ -72,25 +62,9 @@ Page({
       common.hideLoading()
       const resData = res.data
       if(resData && resData.code === 0){
-        // wxs.setData({
-        //   noMore: resData.data.list.length === 0 ? true: false
-        // })
-        // if(wxs.data.loadMore){
-        //   let list = wxs.data.dataList
-        //   if(resData.data.list.length>0){
-        //     list = list.concat(resData.data.list)
-        //   }
-        //   wxs.setData({
-        //     dataList: list,
-        //     loadMore:false,
-        //     loading:false
-        //   })
-        // } else{
-        //   wxs.setData({
-        //     dataList: resData.data.list,
-        //     loading:false
-        //   })
-        // }
+        wxs.setData({
+          datas: resData.data
+        })
       } else {
         common.showToast(error.errMessage, 3000)
       }
@@ -98,12 +72,6 @@ Page({
   },
 
 
-  loaddingFun(data) {
-    const wxs = this
-    wxs.setData({
-      isShow: data? true: false
-    })
-  },
   toDetail(e){
     let url = e.currentTarget.dataset.url
     wx.navigateTo({
@@ -121,11 +89,34 @@ Page({
   onReady: function () {
 
   },
+  del(e){
+    const wxs = this
+    let id = e.currentTarget.dataset.id
+    let data = {
+      id: id,
+    }
+    common.showLoading()
+    requestLib.request({
+      url:  httpUrl.deletePersonalTeching,
+      method: 'post',
+      data: data,
+      success: successFun,
+      fail: (error)=>{
+        common.hideLoading()
+        common.showToast(error.errMessage, 3000)
+      }
+    })
+    function successFun(res){
+      common.hideLoading()
+      const resData = res.data
+      if(resData && resData.code === 0){
+        common.showLoading()
+        wxs.getData()
+      } else {
+        common.showToast(error.errMessage, 3000)
+      }
+    }
+  }
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
+ 
 })
