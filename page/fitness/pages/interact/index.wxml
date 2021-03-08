@@ -13,7 +13,7 @@
             size="large"
             color="linear-gradient(to bottom, #ff7804, #ff3b03)"
             bindtap="department">
-            部门贡献
+            互动视频
         </van-button>
         <van-button
             class="btnStyle"
