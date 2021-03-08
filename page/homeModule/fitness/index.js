@@ -31,7 +31,7 @@ Page({
 
     activeIndex: 0,
     activeName: '减脂',
-    classList:['减脂', '塑形', '增肌', '瑜伽' ],
+    classList:['减脂', '塑形', '增肌', '瑜伽', '运动达人' ],
 
     buttonStatus: 1, // 1 : 不范围内，2 : 打卡，3 : 签退 , 0 : 不显示
 
@@ -165,13 +165,12 @@ Page({
   getDataList() {
     const wxs = this
     let data = {
-      // employeeId: UserData.get().id,
       pageIndex: wxs.data.pageIndex,
       pageSize: wxs.data.pageSize,
-      itemCode: wxs.data.activeName,
+      itemCode: wxs.data.activeIndex === 4 ?  UserData.get().id : wxs.data.activeName,
     }
     requestLib.request({
-      url:  httpUrl.getFitnessVideo,
+      url: httpUrl.getFitnessVideo,
       method: 'post',
       data: data,
       success: successFun,
@@ -215,15 +214,15 @@ Page({
   onChange(e){
     var wxs = this
     common.showLoading()
-    wxs.setData({
-      dataList:[],
-      activeName: e.detail.title,
-      activeIndex: e.detail.index,
-      loadMore:false,
-      pageIndex:1,
-      pageSize:10,
-    })
-    wxs.getDataList()
+      wxs.setData({
+        dataList:[],
+        activeName: e.detail.title,
+        activeIndex: e.detail.index,
+        loadMore:false,
+        pageIndex:1,
+        pageSize:10,
+      })
+      wxs.getDataList()
   },
   getRunData(){
     var wxs = this
@@ -373,6 +372,47 @@ Page({
     wx.navigateTo({
       url:'../../fitness/pages/detail/index?url=' + url 
     })
-  }
+  },
+   // 点赞或取消点赞
+   upateLike(e){
+    const wxs = this
+    let id = e.currentTarget.dataset.id
+    let type = e.currentTarget.dataset.type
+    let data = {
+      employeeId: UserData.get().id,
+      id: id,
+      isLike: type === 'like'? true :false
+    }
+    common.showLoading()
+    requestLib.request({
+      url:  httpUrl.fitnessTeching_updateLikeNum,
+      method: 'post',
+      data: data,
+      success: successFun,
+      fail: (error)=>{
+        common.hideLoading()
+        common.showToast(error.errMessage, 3000)
+      }
+    })
+    function successFun(res){
+      common.hideLoading()
+      const resData = res.data
+      if(resData && resData.code === 0){
+        common.showLoading()
+        wxs.setData({
+          noMore:false,
+          loadMore:false,
+          loading: false,
+          pageIndex:1,
+          pageSize:10,
+          dataList:[]
+        })
+        wxs.getDataList()
+      } else {
+        common.showToast(error.errMessage, 3000)
+      }
+    }
+  },
+  
   
 })

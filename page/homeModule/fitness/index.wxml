@@ -4,21 +4,6 @@
 <view class="fitness" style='margin-top:{{height}}px'>
     <view class="header">
         <view class="title">健身视频</view>
-        <!-- <view>  -------健身馆 坐标 ------- </view>
-        <view>fitness_lat :{{fitness_lat}}</view>
-        <view>fitness_long :{{fitness_long}}</view>
-
-        <view>   -------游泳馆 坐标 ------- </view>
-        <view>swim_lat :{{swim_lat}}</view>
-        <view>swim_long :{{swim_long}}</view>
-
-        <view>  ------- 当前定位 坐标  ------- </view>
-        <view >current_lat: {{current_lat}}</view>
-        <view >current_long: {{current_long}}</view> -->
-        <!-- 
-        <view >f_distance: {{f_distance}} 米</view>
-        <view >s_distance: {{s_distance}} 米</view>  -->
-           
     </view>
     <view class="section-box">
         <van-tabs active="{{ activeIndex }}" bind:change="onChange">
@@ -32,72 +17,25 @@
                             <image wx:if="{{activeIndex == 0 || activeIndex == 1 }}" src="{{item.ConverImg ?item.ConverImg: '/image/q2.png'}}" />
                             <image wx:if="{{activeIndex == 2}}" src="{{item.ConverImg ?item.ConverImg: '/image/q3.png'}}" />
                             <image wx:if="{{activeIndex == 3}}" src="{{item.ConverImg ?item.ConverImg: '/image/q1.png'}}" />
-                             <!-- <video  
-                                id="myVideo" 
-                                src="{{item.AttachmentUrl}}" 
-                                binderror="videoErrorCallback" 
-                                show-center-play-btn='{{false}}' 
-                                show-play-btn="{{true}}" 
-                                controls
-                                picture-in-picture-mode="{{['push', 'pop']}}"
-                                bindenterpictureinpicture='bindVideoEnterPictureInPicture'
-                                bindleavepictureinpicture='bindVideoLeavePictureInPicture'
-                                bindplay="play"
-                            ></video> -->
+                            <image wx:if="{{activeIndex == 4}}" src="{{item.ConverImg ?item.ConverImg: '/image/q1.png'}}" />
                             <view  class="name">{{item.Title}}</view>
+                            <view class="icon" wx:if="{{activeIndex == 4}}">
+                                <van-icon name="like" data-type="cancel" data-id="{{item.Id}}" class="like like-o" wx:if="{{item.isLike}}" catchtap="upateLike" />
+                                <van-icon name="like-o" data-type="like" data-id="{{item.Id}}"  class="like"  catchtap="upateLike" wx:else/>
+                                {{item.LikeNumber}} 
+                            </view>
                         </view>
                     </van-col>
-                    <view class="tips" wx:if="{{loading}}"><van-loading type="spinner" />加载中...</view>
-                    <view class="tips" hidden="{{!noMore}}">没有更多了...</view>
+                    <van-col span="24">
+                        <view class="tips" wx:if="{{loading}}"><van-loading type="spinner" />加载中...</view>
+                        <view class="tips" hidden="{{!noMore}}">没有更多了...</view>
+                    </van-col>
                 </block>
                 <block wx:else>
                     <van-col span="24" class="comNoData">
                       <comNoData  class="comNoData" text="暂无数据"/>
                     </van-col>
                 </block>
-                <!-- <van-col span="12" class="item">
-                    <view class="item-box" >
-                        <image  src="/image/jb.jpg" />
-                        <view  class="name">腹部肌肉训练</view>
-                    </view>
-                </van-col>
-                <van-col span="12" class="item">
-                    <view class="item-box" >
-                        <image  src="/image/jb.jpg" />
-                        <view  class="name">腹部肌肉训练</view>
-                    </view>
-                </van-col>
-                <van-col span="12" class="item">
-                    <view class="item-box" >
-                        <image  src="/image/jb.jpg" />
-                        <view  class="name">腹部肌肉训练</view>
-                    </view>
-                </van-col>
-                <van-col span="12" class="item">
-                    <view class="item-box" >
-                        <image  src="/image/jb.jpg" />
-                        <view  class="name">腹部肌肉训练</view>
-                    </view>
-                </van-col>
-                <van-col span="12" class="item">
-                    <view class="item-box" >
-                        <image  src="/image/jb.jpg" />
-                        <view  class="name">腹部肌肉训练</view>
-                    </view>
-                </van-col>
-                <van-col span="12" class="item">
-                    <view class="item-box" >
-                        <image  src="/image/jb.jpg" />
-                        <view  class="name">腹部肌肉训练</view>
-                    </view>
-                </van-col>
-                <van-col span="12" class="item">
-                    <view class="item-box" >
-                        <image  src="/image/jb.jpg" />
-                        <view  class="name">腹部肌肉训练</view>
-                    </view>
-                </van-col> -->
-                
             </van-row>
           
         </view>

@@ -11,6 +11,10 @@
     color: #666666;
     font-weight: bold;
 }
+.van-tab{
+    flex-basis: 19% !important;
+    padding: 0 !important;
+}
 .list-box{
     width: calc(100% - 60rpx);
     padding: 30rpx 30rpx 400rpx;
@@ -21,6 +25,13 @@
 .list-box .van-tab{
     font-weight: 400 !important;
     color: #999999 !important;
+}
+.icon .like{
+    vertical-align: sub;
+    font-size: 35rpx;
+}
+.icon .like.like-o{
+    color:#FC414A
 }
 .van-ellipsis{
     font-size: 33rpx

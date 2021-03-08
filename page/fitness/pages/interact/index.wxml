@@ -5,7 +5,7 @@
         <image src="/image/hudong_bg.jpg" />
     </view>
     <view class="button-box">
-        <van-button
+        <!-- <van-button
             class="btnStyle"
             type="primary"
             block  
@@ -14,7 +14,7 @@
             color="linear-gradient(to bottom, #ff7804, #ff3b03)"
             bindtap="department">
             互动视频
-        </van-button>
+        </van-button> -->
         <van-button
             class="btnStyle"
             type="primary"
