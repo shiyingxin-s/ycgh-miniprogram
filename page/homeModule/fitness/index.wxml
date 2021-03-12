@@ -40,6 +40,13 @@
           
         </view>
     </view>
+    <van-button 
+        class="bottom-box plus" 
+        icon="plus" 
+        color="#ee0a24" 
+        type="primary" 
+        bindtap="uploadBtn"
+        round/>
     <view class="bottom-box" wx:if="{{reportPhone}}">
         <van-button
             class="btnStyle"

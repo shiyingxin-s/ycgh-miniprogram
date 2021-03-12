@@ -56,7 +56,7 @@
         <comNoData  class="comNoData" text="暂无数据"/>
     </view>
   </view>
-  <view class="bottom-box">
+  <!-- <view class="bottom-box">
     <van-button
         class="btnStyle"
         type="primary"
@@ -68,6 +68,6 @@
         bindtap="uploadBtn">
         上传视频
     </van-button>
-  </view>
+  </view> -->
 </view>
 

@@ -71,6 +71,16 @@
     height: 68rpx;
     overflow: hidden;
 }
+.plus.bottom-box{
+    bottom: 200rpx;
+    right: 30rpx;
+    left: auto;
+    background-color: transparent;
+}
+.plus .van-button{
+    height: 44px !important;
+    width: 44px !important;
+}
 .bottom-box{
     background-color: #ffffff;
     height: 220rpx;

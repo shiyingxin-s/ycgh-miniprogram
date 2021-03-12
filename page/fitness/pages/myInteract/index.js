@@ -78,11 +78,11 @@ Page({
       url:'../detail/index?url=' + url 
     })
   },
-  uploadBtn() {
-    wx.navigateTo({
-      url:'../uploadFile/index'
-    })
-  },
+  // uploadBtn() {
+  //   wx.navigateTo({
+  //     url:'../uploadFile/index'
+  //   })
+  // },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
