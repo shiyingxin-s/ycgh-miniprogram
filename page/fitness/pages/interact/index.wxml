@@ -34,7 +34,7 @@
         </view>
         <view class="list">
             <view class="list-l" wx:for="{{data}}" wx:key="index"  >
-                <text class="num">{{index}}</text>
+                <text class="num">{{index*1+1}}</text>
                 <text class="name">{{item.Name}}</text>
                 <text class="score">{{item.Fever}}</text>
             </view>
